@@ -1,0 +1,21 @@
+DB Per Tecnologie Web
+
+Persona {IDPersona(Progressivo Key), Nome, Cognome, Email, Password, Descrizione, Immagine}
+
+Post {IDPost, Immagine, Testo, IDPersona, DataPubblicazione, OraPubblicazione NumDiLike}
+
+Categoria{IDCategoria, NomeCategoria, Icona}
+
+Post_Ha_Categoria{{IDPost, IDCategoria}(settata su null se non viene racciusa in nessuna)
+
+Commento{IDCommento, IDPersona, IDPost, Data, Ora, Testo, Visualizzato(booleano)}
+ 
+Like{IDPost, IDPersona, Visualizzato(booleano)}
+
+Hashtag{TestoHashtag}
+
+Hashtag_Ha_Post{IDPost, TestoHashtag}
+
+SeguiPersona{IDPersonaCheVieneSeguita, IDPersonaCheSegue, Visualizzato(booleano)}
+
+SeguiCategoria{IDPersona, IDCategoria}
