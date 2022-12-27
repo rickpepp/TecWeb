@@ -17,7 +17,7 @@ header {
 }
 
 header img {
-    max-height: 60px;
+    height: 60px;
     padding: 2px 0 2px;
 }
 
@@ -128,18 +128,35 @@ p {
     padding: 0;
 }
 
-.registrati input[type="text"], .registrati input[type="password"] {
+.one_column_everywhere input[type="text"], .one_column_everywhere input[type="password"] {
     margin: 0.5% 0;
     padding: 2px;
     font-size: small;
 }
 
-.registrati main {
+.one_column_everywhere main {
     padding-top: 4%;
 }
 
-.registrati a {
+.one_column_everywhere a {
     margin-top: 0;
+}
+
+.one_column_everywhere h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.one_column_everywhere input[value="Recupera"],  .one_column_everywhere input[value="Reimposta"]{
+    background-color: #51ba54;
+}
+
+.one_column_everywhere input[value="Recupera"]:hover, .one_column_everywhere input[value="Reimposta"]:hover {
+    box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.6);
+}
+
+footer.recupera {
+    margin-top: 5%;
 }
 
 @media screen and (min-width: 768px) {
@@ -206,5 +223,10 @@ p {
     .login section>form>footer>a {
         margin-left: auto;
         padding-top: 5px;
+    }
+
+    .one_column_everywhere section {
+        max-width: 600px;
+        margin: 0 auto;
     }
 }
