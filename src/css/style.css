@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+  }
+
 body{
     background-color: rgb(238,244,237);
     padding: 0%;
@@ -9,6 +13,8 @@ body{
 main {
     margin: 0;
     padding: 8% 10% 0 10%;
+    display: flex;
+    flex-direction: column;
 }
 
 img{
@@ -32,13 +38,19 @@ header > img{
     max-width: 50%;
     padding: 2% 0 2%;
 }
-header > img:last-child{
-    visibility: hidden;
+
+.web{
+    display: none;
+}
+
+section{
+    position: top;
+    align-items: center;
 }
 
 article{
     background-color: white;
-    width: 70%;
+    width: 100%;
     margin: 4%;
     padding: 10%;
     display: inline-block;
@@ -69,32 +81,61 @@ footer{
     text-align: center;
     height: 15%;
     width: 100%;
-    display: inline-block;
-}
-img.iconeFooter{
-    max-width: 9%;
-    padding-top: 3%;
-    margin-left: 5%;
-}
-img.iconeFooter:first-child, img.iconeFooter:last-child{
-    margin-right: 0%;
-}
-img.iconeFooter:first-child{
-    margin-left: 0%;
-}
-img.child2{
-    margin-right: 10%;
-}
-img.child3{
-    margin-left: 10%;
-}
-footer > button.footer{
-    min-width: 20%;
-    background-color: #9a031e;
-    box-shadow: rgb(154,3,30);
-    font-size: 300%;
+    display: flex;
+    flex-flow: row wrap;
     align-items: center;
-    margin-bottom: 2%;
+}
+a {
+    margin: 3%;
+    padding: 0%;
+    max-width: 14%;
+    align-items: center;
+}
+footer > a.footer{
+    display: inline-block;
+    width: 15%;
+    padding: 2%;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    color: black;
+    background-color: #9a031e;
+    font-size: 300%;
     border-radius: 20%;
-    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5% 10% rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 738px){
+    img.icone{
+        width: 3%;
+        margin: 1%;
+        padding: 0%;
+    }
+
+    header{
+        box-sizing: border-box;
+        margin: 0%;
+        padding: 1%;
+        text-align: left;
+    }
+    header > img:first-child{
+        display: none;
+    }
+    img.logo{
+        max-width: 20%;
+        margin: 0%;
+        padding: 0%; 
+    }
+
+    main{
+        margin-right: 8%; 
+        padding: 0%;
+    }
+    
+    section{
+
+    }
+
+    footer{
+        display: none;
+    }
 }
