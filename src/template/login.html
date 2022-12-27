@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="login">
     <head>
         <title>TinkleArt</title>
         <meta charset="UTF-8"/>
@@ -12,21 +12,24 @@
         </header>
         <main>
             <section>
-                <form>
+                <form method="post">
                     <h2>Effettua l'accesso</h2><br>
                     <label>Email:<input type="text" name="email_accesso"></label><br>
-                    <label>Password:<input type="password" name="password_accesso"></label><br>
+                    <label>Password:<input type="password" name="password_accesso"></label>
                     <footer>
                         <input type="submit" value="Accedi"><br>
+                        <a href="#">Password dimenticata</a>
                     </footer>
                 </form>
                 <footer>
-                    <a href="#">Password dimenticata</a>
                     <hr>
-                    <input type="button" value="Registrati">
+                    <!--Inserire onclick in JS-->
+                    <input onclick="window.location.href='registrati.html';" type="button" value="Registrati">
                 </footer>
-            </section><aside>
-                <form>
+            </section>
+            <hr>
+            <aside>
+                <form method="post">
                     <h2>Crea un nuovo account</h2><br>
                     <label>Nome:<input type="text" name="nome_registrazione"></label><br>
                     <label>Cognome:<input type="password" name="cognome_registrazione"></label><br>

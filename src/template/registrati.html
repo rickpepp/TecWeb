@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="registrati">
     <head>
         <title>TinkleArt</title>
         <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <link rel="stylesheet" href="../css/login.css"/>
     </head>
     <body>
         <header>
-            <h1>TinkleArt</h1>
+            <img src="../img/TinkleArt.png" alt="TinkleArt">
         </header>
         <main>
             <section>
-                <form>
-                    <h2>Crea un nuovo account</h2>
+                <form method="post">
                     <label>Nome<input type="text" name="nome_registrazione"></label><br>
                     <label>Cognome<input type="password" name="cognome_registrazione"></label><br>
                     <label>Email<input type="text" name="email_registrazione"></label><br>
                     <label>Password<input type="password" name="password_registrazione"></label><br>
                     <label>Conferma Password<input type="text" name="cpassword_registrazione"></label><br>
-                    <input type="submit" value="Registrati">
+                    <footer>
+                        <input type="submit" value="Registrati">
+                        <a href="login.html">Sono già registrato</a>
+                    </footer>
                 </form>
-                <footer>
-                    <div>
-                        <a>Sono già registrato</a>
-                    </div>
-                </footer>
             </section>
         </main>
     </body>
