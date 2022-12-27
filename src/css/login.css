@@ -78,11 +78,11 @@ input[type="button"]:hover {
     transform: translateY(-3px);
 }
 
-main section footer {
+main section footer,  main div footer{
     text-align: center;
 }
 
-main section footer a{
+main section footer a,  main div footer a{
     display: block;
     margin:2.5% 2%;
     font-size: small;
@@ -90,11 +90,11 @@ main section footer a{
     color: blue;
 }
 
-main section footer a:hover{
+main section footer a:hover, main div footer a:hover{
     text-decoration: underline;
 }
 
-main section footer a:visited{
+main section footer a:visited, main div footer a:visited{
     color: blue;
 }
 
