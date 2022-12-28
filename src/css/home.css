@@ -1,0 +1,234 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(238,244,237);
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+.web{
+    display: none;
+}
+
+header{
+    display: inline-block;
+    margin: 0px;
+    padding: 10px;
+    height: 60px;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgb(227,100,20), rgb(251,139,36,0.55));
+    text-align: center;
+}
+header img.icone{
+    max-width: 35px;
+    margin: 2px
+}
+header img{
+    max-height: 45px;
+}
+
+main {
+    margin: 0px;
+    padding: 8% 10% 0% 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+section{
+    position: top;
+    align-items: center;
+}
+section > h1{
+    display: none;
+}
+section div{
+    display: inline-block;
+    margin-bottom: 4%;
+    padding: 10%;
+    width: 100%;
+    vertical-align: top;
+    background-color: white;
+    border: 2px solid #9a031e;
+}
+section img.icone{
+    max-width: 8%;
+}
+/*section img.icone:first-child{
+    float: inline-start;
+}*/
+section img.icone:nth-child(even){
+    float: left;
+}
+
+footer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0px;
+    padding: 10px;
+    height: 60px;
+    width: 100%;
+    background-image: linear-gradient(to top, rgb(227,100,20), rgb(251,139,36,0.55));
+    text-align: center;
+}
+footer > a{
+    margin: 0px;
+}
+footer img.icone{
+    width: 40px;
+    max-width: 60px;
+}
+footer a.bottone{
+    display: inline-block;
+    align-items: center;
+    width:45px;
+    height: 45px;
+    padding: 1%;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    color: black;
+    background-color: #9a031e;
+    font-size: 200%;
+    border-radius: 20%;
+    box-shadow: 0px 5% 10% rgba(0, 0, 0, 0.2);
+}
+/*
+
+
+img{
+    max-width: 100%;
+}
+
+
+
+div  > label{
+    max-width: 50%;
+}
+div > img{
+    float: right;
+    vertical-align: top;
+}
+div > img:first-child{
+    float: left;
+    margin-right: 2%;
+}
+div > img.iconePost:nth-child(odd){
+    float: left;
+    text-align: right;
+}
+
+footer{
+    
+}
+a{
+    margin: 0% 5.5%;
+    padding: 0%;
+    max-width: 8%;
+}
+a.bottone{
+    
+}
+
+
+@media screen and (min-width: 738px){
+    img.icone{
+        margin: 1px;
+        padding: 1px;
+    }
+
+    .web {
+        display: flex;
+    }
+
+    header{
+        width: 100%;
+        max-height: 75px;
+        margin: 0%;
+        padding: 10px;
+        text-align: left;
+        display: flex;
+        flex-flow: row wrap-reverse;
+        justify-content: flex-end;
+    }
+    header > .web{
+        max-height: 50px;
+    }
+    header > a > img:first-child{
+        display: none;
+        margin-left: 0%;
+    }
+    header > img.logo{
+        max-width: 20%;
+        margin: 2% 50% 0% 0%;
+        padding-left: 0%;
+        padding-right: 20px;
+        display: inline-block;
+    }
+    header  > a{
+        margin: 5px;
+        padding: 0%;
+    }
+    header  > a > img.web{
+        display: flex;
+        max-width: 50px;
+    }
+    header > img:nth-child(odd), header > img:nth-child(even){
+        margin-bottom: 6px;
+    }
+    header > a.bottone{
+        display: flex;
+        margin-top: 1px;
+        padding: 2% 1.5%;
+        min-width: 5px;
+        font-size: 125%;
+        text-align: center;
+    }
+    
+
+    main{
+        margin-right: 8%; 
+        padding: 0%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    ul{
+        margin:0%;
+        padding: 0%
+    }
+
+    aside.web{
+        display: inline-block;
+        max-width: 40%;
+        margin-right: 3%;
+        background-color: rgb(251,139,36,0.55);
+        
+    }
+    aside > h1{
+        text-align: center;
+        color:#9a031e;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 200%;
+    }
+    ul.categoria > li > div{
+        margin: 0% 2%;
+        border: 2px solid black;
+    }
+
+    li{
+        list-style: none;
+    }
+
+    section{
+        max-width: 70%;
+        align-items: right;
+    }
+
+    footer{
+        display: none;
+    }
+}*/

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>TinkleArt - EliminaPost</title>
+        <link rel="stylesheet" type="text/css" href="./css/.css" />
+        <link rel="icon" type="img/png" href="./img/Elimina.png" />
+        <meta charset="UTF-8" />
+        <script>
+            function pop_init(){
+                //Setto l'html del popup
+                var pop_height = "25%";
+                var pop_html = "<div class="+ pop-bg + "></div><div class=" + pop-wrap + "><p class=" + pop-x + ">X</p><div class=" + pop-content + "></div></div>";
+                //Indico che deve essere posizionato subito sotto il  tag body
+                $("body").prepend(pop_html);
+                //Setto 'animazione del popup'
+                $(".pop-wrap").animate({"height": pop_height}, 250).click(function(event){
+                    //Serve a non   far chiudere il popup anche se  ci si clicca sopra
+                    event.stopPropagation();
+                });
+
+                //Il popup si può chiudere  solo con la x
+                $(".pop-x").bind("click", function(){
+                    pop_close();
+                });
+
+                //Serve per inserire nel popup il testo
+                $(".pop-content").text("Elimina Post");
+
+                function pop_close(){
+                    $(".pop-wrap").remove();
+                    $("body").unbind("click");
+                }
+
+                $(document).ready(function() {
+                    $(".popup-me").click(function(){
+                        pop_init("Popup Elimina Post")
+                    })
+                })
+            }
+            
+        </script>
+    </head>
+    <body>
+        <main>
+            <h1>Elimina Post</h1>
+            <div class="popup-me">APRI POPUP</div>
+        </main>
+    </body>
+</html>
