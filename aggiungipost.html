@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tinkle Art - Aggiungi Post</title>
+    <link type ="text/css" rel ="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#"><img src="./upload/Indietro.svg" alt="indietro" /></a></li>
+                <li><a href="#"><div><img src="./upload/TinkleArt.svg" alt="TinkleArt" /></div></a></li>
+                <li><a href="#"><img src="./upload/Home.svg" alt="home" /></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="#" method="GET">
+            <h2>Crea / Modifica Post</h2>
+            <ul>
+                <li>
+                    <label for="imgarticolo">Immagine Articolo</label><input type="file" name="imgarticolo" id="imgarticolo" />
+                </li>
+                <li>
+                    <label for="descrizionepost">Descrizione Post:</label><textarea id="descrizionepost" name="descrizionepost"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" id="catBigiotteria" name="categoria_Bigiotteria" /><label for="catBigiotteria">Bigiotteria</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="catBricolage" name="categoria_Bricolage" /><label for="catBricolage">Bricolage</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="catFalegnameria" name="categoria_Falegnameria" /><label for="catFalegnameria">Falegnameria</label>    
+                </li>
+                <li>
+                    <input type="checkbox" id="catTecnologia" name="categoria_Tecnologia" /><label for="catTecnologia">Tecnologia</label>   
+                </li>
+                <li>
+                    <input type="submit" name="submitAnnulla" value="Annulla" />
+                    <input type="submit" name="submitSalva" value="Salva" />
+                </li>
+            </ul>
+        </form>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#"><img src="./upload/Menu.svg" alt="menu" /></a></li>
+                <li><a href="#"><img src="./upload/Notifiche.svg" alt="notifiche" /></a></li>
+                <li><span><a href="aggiungipost.html">+</a></span></li>
+                <li><a href="#"><img src="./upload/Cerca.svg" alt="cerca" /></a></li>
+                <li><a href="#"><img src="./upload/Foto.svg" alt="Nome Cognome" /></a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
