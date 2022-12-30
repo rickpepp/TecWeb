@@ -44,18 +44,7 @@ input[type="text"]:focus, input[type="password"]:focus {
     transition: all 0.3s;
 }
 
-input[type="submit"] {
-    color: #FFFFFF;
-    background-color: #9a031e;
-    width: 100px;
-    margin: 2% 0 5%;
-    height: 28px;
-    font-size: large;
-    border-radius: 20px;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-}
-
-input[type="button"] {
+.verde {
     color: #FFFFFF;
     background-color: #51ba54;
     margin: 8% 0;
@@ -64,18 +53,42 @@ input[type="button"] {
     font-size: large;
     border-radius: 20px;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    border-color: #51ba54;
 }
 
-input[type="submit"]:hover {
+.verde:hover {
+    box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.6);
+    transition: all 0.3s;
+    transform: translateY(-3px);
+}
+
+.rosso {
+    color: #FFFFFF;
+    background-color: #9a031e;
+    width: 100px;
+    margin: 2% 0 5%;
+    height: 28px;
+    font-size: large;
+    border-radius: 20px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    border-color: #9a031e;
+}
+
+.rosso:hover {
     box-shadow: 0px 15px 20px rgba(154, 3, 30, 0.6);
     transition: all 0.3s;
     transform: translateY(-3px);
 }
 
-input[type="button"]:hover {
-    box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.6);
-    transition: all 0.3s;
-    transform: translateY(-3px);
+.nonabilitato {
+    color: #FFFFFF;
+    background-color: #acacac;
+    margin: 8% 0;
+    width: 130px;
+    height: 28px;
+    font-size: large;
+    border-radius: 20px;
+    border-color: #c9c9c9;
 }
 
 main section footer,  main div footer{
@@ -159,6 +172,10 @@ footer.recupera {
     margin-top: 5%;
 }
 
+.ancora_disabilitato {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 @media screen and (min-width: 768px) {
     .login main {
         display: flex;
@@ -196,14 +213,6 @@ footer.recupera {
         margin: 0.5% 0;
         padding: 2px;
         font-size: small;
-    }
-
-    .login input[value="Registrati"][type="submit"]{
-        background-color: #51ba54;
-    }
-
-    .login input[value="Registrati"][type="submit"]:hover{
-        box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.6);
     }
 
     .login aside footer {

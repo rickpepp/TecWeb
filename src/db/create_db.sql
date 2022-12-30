@@ -9,13 +9,20 @@ CREATE SCHEMA IF NOT EXISTS `tinkleart` DEFAULT CHARACTER SET utf8 ;
 USE `tinkleart` ;
 
 -- -----------------------------------------------------
+-- secure_user
+-- -----------------------------------------------------
+CREATE USER 'secur_user'@'localhost' IDENTIFIED BY '8lT]4gtavyMPWF)s' 
+REQUIRE NONE WITH MAX_USER_CONNECTIONS 3 PASSWORD EXPIRE DEFAULT;
+
+-- -----------------------------------------------------
 -- Table `tinkleart`.`persona`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tinkleart`.`persona` (
     `idpersona` INT NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(30) NOT NULL,
     `cognome` VARCHAR(30) NOT NULL,
-    `password` VARCHAR(512) NOT NULL,
+    `password` CHAR(128) NOT NULL, 
+    `salt` CHAR(128) NOT NULL,
     `email` VARCHAR(100) NOT NULL,
     `descrizione` TEXT,
     `imgpersona` VARCHAR(100),
@@ -193,6 +200,21 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`segui_categoria` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `tinkleart`.`tentativi_accesso`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_accesso` (
+  `persona` INT NOT NULL,
+  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`persona`,`ora`),
+  INDEX `fk_stentativi_accesso_persona_idx` (`persona` ASC),
+  CONSTRAINT `fk_tentativi_accesso_persona`
+    FOREIGN KEY (`persona`)
+    REFERENCES `tinkleart`.`persona` (`idpersona`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE=InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

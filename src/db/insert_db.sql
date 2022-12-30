@@ -1,3 +1,8 @@
+-- -----------------------------------------------------
+-- secure_user
+-- -----------------------------------------------------
+GRANT SELECT, INSERT, UPDATE ON `tinkleart`.* TO 'secur_user'@'localhost';
+
 INSERT INTO `categoria` (`idcategoria`,`nomecategoria`,`imgcategoria`) VALUES 
 (1,'Bricolage','Bricolage.png'),
 (2,'Bigiotteria','Bigiotteri.png'),
@@ -8,8 +13,8 @@ INSERT INTO `categoria` (`idcategoria`,`nomecategoria`,`imgcategoria`) VALUES
 ALTER TABLE `categoria`
 MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
-INSERT INTO `persona` (`idpersona`,`nome`,`cognome`,`password`,`email`,`descrizione`,`imgpersona`) VALUES 
-(1,'Mario','Rossi','123Ciao$','mariorossi@ciao.it','',''),
+INSERT INTO `persona` (`idpersona`,`nome`,`cognome`,`password`,`salt`,`email`,`descrizione`,`imgpersona`) VALUES 
+(1,'Mario','Rossi','7b1472ac250c5ee9760cfb2403bba1f523d41b2ab353dcc34c0cde123ca684d7e2def2b5ba3bc15fd231d79dc1e6197cc4fe183247b352fee8b630908e24b270','a37a76ef65a072639d04ec745a568bb65ea3c673c38efe4fbe79f3e0284006f4f37d35fcd369c9ed692c0366471bd1f4bdaf5e8db1b1ab206afb96abb645be53','mariorossi@ciao.it','',''),
 (2,'Gianni','Pinotto','321Ciao#','giannipinotto@ciao.it','Sono simpatico',''),
 (3,'Peppino','Colorato','SonoPeppino3%','peppinocolorato@ciao.it','','peppino.jpg');
 
