@@ -25,8 +25,8 @@
             $mail -> isSMTP();
             $mail -> Host = gethostbyname('smtp.gmail.com');
             $mail -> SMTPAuth = true;
-            $mail -> Username = 'tinkleart.prova@gmail.com';
-            $mail -> Password = 'bmclwzpawryzrypv';
+            $mail -> Username = '';
+            $mail -> Password = '';
             $mail -> STMPSecure = 'ssl';
             $mail -> Port = 587;
             $mail->SMTPOptions = array(
@@ -38,7 +38,7 @@
             );
             $mail->SMTPDebug = 2;
 
-            $mail -> setFrom('tinkleart.prova@gmail.com');
+            $mail -> setFrom('');
 
             $mail -> addAddress($destinantion);
 
