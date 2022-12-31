@@ -22,12 +22,12 @@
                     <label>Password:<input type="password" name="password_accesso" id="lpassword"></label>
                     <footer>
                         <input type="button" value="Accedi" class="rosso" onclick="formhasha(this.form, this.form.lpassword);"><br>
-                        <a href="email_dimenticata.html">Password dimenticata</a>
+                        <p id="informazioni_accedi"></p>
+                        <br><a href="recupera_password.php">Password dimenticata</a>
                     </footer>
                 </form>
                 <footer>
                     <hr>
-                    <!--Inserire onclick in JS-->
                     <input class="verde" onclick="window.location.href='registrati.php';" type="button" value="Registrati">
                 </footer>
             </section>
@@ -35,20 +35,21 @@
             <aside>
                 <form action="../libs/processo_registrazione.php" method="post" name="signup_form">
                     <h2>Crea un nuovo account</h2><br>
-                    <label>Nome:<input type="text" name="nome_registrazione"></label><br>
+                    <label>Nome:<input type="text" name="nome_registrazione" required></label><br>
                     <label>Cognome:<input type="text" name="cognome_registrazione"></label><br>
                     <label>Email:<input type="text" name="email_registrazione"></label><br>
                     <label>Password:<input type="password" name="password_registrazione" id="spassword" onkeyup="controllo_password()"></label><br>
+                    <p id="informazione_registrazione"></p>
                     <label>Conferma Password:<input type="password" name="cpassword_registrazione" id="check_password" onkeyup="password_uguali()" disabled></label><br>
                     <footer>
                         <p id="informazioni"></p>
-                        <input type="button" value="Registrati" class="verde" onclick="formhashr(this.form, this.form.spassword);" disabled>
+                        <input type="button" value="Registrati" class="verde" id="rbutton" onclick="formhashr(this.form, this.form.spassword);">
                     </footer>
                 </form>
             </aside>
         </main>
-        <footer>
-            <span>&times;</span>
+        <footer id='informativa'>
+            <span onclick="hide();">&times;</span>
             <p>Questo sito utilizza unicamente cookie tecnici. Per scoprirne di più vai al link <a href="#">Informativa sulla privacy.</a></p>
         </footer>
     </body>

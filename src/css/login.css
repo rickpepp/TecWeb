@@ -172,10 +172,6 @@ footer.recupera {
     margin-top: 5%;
 }
 
-.ancora_disabilitato {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
 @media screen and (min-width: 768px) {
     .login main {
         display: flex;

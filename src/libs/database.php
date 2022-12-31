@@ -12,7 +12,6 @@
         public function sign_up($nome, $cognome, $email, $password, $random_salt) {
             if ($insert_stmt = $this->db->prepare("INSERT INTO persona (nome, cognome, email, password, salt) VALUES (?, ?, ?, ?, ?)")) {    
                 $insert_stmt->bind_param('sssss', $nome, $cognome, $email, $password, $random_salt); 
-            // Esegui la query ottenuta.
             $insert_stmt->execute();
             return true;
             }
