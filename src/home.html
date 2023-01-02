@@ -9,17 +9,17 @@
 </head>
 <body>
     <header>
-        <a href="#"><img src="./img/Indietro.png" alt="Bottone Indietro" class="icone"/></a>
+        <a href="#" class="phone"><img src="./img/Indietro.png" alt="Bottone Indietro" /></a>
         <img src="./img/TinkleArt.png" alt="TinkleArt" class="logo"/>
-        <div class="web">
-            <img src="./img/Cerca.png" alt="Bottone Cerca" class="icone web">
-            <label>Cerca</label>
-        </div>
-        <a href="aggiungiPost.html" class="web bottone">+</a>
-        <a href="#" class="web"><img src="./img/Home.png" alt="Bottone Home" class="icone web"/></a>
-        <img src="./img/Notifiche.png" alt="Bottone Notifiche" class="icone web">
-        <a href="#" class="web"><img src="./img/Foto.png" alt="Bottone Profilo" class="icone web"></a>
-        <img src="./img/Menu.png" alt="Bottone Impostazioni" class="icone web">
+        <form class="web">
+            <img src="./img/Cerca.png" alt="Bottone Cerca">
+            <label>Cerca<input type="text" value="Cerca"></label>
+        </form>
+        <a href="#" class="web bottone">+</a>
+        <a  href="home.html" class="web"><img src="./img/Home.png" alt="Bottone Home" /></a>
+        <a href="#" class="web"><img src="./img/Notifiche.png" alt="Bottone Notifiche" /></a>
+        <a href="#" class="web"><img src="./img/Foto.png" alt="Bottone Profilo" /></a>
+        <a href="#" class="web"><img src="./img/Menu.png" alt="Bottone Impostazioni" /></a>
         <div class="impostazioni web">
             <ul>
                 <li>
@@ -34,93 +34,94 @@
     <main>
         <aside class="web">
             <h1>Categorie</h1>
-            <ul class="categorie">
+            <ul>
                 <li>
-                    <div>
-                        <a href="#"><img src="./img/Bigiotteria.png" alt="Immagine" class="icone"/>Bigiotteria</a>
-                        <button type="button">Non seguire pi&ugrave;</button>
-                    </div>
+                    <a href="#">
+                        <div>
+                            <img src="./img/Bigiotteria.png" alt="Icona" class="icone"/>
+                            <h2>Bigiotteria</h2>
+                        </div>
+                    </a>
+                    <input type="submit" value="Segui">
                 </li>
                 <li>
-                    <div>
-                        <a href="#"><img src="./img/Falegnameria.png" alt="Immagine" class="icone"/>Falegnameria</a>
-                        <button type="button">Segui</button>
-                    </div>
+                    <a href="#"><img src="./img/Falegnameria.png" alt="Icona" />Falegnameria</a>
+                    <input type="submit" value="Segui">
                 </li>
                 <li>
-                    <div>
-                        <a href="#"><img src="./img/TruccoCasa.png" alt="Immagine" class="icone"/>Casa</a>
-                        <button type="button">Non seguire pi&ugrave;</button>
-                    </div>
+                    <a href="#"><img src="./img/Tecnologia.png" alt="Icona" />Tecnologia</a>
+                    <input type="submit" value="Segui">
                 </li>
                 <li>
-                    <div>
-                        <a href="#"><img src="./img/Tecnologia.png" alt="Immagine" class="icone"/>Tecnologia</a>
-                        <button type="button">Non seguire pi&ugrave;</button>
-                    </div>
+                    <a href="#"><img src="./img/TruccoCasa.png" alt="Icona" />Casa</a>
+                    <input type="submit" value="Segui">
                 </li>
                 <li>
-                    <button type="button">Altre</button>
+                    <input type="button" value="Altre" name="altro">
                 </li>
             </ul>
             <hr/>
             <h1>Seguiti</h1>
-            <ul class="seguiti">
+            <ul>
                 <li>
-                    <div>
-                        <a href="#"><img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>Nome Cognome</a>
-                        <button type="button">Non seguire pi&ugrave;</button>
-                    </div>
+                    <a href="#"><img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>Nome Cognome</a>
+                    <input type="button" value="Non seguire pi&ugrave;">
                 </li>
                 <li>
-                    <div>
-                        <a href="#"><img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>Nome Cognome</a>
-                        <button type="button">Segui</button>
-                    </div>
+                    <a href="#"><img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>Nome Cognome</a>
+                    <input type="submit" value="Segui">
                 </li>
                 <li>
-                    <div>
-                        <a href="#"><img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>Nome Cognome</a>
-                        <button type="button">Non seguire pi&ugrave;</button>
-                    </div>
+                    <a href="#"><img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>Nome Cognome</a>
+                    <input type="button" value="Non seguire pi&ugrave;">
                 </li>
                 <li>
-                    <div>
-                        <a href="#"><img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>Nome Cognome</a>
-                        <button type="button">Non seguire pi&ugrave;</button>
-                    </div>
+                    <a href="#"><img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>Nome Cognome</a>
+                    <input type="button" value="Non seguire pi&ugrave;">
                 </li>
                 <li>
-                    <button type="button">Altri</button>
+                    <input type="button" value="Altri" name="altro">
                 </li>
             </ul>
         </aside><section>
             <h1 class="web">Home</h1>
-            <div>
-                <img src="./img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="./img/Bigiotteria.png" alt="Categoria_Bigiotteria" class="icone"/>
-                <br />
-                <label>Data</label>
-                <br />
+            <div class="post">
+                <div>
+                    <img src="./img/Foto.png" alt="Foto Profilo" class="icone" />
+                    <div>
+                        <h2>Nome Cognome
+                            <br />
+                        Data</h2>
+                    </div>
+                    <img src="./img/Bigiotteria.png" alt="Categoria_Bigiotteria" class="icone"/>
+                </div>
                 <p>
                         Lorem ipsum dolor sit amet. Vel quaerat neque vel quod dolorum aut ratione maiores cum asperiores quia non facere dolores eum consectetur voluptatibus! Aut dolorem incidunt et ullam eligendi id doloremque provident in incidunt saepe ut dolor voluptatem. Qui laboriosam corporis At voluptatem temporibus quo sequi quam. Et nostrum voluptatum nam galisum voluptatibus aut voluptate rerum ut voluptatem rerum aut beatae voluptas et numquam obcaecati. 
                 </p>
                 <img src="./img/Post1.jpg" alt="Immagine" class="post"/>
-                <br />
-                <img src="./img/Like.png" alt="Bottone Like" class="icone iconePost"/>
-                <img src="./img/Commenti.png" alt="Bottone Commenti" class="icone iconePost"/>
+                <div>
+                    <img src="./img/Like.png" alt="Bottone Like" class="icone"/>
+                    <img src="./img/Commenti.png" alt="Bottone Commenti" class="icone"/>
+                </div>
             </div>
-            <div>
-                <img src="./img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="./img/Falegnameria.png" alt="Categoria_Falegnameria" class="icone"/> 
-                <br />
-                <label>Data</label>
-                <br />
+            <div class="post">
+                <div>
+                    <img src="./img/Foto.png" alt="Foto Profilo" class="icone"/>
+                    <div>
+                        <h2>Nome Cognome
+                            <br />
+                        Data</h2>
+                    </div>
+                    <img src="./img/Falegnameria.png" alt="Categoria_Falegnameria" class="icone"/> 
+                </div>
                 <p>
                     Lorem ipsum dolor sit amet. Vel quaerat neque vel quod dolorum aut ratione maiores cum asperiores quia non facere dolores eum consectetur voluptatibus! Aut dolorem incidunt et ullam eligendi id doloremque provident in incidunt saepe ut dolor voluptatem. Qui laboriosam corporis At voluptatem temporibus quo sequi quam. 
                 </p>
                 <img src="./img/Post2.jpg" alt="Immagine" class="post"/>
-                <br />
-                <img src="./img/Like.png" alt="Bottone Like" class="icone iconePost"/>
-                <img src="./img/Commenti.png" alt="Bottone Commenti" class="icone iconePost"/>
+                <div>
+                    <img src="./img/Like.png" alt="Bottone Like" class="icone"/>
+                    <img src="./img/Commenti.png" alt="Bottone Commenti" class="icone"/>
+                </div>
             </div>
         </section>
     </main>

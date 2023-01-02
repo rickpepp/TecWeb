@@ -44,3 +44,6 @@ input[type="submit"] {
 input[type="button"] {
     background-color: rgb(227, 100, 20);
 }
+
+@media screen and (min-width: 738px){
+}

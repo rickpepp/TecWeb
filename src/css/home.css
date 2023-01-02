@@ -23,10 +23,6 @@ header{
     background-image: linear-gradient(to bottom, rgb(227,100,20), rgb(251,139,36,0.55));
     text-align: center;
 }
-header img.icone{
-    max-width: 35px;
-    margin: 2px
-}
 header img{
     max-height: 45px;
 }
@@ -42,8 +38,10 @@ section{
     position: top;
     align-items: center;
 }
-section div{
-    display: inline-block;
+section div.post{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     margin-bottom: 4%;
     padding: 10%;
     width: 100%;
@@ -52,15 +50,35 @@ section div{
     border: 2px solid #9a031e;
 }
 section img.icone{
-    max-width: 8%;
+    max-width: 30px;
+    margin: 0px 4px;
 }
-/*section img.icone:first-child{
-    float: inline-start;
-}*/
-section img.icone:nth-child(even){
-    float: left;
+select div div{
+    display: inline-block;
+    border: none;
+    margin: 0px;
 }
-
+section div div div{
+    display: inline-block;
+    max-width: 120px;
+}
+div div div h2{
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: top;
+    max-width: 100px;
+    margin-top: 0px;
+}
+section div div img:last-child{
+    float: right;
+}
+section p{
+    flex: 100%;
+}
+section div img{
+    margin: 10px 0px;
+    max-width: 100%;
+}
 footer{
     display: flex;
     flex-flow: row wrap;
@@ -94,45 +112,7 @@ footer a.bottone{
     text-align: center;
     border-radius: 20%;
     box-shadow: 0px 5% 10% rgba(0, 0, 0, 0.2);
-    
 }
-/*
-
-
-img{
-    max-width: 100%;
-}
-
-
-
-div  > label{
-    max-width: 50%;
-}
-div > img{
-    float: right;
-    vertical-align: top;
-}
-div > img:first-child{
-    float: left;
-    margin-right: 2%;
-}
-div > img.iconePost:nth-child(odd){
-    float: left;
-    text-align: right;
-}
-
-footer{
-    
-}
-a{
-    margin: 0% 5.5%;
-    padding: 0%;
-    max-width: 8%;
-}
-a.bottone{
-    
-}
-
 
 @media screen and (min-width: 738px){
     img.icone{
@@ -143,92 +123,158 @@ a.bottone{
     .web {
         display: flex;
     }
+    .impostazioni{
+        display: none;
+    }
 
     header{
         width: 100%;
-        max-height: 75px;
-        margin: 0%;
         padding: 10px;
-        text-align: left;
         display: flex;
-        flex-flow: row wrap-reverse;
-        justify-content: flex-end;
+        flex: row wrap-reverse;
     }
-    header > .web{
+    header .phone{
+        display: none;
+    }
+    header .web{
         max-height: 50px;
     }
-    header > a > img:first-child{
-        display: none;
-        margin-left: 0%;
+    header img.logo{
+        margin-right: 30px;
     }
-    header > img.logo{
-        max-width: 20%;
-        margin: 2% 50% 0% 0%;
-        padding-left: 0%;
-        padding-right: 20px;
+    header form{
+        flex: 50%;
+        justify-content: center;
+        margin: 0px 10px;
+    }
+    header form img{
+        max-height: 30px;
+        margin:5px 4px 0px 0px;
+    }
+    header form label{
+        font-size: 0px;
+    }
+    header form input[type="text"]{
+        display: block;
+        width: 100%;
+        margin: 2% 0;
+        padding: 4px;
+        border-radius: 10px;
+        border: 1px solid #9a031e;
+        font-size: medium;
+        justify-items: center;
+    }
+    header a{
+        min-width: 50px;
+        margin: 0px 5px;
+    }
+    header a.bottone{
         display: inline-block;
-    }
-    header  > a{
-        margin: 5px;
-        padding: 0%;
-    }
-    header  > a > img.web{
-        display: flex;
-        max-width: 50px;
-    }
-    header > img:nth-child(odd), header > img:nth-child(even){
-        margin-bottom: 6px;
-    }
-    header > a.bottone{
-        display: flex;
-        margin-top: 1px;
-        padding: 2% 1.5%;
-        min-width: 5px;
-        font-size: 125%;
+        align-items: center;
+        max-width:50px;
+        max-height: 40px;
+        padding: 2px;
+        text-decoration: none;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        color: black;
+        background-color: #9a031e;
+        font-size: 25px;
         text-align: center;
+        border-radius: 20%;
+        box-shadow: 0px 5% 10% rgba(0, 0, 0, 0.2);
     }
-    
 
     main{
-        margin-right: 8%; 
+        margin-right: 4%; 
         padding: 0%;
         display: flex;
         flex-direction: row;
     }
-    
-    ul{
-        margin:0%;
-        padding: 0%
-    }
 
     aside.web{
         display: inline-block;
-        max-width: 40%;
+        max-width: 45%;
         margin-right: 3%;
         background-color: rgb(251,139,36,0.55);
-        
     }
-    aside > h1{
+    aside h1{
         text-align: center;
         color:#9a031e;
         font-family:Georgia, 'Times New Roman', Times, serif;
         font-size: 200%;
     }
-    ul.categoria > li > div{
-        margin: 0% 2%;
-        border: 2px solid black;
+    aside ul{
+        padding: 0% 4%;
     }
-
-    li{
+    aside ul li {
+        display: flex;
+        font-family: Arial, Helvetica, sans-serif;
         list-style: none;
+        margin: 2%;
+        padding: 1px;
+        border: 1px solid rgb(154, 3, 30);
+        
+    }
+    aside ul li:last-child{
+        border: none;
+    }
+    aside ul li a{
+        text-decoration: none;
+        padding: 8px 8px;
+        flex: 30%;
+        color: black;
+        min-width: 20%;
+        text-align: justify;
+    }
+    aside ul li a img {
+        width: 38px;
+        height: 38px;
+        float: left;
+        margin: 3px;
+        margin-right: 6px;
+    }
+    aside ul li a h2{
+        font-size: medium;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        margin: 0px;
+        padding: 10px 50px;
+    }
+    aside ul li input{
+        color: rgb(255, 255, 255);
+        width: 120px;
+        height: 28px;
+        font-size: small;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
+        margin: 2%;
+        border-radius: 20px;
+        margin: 14px 4px;
+    }
+    input[type="submit"] {
+        background-color: rgb(81, 186, 84);
+    }
+    input[type="button"] {
+        background-color: rgb(227, 100, 20);
+    }
+    aside ul li input[name="altro"]{
+        background-color: #9a031e;
+        flex-wrap: wrap-reverse;
+    }
+    aside hr{
+        border-color:  rgb(0, 0, 0, 0.4);
+        border-radius: 10%;
     }
 
     section{
-        max-width: 70%;
+        max-width: 60%;
         align-items: right;
+        margin: 5% 10%;
     }
-
+    section h1.web{
+        display: none;
+    }
+    
     footer{
         display: none;
     }
-}*/
+}
