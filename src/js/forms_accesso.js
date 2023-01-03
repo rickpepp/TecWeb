@@ -1,27 +1,29 @@
 function formhasha(form, password) {
    const msg = document.getElementById('informazioni_accedi');
 
+   //Controllo che i campi non siano stati lasciati vuoti
    if (document.getElementsByName('email_accesso')[0].value === "") {
       msg.innerHTML = "Campo Email Vuoto";
    } else if (document.getElementsByName('password_accesso')[0].value === "") {
       msg.innerHTML = "Campo Password Vuoto";
    } else {
-      // Crea un elemento di input che verrà usato come campo di output per la password criptata.
+      //Crea campo input hidden con password criptata
       const password_accesso = document.createElement("input");
-      // Aggiungi un nuovo elemento al tuo form.
+
       form.appendChild(password_accesso);
       password_accesso.name = "password_accesso";
       password_accesso.type = "hidden"
       password_accesso.value = hex_sha512(password.value);
-      // Assicurati che la password non venga inviata in chiaro.
       password.value = "";
-      // Come ultimo passaggio, esegui il 'submit' del form.
+
+      //Invia il form definitivamente
       form.submit();
    }
     
  }
 
- function hide() {
-    const footer = document.getElementById('informativa');
-    footer.style.display = 'none';
- }
+//Rende funzionante la x presente nel footer per la privacy
+function hide() {
+   const footer = document.getElementById('informativa');
+   footer.style.display = 'none';
+}

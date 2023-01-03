@@ -8,11 +8,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 CREATE SCHEMA IF NOT EXISTS `tinkleart` DEFAULT CHARACTER SET utf8 ;
 USE `tinkleart` ;
 
+-- Dopo la prima volta, non ripetere questa operaizione /*
 -- -----------------------------------------------------
 -- secure_user
 -- -----------------------------------------------------
 CREATE USER 'secur_user'@'localhost' IDENTIFIED BY '8lT]4gtavyMPWF)s' 
-REQUIRE NONE WITH MAX_USER_CONNECTIONS 3 PASSWORD EXPIRE DEFAULT;
+REQUIRE NONE WITH MAX_USER_CONNECTIONS 3;
+-- */
 
 -- -----------------------------------------------------
 -- Table `tinkleart`.`persona`
@@ -23,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`persona` (
     `cognome` VARCHAR(30) NOT NULL,
     `password` CHAR(128) NOT NULL, 
     `salt` CHAR(128) NOT NULL,
-    `email` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL UNIQUE,
     `descrizione` TEXT,
     `imgpersona` VARCHAR(100),
     PRIMARY KEY (`idpersona`))
@@ -210,6 +212,23 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_accesso` (
   PRIMARY KEY (`persona`,`ora`),
   INDEX `fk_stentativi_accesso_persona_idx` (`persona` ASC),
   CONSTRAINT `fk_tentativi_accesso_persona`
+    FOREIGN KEY (`persona`)
+    REFERENCES `tinkleart`.`persona` (`idpersona`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- Table `tinkleart`.`tentativi_recupero`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_recupero` (
+  `idrecupero` INT NOT NULL AUTO_INCREMENT,
+  `tentativo` CHAR(128) NOT NULL, 
+  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `persona` INT NOT NULL,
+  PRIMARY KEY (`idrecupero`),
+  INDEX `fk_stentativi_recupero_persona_idx` (`persona` ASC),
+  CONSTRAINT `fk_tentativi_recupero_persona`
     FOREIGN KEY (`persona`)
     REFERENCES `tinkleart`.`persona` (`idpersona`)
     ON DELETE NO ACTION

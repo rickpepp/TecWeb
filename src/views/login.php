@@ -39,11 +39,10 @@
                     <label>Cognome:<input type="text" name="cognome_registrazione"></label><br>
                     <label>Email:<input type="text" name="email_registrazione"></label><br>
                     <label>Password:<input type="password" name="password_registrazione" id="spassword" onkeyup="controllo_password()"></label><br>
-                    <p id="informazione_registrazione"></p>
                     <label>Conferma Password:<input type="password" name="cpassword_registrazione" id="check_password" onkeyup="password_uguali()" disabled></label><br>
                     <footer>
                         <p id="informazioni"></p>
-                        <input type="button" value="Registrati" class="verde" id="rbutton" onclick="formhashr(this.form, this.form.spassword);">
+                        <input type="button" value="Registrati" class="verde" id="rbutton" onclick="formhashr(this.form, this.form.spassword,'registrazione');">
                     </footer>
                 </form>
             </aside>

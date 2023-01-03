@@ -29,6 +29,7 @@ aside, h2, main>hr {
     display: none;
 }
 
+/* Aree di testo*/
 input[type="text"], input[type="password"] {
     display: block;
     width: 100%;
@@ -43,7 +44,9 @@ input[type="text"]:focus, input[type="password"]:focus {
     box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
 }
+/* Fine Aree di testo*/
 
+/* Pulsanti */
 .verde {
     color: #FFFFFF;
     background-color: #51ba54;
@@ -79,17 +82,7 @@ input[type="text"]:focus, input[type="password"]:focus {
     transition: all 0.3s;
     transform: translateY(-3px);
 }
-
-.nonabilitato {
-    color: #FFFFFF;
-    background-color: #acacac;
-    margin: 8% 0;
-    width: 130px;
-    height: 28px;
-    font-size: large;
-    border-radius: 20px;
-    border-color: #c9c9c9;
-}
+/* Pulsanti fine */
 
 main section footer,  main div footer{
     text-align: center;
@@ -172,6 +165,17 @@ footer.recupera {
     margin-top: 5%;
 }
 
+/* Pagina Informativa */
+section.centrato {
+    text-align: center !important;
+}
+
+.centrato p {
+    margin: 4%;
+}
+/* Fine Pagina Informativa */
+
+/* Media Query Mobile First */
 @media screen and (min-width: 768px) {
     .login main {
         display: flex;

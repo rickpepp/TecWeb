@@ -20,11 +20,12 @@
                     <label>Nome:<input type="text" name="nome_registrazione"></label><br>
                     <label>Cognome:<input type="text" name="cognome_registrazione"></label><br>
                     <label>Email:<input type="text" name="email_registrazione"></label><br>
-                    <label>Password:<input type="password" name="password_registrazione" id="password"></label><br>
-                    <label>Conferma Password:<input type="password" name="cpassword_registrazione"></label><br>
+                    <label>Password:<input type="password" name="password_registrazione" id="spassword" onkeyup="controllo_password()"></label><br>
+                    <label>Conferma Password:<input type="password" name="cpassword_registrazione" id="check_password" onkeyup="password_uguali()" disabled></label><br>
                     <footer>
-                        <input type="button" value="Registrati" onclick="formhashr(this.form, this.form.password);">
-                        <a href="login.html">Sono già registrato</a>
+                        <p id="informazioni"></p>
+                        <input type="button" value="Registrati" class="rosso" id="rbutton" onclick="formhashr(this.form, this.form.password,'registrazione');">
+                        <a href="./login.php">Sono già registrato</a>
                     </footer>
                 </form>
             </div>
