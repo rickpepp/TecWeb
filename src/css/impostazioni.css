@@ -12,22 +12,22 @@ main{
     padding: 5%;
     width: 100%;
 }
-main div{
+main section div{
     display: flex;
     margin-bottom: 4px;
     border: 2px solid #9a031e;
     min-width: 100%;
 }
-main a{
+main section a{
     text-decoration: none;
 }
-main a img{
+main section a img{
     margin: 0px 2px 0px 0px;
     padding: 4px;
     width: 60px;
     height: 60px;
 }
-main h1{
+main section h1{
     color: #9a031e;
     text-align: center;
     font-size: 30px;
@@ -35,7 +35,7 @@ main h1{
     font-family:Georgia, 'Times New Roman', Times, serif;
     text-shadow: 4px 4px 1px rgb(255, 255, 255, 0.4);
 }
-main a h1{
+main section a h1{
     justify-content: center;
     padding: 15px;
     color: black;
@@ -47,17 +47,31 @@ main a h1{
     margin: 0px;
 }
 
-ul li {
+main section ul li {
     list-style: none;
 }
 
-hr{
+main section hr{
     margin: 25px 0px;
     border-color: rgb(0,0,0,0.4);
 }
 
+footer{
+    display: none;
+}
+
 @media screen and (min-width: 738px){
     body{
-        display: none;
+        background-color: rgb(238,244,237);
+    }
+    main{
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+    }
+    main section{
+        margin: 5% 10%;
+        width: 60%;
+        flex: right;
     }
 }

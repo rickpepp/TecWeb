@@ -1,6 +1,6 @@
 INSERT INTO `categoria` (`idcategoria`,`nomecategoria`,`imgcategoria`) VALUES 
 (1,'Bricolage','Bricolage.png'),
-(2,'Bigiotteria','Bigiotteri.png'),
+(2,'Bigiotteria','Bigiotteria.png'),
 (3,'Falegnameria','Falegnameria.png'),
 (4,'Tecnologia','Tecnologia.png'),
 (5,'Trucco Casa','TruccoCasa.png');
