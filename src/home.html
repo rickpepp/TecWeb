@@ -3,23 +3,25 @@
 <head>
     <title>TinkleArt - Home</title>
     <link rel="stylesheet" type="text/css" href="./css/home.css" />
-    <link rel="icon" type="img/png" href="./img/Home.png" />
+    <link rel="icon" type="img/png" href="./img/icone/Home.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../src/js/provaImpostazioni.js"></script>
 </head>
 <body>
     <header>
-        <a href="#" class="phone"><img src="./img/Indietro.png" alt="Bottone Indietro" /></a>
-        <img src="./img/TinkleArt.png" alt="TinkleArt" class="logo"/>
+        <a href="#" class="phone"><img src="./img/icone/Indietro.png" alt="Bottone Indietro" /></a>
+        <img src="./img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
         <form class="web">
-            <img src="./img/Cerca.png" alt="Bottone Cerca">
+            <img src="./img/icone/Cerca.png" alt="Bottone Cerca">
             <label>Cerca<input type="text" value="Cerca"></label>
         </form>
         <a href="#" class="web bottone">+</a>
-        <a  href="home.html" class="web"><img src="./img/Home.png" alt="Bottone Home" /></a>
-        <a href="#" class="web"><img src="./img/Notifiche.png" alt="Bottone Notifiche" /></a>
+        <a  href="home.html" class="web"><img src="./img/icone/Home.png" alt="Bottone Home" /></a>
+        <a href="#" id="notificheButton" class="web"><img src="./img/icone/Notifiche.png" alt="Bottone Notifiche" /></a>
         <a href="#" class="web"><img src="./img/Foto.png" alt="Bottone Profilo" /></a>
-        <a href="#" class="web"><img src="./img/Menu.png" alt="Bottone Impostazioni" /></a>
+        <a href="#" id="impostazioniButton" class="web"><img src="./img/icone/Menu.png" alt="Bottone Impostazioni" /></a>
     </header>
     <main>
         <aside class="web">
@@ -28,22 +30,22 @@
                 <li>
                     <a href="#">
                         <div>
-                            <img src="./img/Bigiotteria.png" alt="Icona" class="icone"/>
+                            <img src="./img/icone/Bigiotteria.png" alt="Icona" class="icone"/>
                             <h2>Bigiotteria</h2>
                         </div>
                     </a>
                     <input type="submit" value="Segui">
                 </li>
                 <li>
-                    <a href="#"><img src="./img/Falegnameria.png" alt="Icona" />Falegnameria</a>
+                    <a href="#"><img src="./img/icone/Falegnameria.png" alt="Icona" />Falegnameria</a>
                     <input type="submit" value="Segui">
                 </li>
                 <li>
-                    <a href="#"><img src="./img/Tecnologia.png" alt="Icona" />Tecnologia</a>
+                    <a href="#"><img src="./img/icone/Tecnologia.png" alt="Icona" />Tecnologia</a>
                     <input type="submit" value="Segui">
                 </li>
                 <li>
-                    <a href="#"><img src="./img/TruccoCasa.png" alt="Icona" />Casa</a>
+                    <a href="#"><img src="./img/icone/TruccoCasa.png" alt="Icona" />Casa</a>
                     <input type="submit" value="Segui">
                 </li>
                 <li>
@@ -83,7 +85,7 @@
                             <br />
                         Data</h2>
                     </div>
-                    <img src="./img/Bigiotteria.png" alt="Categoria_Bigiotteria" class="icone"/>
+                    <img src="./img/icone/Bigiotteria.png" alt="Categoria_Bigiotteria" class="icone"/>
                 </div>
                 <p>
                         Lorem ipsum dolor sit amet. Vel quaerat neque vel quod dolorum aut ratione maiores cum asperiores quia non facere dolores eum consectetur voluptatibus! Aut dolorem incidunt et ullam eligendi id doloremque provident in incidunt saepe ut dolor voluptatem. Qui laboriosam corporis At voluptatem temporibus quo sequi quam. Et nostrum voluptatum nam galisum voluptatibus aut voluptate rerum ut voluptatem rerum aut beatae voluptas et numquam obcaecati. 
@@ -91,7 +93,7 @@
                 <img src="./img/Post1.jpg" alt="Immagine" class="post"/>
                 <div>
                     <img src="./img/Like.png" alt="Bottone Like" class="icone"/>
-                    <img src="./img/Commenti.png" alt="Bottone Commenti" class="icone"/>
+                    <img src="./img/icone/Commenti.png" alt="Bottone Commenti" class="icone"/>
                 </div>
             </div>
             <div class="post">
@@ -102,7 +104,7 @@
                             <br />
                         Data</h2>
                     </div>
-                    <img src="./img/Falegnameria.png" alt="Categoria_Falegnameria" class="icone"/> 
+                    <img src="./img/icone/Falegnameria.png" alt="Categoria_Falegnameria" class="icone"/> 
                 </div>
                 <p>
                     Lorem ipsum dolor sit amet. Vel quaerat neque vel quod dolorum aut ratione maiores cum asperiores quia non facere dolores eum consectetur voluptatibus! Aut dolorem incidunt et ullam eligendi id doloremque provident in incidunt saepe ut dolor voluptatem. Qui laboriosam corporis At voluptatem temporibus quo sequi quam. 
@@ -110,7 +112,7 @@
                 <img src="./img/Post2.jpg" alt="Immagine" class="post"/>
                 <div>
                     <img src="./img/Like.png" alt="Bottone Like" class="icone"/>
-                    <img src="./img/Commenti.png" alt="Bottone Commenti" class="icone"/>
+                    <img src="./img/icone/Commenti.png" alt="Bottone Commenti" class="icone"/>
                 </div>
             </div>
         </section>
@@ -137,7 +139,7 @@
                 <li>
                     <a href="#">
                         <div>
-                            <img src="./img/Privacy.png" alt="Icona Privacy" class="icone" />
+                            <img src="./img/icone/Privacy.png" alt="Icona Privacy" class="icone" />
                             <h2>Privacy</h2>
                         </div>
                     </a>
@@ -145,7 +147,7 @@
                 <li>
                     <a href="#">
                         <div>
-                            <img src="./img/Logout.png" alt="Icona Logout" class="icone"/>
+                            <img src="./img/icone/Logout.png" alt="Icona Logout" class="icone"/>
                             <h2>Logout</h2>
                         </div>
                     </a>
@@ -154,10 +156,10 @@
         </div>
     </main>
     <footer>
-        <a href="impostazioni.html"><img src="./img/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
-        <a href="#"><img src="./img/Notifiche.png" alt="Bottone Notifiche" class="icone"></a>
+        <a href="impostazioni.html"><img src="./img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
+        <a href="#"><img src="./img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone"></a>
         <a href="#" class="bottone">+</a>
-        <a href="#"><img src="./img/Cerca.png" alt="Bottone Cerca" class="icone"></a>
+        <a href="#"><img src="./img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
         <a href="#"><img src="./img/Foto.png" alt="Bottone Profilo" class="icone"></a>
     </footer>
 </body>
