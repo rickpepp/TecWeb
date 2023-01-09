@@ -14,6 +14,7 @@ body{
     display: none;
 }
 
+/*header*/
 header{
     display: inline-block;
     margin: 0px;
@@ -27,6 +28,7 @@ header img{
     max-height: 45px;
 }
 
+/*main*/
 main {
     display: flex;
     flex-direction: column;
@@ -34,6 +36,7 @@ main {
     padding: 8% 10% 8% 10%;
 }
 
+/*section*/
 section{
     position: top;
     align-items: center;
@@ -79,6 +82,8 @@ section div img{
     margin: 10px 0px;
     max-width: 100%;
 }
+
+/*footer*/
 footer{
     display: flex;
     flex-flow: row wrap;
@@ -123,10 +128,12 @@ footer a.bottone{
     .web {
         display: flex;
     }
+
     .impostazioni{
         display: none;
     }
 
+    /*header*/
     header{
         width: 100%;
         padding: 10px;
@@ -184,6 +191,7 @@ footer a.bottone{
         box-shadow: 0px 5% 10% rgba(0, 0, 0, 0.2);
     }
 
+    /*main*/
     main{
         margin-right: 4%; 
         padding: 0%;
@@ -191,6 +199,7 @@ footer a.bottone{
         flex-direction: row;
     }
 
+    /*aside*/
     aside.web{
         display: inline-block;
         max-width: 45%;
@@ -240,6 +249,10 @@ footer a.bottone{
         margin: 0px;
         padding: 10px 50px;
     }
+    aside hr{
+        border-color:  rgb(0, 0, 0, 0.4);
+        border-radius: 10%;
+    }
     aside ul li input{
         color: rgb(255, 255, 255);
         width: 120px;
@@ -250,21 +263,21 @@ footer a.bottone{
         border-radius: 20px;
         margin: 14px 4px;
     }
+    /*bottoni*/
     input[type="submit"] {
         background-color: rgb(81, 186, 84);
+        border-color: rgb(81, 186, 84);
     }
     input[type="button"] {
         background-color: rgb(227, 100, 20);
+        border-color: rgb(227, 100, 20);
     }
-    aside ul li input[name="altro"]{
+    input[name="altro"]{
         background-color: #9a031e;
-        flex-wrap: wrap-reverse;
+        border-color: rgb(154,3,30);
     }
-    aside hr{
-        border-color:  rgb(0, 0, 0, 0.4);
-        border-radius: 10%;
-    }
-
+    
+    /*section*/
     section{
         max-width: 60%;
         align-items: right;
@@ -274,6 +287,39 @@ footer a.bottone{
         display: none;
     }
     
+    /*impostazioni e notifiche*/
+    main div.impostazioni, main div.notifiche{
+        position: relative;
+        display: inline;
+    }
+    main div.impostazioni ul, main div.notifiche ul{
+        list-style: none;
+        margin: 0px;
+    }
+    main div.impostazioni ul a, main div.notifiche ul a{
+        text-decoration: none;
+        font-size: 10px;
+        color: black;
+    }
+    main div.impostazioni ul li, main div.notifiche ul li{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 1px;
+        padding: 1px;
+        border: 2px solid rgb(154, 3, 30);
+        
+    }
+    main div.impostazioni ul li div, main div.notifiche ul li div{
+        display: flex;
+        flex: row wrap;
+        background-color: white;
+        
+        padding: 3px;
+    }
+    main div.impostazioni ul li img{
+        max-width: 40px;
+    }
+
+    /*footer*/
     footer{
         display: none;
     }
