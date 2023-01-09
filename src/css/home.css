@@ -149,6 +149,7 @@ footer a.bottone{
     header img.logo{
         margin-right: 30px;
     }
+    /*Cerca*/
     header form{
         flex: 50%;
         justify-content: center;
@@ -156,7 +157,7 @@ footer a.bottone{
     }
     header form img{
         max-height: 30px;
-        margin:5px 4px 0px 0px;
+        margin:5px 4px;
     }
     header form label{
         font-size: 0px;
@@ -171,6 +172,7 @@ footer a.bottone{
         font-size: medium;
         justify-items: center;
     }
+    /*Fine Cerca*/
     header a{
         min-width: 50px;
         margin: 0px 5px;
@@ -253,6 +255,7 @@ footer a.bottone{
         border-color:  rgb(0, 0, 0, 0.4);
         border-radius: 10%;
     }
+    /*bottoni*/
     aside ul li input{
         color: rgb(255, 255, 255);
         width: 120px;
@@ -263,7 +266,6 @@ footer a.bottone{
         border-radius: 20px;
         margin: 14px 4px;
     }
-    /*bottoni*/
     input[type="submit"] {
         background-color: rgb(81, 186, 84);
         border-color: rgb(81, 186, 84);
