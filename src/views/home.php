@@ -1,11 +1,14 @@
 <?php
-require_once '../libs/bootstrap.php';
+    require_once ("../libs/bootstrap.php");
+    require_once ("../libs/functions.php");
 
-//Base Template
-$templateParams["titolo"] = "TinkleArt - Home";
-$templateParams["iconaTab"] = "Home.png";
-//$templateParams["categorie"] = $dbh->getCategorie();
+    //Base Template
+    //Head
+    $templateParams["titolo"] = "TinkleArt - Home";
+    $templateParams["iconaTab"] = "Home.png";
 
+    //Aside
+    $templateParams["categorie"] = getCategorie(2);
 
-require '../libs/base.php';
+    require '../libs/base.php';
 ?>

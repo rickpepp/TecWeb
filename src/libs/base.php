@@ -6,6 +6,8 @@
         <link rel="stylesheet" type="text/css" href="../css/home.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../js/provaImpostazioni.js"></script>
     </head>
     <body>
         <header>
@@ -24,25 +26,24 @@
         <main>
             <aside class="web">
                 <h1>Categorie</h1>
-                <ul><!--
-                    ?php foreach($templateParams[""] as $categoria): ?>
+                <ul>
+                    <?php foreach($templateParams["categorie"] as $categoria): ?>
                     <li>
                         <a href="#">
                             <div>
-                                <img src="?php echo UPLOAD_DIR.$categoria["imgcategoria"]; ?>" alt="Icona" class="icone"/>
-                                <h2>?php echo $categoria["nomecategoria"]?></h2>
+                                <img src="<?php echo UPLOAD_DIR.$categoria["imgcategoria"]; ?>" alt="Icona" class="icone"/>
+                                <h2><?php echo $categoria["nomecategoria"]?></h2>
                             </div>
                         </a>
-                        <input type="$categoria["tipoBottone"]" value="$categoria["testoBottone"]">
+                        <!--<input type="$categoria["tipoBottone"]" value="$categoria["testoBottone"]">-->
                     </li>
-                    ?php endforeach; ?>
-                    -->
+                    <?php endforeach; ?>
                     <li>
                         <input type="button" value="Altre" name="altro">
                     </li>
                 </ul>
                 <hr/>
-                <h1>Seguiti</h1>
+                <h1>Following</h1>
                 <ul>
                     <!--
                     ?php foreach($templateParams["seguiti"] as $seguiti): ?>
