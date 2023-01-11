@@ -8,7 +8,7 @@ section {
     margin:0px;
 }
 
-section > section > h2{
+section > section > h1{
     display: none;
 }
 
@@ -40,13 +40,14 @@ section > form input[type="submit"] {
     background-color: #9a031e;
 }
 
-section > section > h2 {
-    text-align: center;
+section > form > ul {
+    padding:0px;
+    margin:0px;
 }
 
 section > section > ul {
     padding:0px;
-    margin:4% 0;
+    margin:4% 0px;
 }
 
 section > section > ul > li > a {

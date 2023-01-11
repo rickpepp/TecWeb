@@ -4,13 +4,12 @@ ul {
 
 section {
     position: top;
-    text-align: center;
     padding:0px;
     margin:0px;
 }
 
-section h2 {
-    margin:10px;
+section h1 {
+    margin:5% 5px;
     text-align: center;
     color:#9a031e;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -38,6 +37,15 @@ section > ul > li > input {
     font-size: small;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
     border-radius: 20px;
+}
+
+section > ul > li > a {
+    text-decoration: none;
+    color:#000;
+}
+
+section > ul > li > a:hover{
+    color:#9a031e;
 }
 
 section > ul > li > input[type="submit"] {

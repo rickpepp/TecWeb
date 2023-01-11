@@ -4,13 +4,12 @@ ul {
 
 section {
     position: top;
-    text-align: center;
     padding:0px;
     margin:0px;
 }
 
-section h2 {
-    margin:10px;
+section h1 {
+    margin:5% 5px;
     text-align: center;
     color:#9a031e;
     font-family:Georgia, 'Times New Roman', Times, serif;
