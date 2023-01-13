@@ -8,7 +8,9 @@
     $templateParams["iconaTab"] = "Home.png";
 
     //Aside
-    $templateParams["categorie"] = getCategorie(2);
+    //$templateParams["categorie"] = $dbh -> getCategorieSeguite(2);
+    $templateParams["categorie"] = $dbh -> getCategorie(100,2);
+    $templateParams["following"] = $dbh -> getFollowing(1);
 
     require '../libs/base.php';
 ?>

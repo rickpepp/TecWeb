@@ -35,7 +35,7 @@
                                 <h2><?php echo $categoria["nomecategoria"]?></h2>
                             </div>
                         </a>
-                        <!--<input type="$categoria["tipoBottone"]" value="$categoria["testoBottone"]">-->
+                        <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>">
                     </li>
                     <?php endforeach; ?>
                     <li>
@@ -45,17 +45,17 @@
                 <hr/>
                 <h1>Following</h1>
                 <ul>
-                    <!--
-                    ?php foreach($templateParams["seguiti"] as $seguiti): ?>
+                    <?php foreach($templateParams["following"] as $following): ?>
                     <li>
                         <a href="">
-                            <img src="?php echo ./img/.$seguiti["imgpersona"]; ?>" alt="Foto Profilo" class="icone"/>
-                            ?php echo $seguiti["nome"]." ".$seguiti["cognome"]; ?>
+                            <div>
+                                <img src="<?php echo UPLOAD_DIR.$following["imgpersona"]; ?>" alt="Foto Profilo" class="icone"/>
+                                <h2><?php echo $following["nome"]." ".$following["cognome"]; ?></h2>
+                            </div>
                         </a>
                         <input type="button" value="Non seguire pi&ugrave;">    
                     </li>
-                    ?php endforeach; ?>
-                    -->
+                    <?php endforeach; ?>
                     <li>
                         <input type="button" value="Altri" name="altro">
                     </li>

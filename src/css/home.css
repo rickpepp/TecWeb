@@ -262,9 +262,9 @@ footer a.bottone{
         height: 28px;
         font-size: small;
         box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
-        margin: 2%;
         border-radius: 20px;
-        margin: 14px 4px;
+        margin: 5% 4px;
+        vertical-align: center;
     }
     input[type="submit"] {
         background-color: rgb(81, 186, 84);
