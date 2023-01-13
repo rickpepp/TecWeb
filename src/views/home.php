@@ -6,11 +6,15 @@
     //Head
     $templateParams["titolo"] = "TinkleArt - Home";
     $templateParams["iconaTab"] = "Home.png";
+    
 
     //Aside
-    //$templateParams["categorie"] = $dbh -> getCategorieSeguite(2);
-    $templateParams["categorie"] = $dbh -> getCategorie(100,2);
-    $templateParams["following"] = $dbh -> getFollowing(1);
+    $templateParams["categorie"] = $dbh -> getCategorie(3,2);
+    $templateParams["following"] = $dbh -> getFollowing(2);
+
+    //Section
+    $templateParams["section"] = "postHome.php";
+    $templateParams["post"] = $dbh -> getPost(5,2);
 
     require '../libs/base.php';
 ?>

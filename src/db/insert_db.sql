@@ -25,8 +25,8 @@ ALTER TABLE `persona`
 MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 INSERT INTO `post` (`idpost`,`imgpost`,`testopost`,`persona`) VALUES
-(1,'Post1','Questo è il mio bellissimo lavoro',2),
-(2,'Post2','Guardate quanto è bello il mio vaso. Sono molto felice :)',3);
+(1,'Post1.jpg','Questo è il mio bellissimo lavoro',2),
+(2,'Post2.jpg','Guardate quanto è bello il mio vaso. Sono molto felice :)',3);
 
 ALTER TABLE `post`
 MODIFY `idpost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

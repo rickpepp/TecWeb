@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`persona` (
     `salt` CHAR(128) NOT NULL,
     `email` VARCHAR(100) NOT NULL UNIQUE,
     `descrizione` TEXT,
-    `imgpersona` VARCHAR(100),
+    `imgpersona` VARCHAR(100) DEFAULT 'Foto.png',
     PRIMARY KEY (`idpersona`))
 ENGINE = InnoDB;
 
