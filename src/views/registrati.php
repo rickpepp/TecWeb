@@ -5,13 +5,13 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <link rel="stylesheet" href="../css/login.css"/>
-        <link rel="icon" type="img/png" href="../img/Amici.png" />
+        <link rel="icon" type="img/png" href="../img/icone/Amici.png" />
         <script type="text/javascript" src="../js/sha512.js"></script>
         <script type="text/javascript" src="../js/forms_registrazione.js"></script>
     </head>
     <body>
         <header>
-            <img src="../img/TinkleArt.png" alt="TinkleArt">
+            <img src="../img/icone/TinkleArt.png" alt="TinkleArt">
         </header>
         <main>
             <div>
@@ -24,7 +24,7 @@
                     <label>Conferma Password:<input type="password" name="cpassword_registrazione" id="check_password" onkeyup="password_uguali()" disabled></label><br>
                     <footer>
                         <p id="informazioni"></p>
-                        <input type="button" value="Registrati" class="rosso" id="rbutton" onclick="formhashr(this.form, this.form.password,'registrazione');">
+                        <input type="button" value="Registrati" class="rosso" id="rbutton" onclick="formhashr(this.form, this.form.spassword,'registrazione');">
                         <a href="./login.php">Sono già registrato</a>
                     </footer>
                 </form>

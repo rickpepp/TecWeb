@@ -29,6 +29,36 @@ aside, h2, main>hr {
     display: none;
 }
 
+.cookie h1 {
+    font-size: 40px;
+    margin-bottom: 1%;
+}
+
+.cookie section {
+    max-width: 60% !important;
+    margin-left: 20%;;
+}
+
+.cookie p {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: justify;
+}
+
+ol {
+    list-style: none;
+    padding: 0% 2% 2%;
+}
+
+.cookie li {
+    padding-top: 2%;
+}
+
+.cookie main {
+    padding-top: 0% !important;
+    padding-bottom: 5%;
+}
+
 /* Aree di testo*/
 input[type="text"], input[type="password"] {
     display: block;

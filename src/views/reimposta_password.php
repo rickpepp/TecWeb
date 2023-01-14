@@ -5,13 +5,13 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <link rel="stylesheet" href="../css/login.css"/>
-        <link rel="icon" type="img/png" href="../img/Amici.png" />
+        <link rel="icon" type="img/png" href="../img/icone/Amici.png" />
         <script type="text/javascript" src="../js/sha512.js"></script>
         <script type="text/javascript" src="../js/forms_registrazione.js"></script>
     </head>
     <body>
         <header>
-            <img src="../img/TinkleArt.png" alt="TinkleArt">
+            <img src="../img/icone/TinkleArt.png" alt="TinkleArt">
         </header>
         <main>
             <section>

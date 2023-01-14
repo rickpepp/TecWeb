@@ -4,7 +4,7 @@
         <title>TinkleArt - Login</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-        <link rel="icon" type="img/png" href="../img/Amici.png" />
+        <link rel="icon" type="img/png" href="../img/icone/Amici.png" />
         <link rel="stylesheet" href="../css/login.css"/>
         <script type="text/javascript" src="../js/sha512.js"></script>
         <script type="text/javascript" src="../js/forms_accesso.js"></script>
@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <img src="../img/TinkleArt.png" alt="TinkleArt">
+            <img src="../img/icone/TinkleArt.png" alt="TinkleArt">
         </header>
         <main>
             <section>
@@ -49,7 +49,7 @@
         </main>
         <footer id='informativa'>
             <span onclick="hide();">&times;</span>
-            <p>Questo sito utilizza unicamente cookie tecnici. Per scoprirne di più vai al link <a href="#">Informativa sulla privacy.</a></p>
+            <p>Questo sito utilizza unicamente cookie tecnici. Per scoprirne di più vai al link <a href="../template/privacy.html">Informativa sulla privacy.</a></p>
         </footer>
     </body>
 </html>

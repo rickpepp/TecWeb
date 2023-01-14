@@ -11,7 +11,7 @@
 
         if($dbh -> login($email, $password, $dbh) == true) {
            // Login eseguito
-           header('Location: ../views/pagina_informativa.php?title=Accesso Effettuato&msg=E\' stato effettuato l\'accesso. Questa è una pagina temporanea che sarà sostituita dalla home.');
+           header('Location: ../views/home.php');
         } else {
            // Login fallito
            header('Location: ../views/pagina_informativa.php?title=Accesso Negato&msg=La seguente email/password non sono corretti.');

@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`persona` (
     `salt` CHAR(128) NOT NULL,
     `email` VARCHAR(100) NOT NULL UNIQUE,
     `descrizione` TEXT,
-    `imgpersona` VARCHAR(100),
+    `imgpersona` VARCHAR(100) DEFAULT 'Foto.png',
     PRIMARY KEY (`idpersona`))
 ENGINE = InnoDB;
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`post` (
     `idpost` INT NOT NULL AUTO_INCREMENT,
     `imgpost` VARCHAR(100) NOT NULL,
     `testopost` TEXT NOT NULL,
-    `datapost` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `datapost` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `nlike` INT NOT NULL DEFAULT 0,
     `persona` INT NOT NULL,
     PRIMARY KEY (`idpost`),
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`commento` (
     `idcommento` INT NOT NULL AUTO_INCREMENT,
     `persona` INT NOT NULL,
     `post` INT NOT NULL,
-    `datacommento` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `datacommento` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `testocommento` TEXT NOT NULL,
     `visualizzato` TINYINT NOT NULL DEFAULT 0,
     PRIMARY KEY (`idcommento`),
@@ -208,7 +208,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_accesso` (
   `persona` INT NOT NULL,
-  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`persona`,`ora`),
   INDEX `fk_stentativi_accesso_persona_idx` (`persona` ASC),
   CONSTRAINT `fk_tentativi_accesso_persona`
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_accesso` (
 CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_recupero` (
   `idrecupero` INT NOT NULL AUTO_INCREMENT,
   `tentativo` CHAR(128) NOT NULL, 
-  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `persona` INT NOT NULL,
   PRIMARY KEY (`idrecupero`),
   INDEX `fk_stentativi_recupero_persona_idx` (`persona` ASC),
