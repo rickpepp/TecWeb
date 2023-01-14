@@ -30,16 +30,6 @@
             return $result;
         }
 
-        //Elenco delle persone seguite
-        public function getFollowing($idPersona){
-            $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM segui_persona, persona WHERE personasegue=? AND personaseguita=idpersona");
-            $stmt->bind_param('i',$idPersona);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $result->fetch_all(MYSQLI_ASSOC);
-            return $result;
-        }
-
         public function getCategorieNonSeguite($idPersona){
             // Prendo dal db l'elenco di tutte le categorie e di quelle seguite
             $categorieAll = $this->getCategorieAll();
@@ -102,7 +92,7 @@
                 }
                 $categorieNonSeguite = $this->getCategorieNonSeguite($idPersona); 
                 foreach($categorieNonSeguite as $categoriaNonSeguita){
-                    while($lengthCat < $numeroCat){
+                    if($lengthCat < $numeroCat){
                         $categorie[$lengthCat]["idcategoria"] = $categoriaNonSeguita["idcategoria"];
                         $categorie[$lengthCat]["nomecategoria"] = $categoriaNonSeguita["nomecategoria"];
                         $categorie[$lengthCat]["imgcategoria"] = $categoriaNonSeguita["imgcategoria"];
@@ -126,6 +116,16 @@
 
             //Mettere che le categorie vengano stampate in base al fatto che ne richiede un totale 
             return $categorie;
+        }
+
+        //Elenco delle persone seguite
+        public function getFollowing($idPersona){
+            $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM segui_persona, persona WHERE personasegue=? AND personaseguita=idpersona");
+            $stmt->bind_param('i',$idPersona);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $result->fetch_all(MYSQLI_ASSOC);
+            return $result;
         }
 
         // Elenco dei post da visualizzare nella home

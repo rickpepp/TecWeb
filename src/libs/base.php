@@ -11,7 +11,7 @@
     </head>
     <body>
         <header>
-            <a href="#" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
+            <a href="javascript:history.go(-1)" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
             <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
             <form class="web">
                 <label>Cerca<input type="text" value="Cerca"></label>

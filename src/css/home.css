@@ -83,6 +83,20 @@ section div img{
     max-width: 100%;
 }
 
+/*Bottoni*/
+input[type="submit"] {
+    background-color: rgb(81, 186, 84);
+    border-color: rgb(81, 186, 84);
+}
+input[type="button"] {
+    background-color: rgb(227, 100, 20);
+    border-color: rgb(227, 100, 20);
+}
+input[name="altro"]{
+    background-color: #9a031e;
+    border-color: rgb(154,3,30);
+}
+
 /*footer*/
 footer{
     display: flex;
@@ -266,18 +280,7 @@ footer a.bottone{
         margin: 5% 4px;
         vertical-align: center;
     }
-    input[type="submit"] {
-        background-color: rgb(81, 186, 84);
-        border-color: rgb(81, 186, 84);
-    }
-    input[type="button"] {
-        background-color: rgb(227, 100, 20);
-        border-color: rgb(227, 100, 20);
-    }
-    input[name="altro"]{
-        background-color: #9a031e;
-        border-color: rgb(154,3,30);
-    }
+    
     
     /*section*/
     section{
