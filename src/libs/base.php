@@ -9,6 +9,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="../js/provaImpostazioni.js"></script>
         <script src="../js/functions_post.js"></script>
+        <script src="../js/notifiche.js"></script>
     </head>
     <body>
         <header>
@@ -20,9 +21,9 @@
             </form>
             <a href="aggiungipost.html" class="web bottone">+</a>
             <a  href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
-            <a href="notifiche.html" class="web"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" /></a>
+            <a class="web"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" id="notificheButton"/></a>
             <a href="persona.html" class="web"><img src="../img/Foto.png" alt="Bottone Profilo" /></a>
-            <a href="impostazioni.html" class="web"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" /></a>
+            <a class="web"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" id="impostazioniButton"/></a>
         </header>
         <main>
             <aside class="web">
@@ -67,15 +68,14 @@
                         require($templateParams["section"]);
                     }
                 ?>
-            </section><!--
+            </section>
+            <!-- Notifiche esempio -->
             <div id="notifiche" class="notifiche web">
-                <ul>
-                    
-                    ?php foreach():?>
-                    ?php endforeach;?>
-                
+                <ul id="elenco_notifiche">
+                    <!-- Elenco delle notifiche -->
                 </ul>
             </div>
+            <!-- Impostazioni -->
             <div id="impostazioni" class="impostazioni web">
                 <ul>
                     <li>
@@ -86,8 +86,7 @@
                             </div>
                         </a>
                     </li>
-                    <li> onclick nel elemento della lista con funzione di uscire  dall'account e andare alla pagina successiva 
-                        o funzione nell'href dell'a??
+                    <li>
                         <a href="login.php" >
                             <div>
                                 <img src="../img/icone/Logout.png" alt="Icona Logout" class="icone"/>
@@ -96,7 +95,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>-->
+            </div>
         </main>
         <footer>
             <a href="impostazioni.html"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>

@@ -379,9 +379,18 @@ div.comment>p {
     
     /*impostazioni e notifiche*/
     main div.impostazioni, main div.notifiche{
-        position: relative;
-        display: inline;
+        position: fixed;
+        display: none;
     }
+
+    main div.impostazioni {
+        right: 45px;
+    } 
+
+    main div.notifiche {
+        right: 165px;
+    } 
+
     main div.impostazioni ul, main div.notifiche ul{
         list-style: none;
         margin: 0px;
@@ -393,11 +402,16 @@ div.comment>p {
     }
     main div.impostazioni ul li, main div.notifiche ul li{
         font-family: Arial, Helvetica, sans-serif;
-        margin: 1px;
+        margin: 0px;
         padding: 1px;
         border: 2px solid rgb(154, 3, 30);
-        
+        border-top: 0px;
     }
+
+    main div.impostazioni ul li:first-child, main div.notifiche ul li:first-child{
+        border-top: 2px solid rgb(154, 3, 30);
+    }
+
     main div.impostazioni ul li div, main div.notifiche ul li div{
         display: flex;
         flex: row wrap;
@@ -405,7 +419,7 @@ div.comment>p {
         
         padding: 3px;
     }
-    main div.impostazioni ul li img{
+    main div.impostazioni ul li img, main div.notifiche ul li img{
         max-width: 40px;
     }
 

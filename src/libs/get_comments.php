@@ -19,7 +19,7 @@
             echo '<div class="comment" id="comm_'.$comment["idcommento"].'">
                 <div>
                     <img src="../img/'.$comment["imgpersona"].'" alt="Foto Profilo" class="icone"/>
-                    <h3>'.$comment["nome"].' '.$comment["cognome"].'<br>'.$comment["datacommento"].'</h3>
+                    <h3>'.$comment["nome"].' '.$comment["cognome"].'<br>'.$comment["data"].'</h3>
                 </div>
                 <p>
                     '.$comment["testocommento"].'
