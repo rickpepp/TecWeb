@@ -2,8 +2,10 @@
    require_once 'database.php';
    require_once 'bootstrap.php';
 
-   //Recupero codice di recupero da 128 bit
+   //Recupero codice di recupero da 124 bit
    $recupero=$_POST['recupero'];
+
+   $recupero2=$_POST['codice_recupero'];
 
    //Recupero la password criptata dal form di inserimento.
    $password = $_POST['password_registrazione']; 
@@ -14,7 +16,7 @@
    //Crea una password usando la chiave appena creata
    $password = hash('sha512', $password.$random_salt_password);
     
-   if($dbh -> reimposta_password($recupero,$password,$random_salt_password)) {
+   if($dbh -> reimposta_password($recupero.$recupero2,$password,$random_salt_password)) {
       //Password modificata con successo
       header('Location: ../views/pagina_informativa.php?title=Password Modificata&msg=Password modificata correttamente, ripetere la procedura di login.');
    } else {

@@ -302,7 +302,7 @@
 
      // Elenco dei post da visualizzare nella home
      public function getPost($numPost, $idPersona){
-         $stmt = $this->db->prepare("SELECT DISTINCT idpost, imgpost, testopost, datapost, idpersona, nome, cognome, imgpersona, idcategoria, imgcategoria FROM post,segui_categoria,post_ha_categoria,segui_persona, persona, categoria WHERE ((segui_categoria.persona=? && post_ha_categoria.categoria=segui_categoria.categoria) || (segui_persona.personasegue=? && post.persona=segui_persona.personaseguita)) && persona.idpersona=post.persona && categoria.idcategoria=post_ha_categoria.categoria && post_ha_categoria.post=post.idpost ORDER BY post.datapost DESC LIMIT ?;");
+         $stmt = $this->db->prepare("SELECT DISTINCT idpost, imgpost, testopost, datapost, idpersona, nome, cognome, imgpersona, idcategoria, imgcategoria FROM post,segui_categoria,post_ha_categoria,segui_persona, persona, categoria WHERE ((segui_categoria.persona=? && post_ha_categoria.categoria=segui_categoria.categoria) || (segui_persona.personasegue=? && post.persona=segui_persona.personaseguita)) && persona.idpersona=post.persona && categoria.idcategoria=post_ha_categoria.categoria && post_ha_categoria.post=post.idpost ORDER BY post.datapost DESC LIMIT ?");
          $stmt->bind_param('iii',$idPersona, $idPersona, $numPost);
          $stmt->execute();
          $result = $stmt->get_result();
@@ -310,13 +310,24 @@
          return $result;
      }
 
-     //Restituisce singolo post
-     public function getSinglePost($numPost){
+     //Restituisce singolo post (utile per la notifica), inoltre imposta la notifica come visualizzata
+     public function getSinglePost($id, $tipo, $idpost){
       $stmt = $this->db->prepare("SELECT DISTINCT idpost, imgpost, testopost, datapost, idpersona, nome, cognome, imgpersona, idcategoria, imgcategoria FROM post, post_ha_categoria, persona, categoria WHERE idpost=? && persona.idpersona=post.persona && post_ha_categoria.post=post.idpost && categoria.idcategoria=post_ha_categoria.categoria");
-      $stmt->bind_param('i', $numPost);
+      $stmt->bind_param('i', $idpost);
       $stmt->execute();
       $result = $stmt->get_result();
       $result->fetch_all(MYSQLI_ASSOC);
+
+      if ($tipo == "commento") {
+         $stmt = $this->db->prepare("UPDATE commento SET visualizzato = 1 WHERE idcommento = ?");
+         $stmt->bind_param('i',$id);
+         $stmt->execute();
+      } else if ($tipo == "like") {
+         $stmt = $this->db->prepare("UPDATE `like` SET visualizzato = 1 WHERE post = ? AND persona = ?");
+         $stmt->bind_param('ii',$idpost, $id);
+         $stmt->execute();
+      }
+      
       return $result;
   }
 
@@ -386,14 +397,14 @@
    //Restituisce le notifiche di un utente
    public function get_notifiche($idPersona) {
       //Ricerca notifiche commenti
-      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, visualizzato, data, imgpersona FROM commento, persona, post WHERE post.persona=? && commento.persona=persona.idpersona && commento.post=post.idpost LIMIT 7");
+      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, visualizzato, data, imgpersona, idcommento FROM commento, persona, post WHERE post.persona=? && commento.persona=persona.idpersona && commento.post=post.idpost LIMIT 7");
       $stmt->bind_param('i',$idPersona);
       $stmt->execute();
       $result["commenti"]=$stmt->get_result();
       $result["commenti"]->fetch_all(MYSQLI_ASSOC);
 
       //Ricerca notifiche likes
-      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, data, visualizzato, imgpersona FROM `like`, persona, post WHERE post.persona=? && like.persona=persona.idpersona && like.post=post.idpost LIMIT 7");
+      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, data, visualizzato, imgpersona, persona.idpersona FROM `like`, persona, post WHERE post.persona=? && like.persona=persona.idpersona && like.post=post.idpost LIMIT 7");
       $stmt->bind_param('i',$idPersona);
       $stmt->execute();
       $result["likes"]=$stmt->get_result();

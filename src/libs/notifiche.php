@@ -35,6 +35,7 @@
         $risultato[$i]["post"] = $commento["post"];
         $risultato[$i]["visualizzato"] = $commento["visualizzato"];
         $risultato[$i]["img"] = $commento["imgpersona"];
+        $risultato[$i]["id"] = $commento["idcommento"];
         $i++; 
     }
 
@@ -48,6 +49,7 @@
         $risultato[$i]["post"] = $like["post"];
         $risultato[$i]["visualizzato"] = $like["visualizzato"];
         $risultato[$i]["img"] = $like["imgpersona"];
+        $risultato[$i]["id"] = $like["idpersona"];
         $i++; 
     }
 
@@ -75,7 +77,7 @@
                 //Notifica commento
                 case "commento":
                     echo '<li>
-                        <a href="../views/get_single_post.php?id='.$risultato[$i]["post"].'">
+                        <a href="../views/get_single_post.php?post='.$risultato[$i]["post"].'&tipo='.$risultato[$i]["tipo"].'&id='.$risultato[$i]["id"].'">
                             <div>
                                 <img src="../img/';
                                 logo_notifica($risultato[$i]["visualizzato"]);
@@ -89,7 +91,7 @@
                 //Notifica Like
                 case "like":
                     echo '<li>
-                        <a href="../views/get_single_post.php?id='.$risultato[$i]["post"].'">
+                        <a href="../views/get_single_post.php?post='.$risultato[$i]["post"].'&tipo='.$risultato[$i]["tipo"].'&id='.$risultato[$i]["id"].'">
                             <div>
                                 <img src="../img/';
                                 logo_notifica($risultato[$i]["visualizzato"]);
@@ -123,7 +125,7 @@
             switch ($risultato[$i]["tipo"]) {
                 //Notifica commento
                 case "commento":
-                    echo '<li>
+                    echo '<li onclick="location.href=\'../views/get_single_post.php?post='.$risultato[$i]["post"].'&tipo='.$risultato[$i]["tipo"].'&id='.$risultato[$i]["id"].'\'">
                         <img src="../img/'.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
                         logo_notifica($risultato[$i]["visualizzato"]);
                         echo '.png" alt="Logo Nuova Notifica"/><br/>
@@ -135,13 +137,13 @@
     
                 //Notifica Like
                 case "like":
-                    echo '<li>
+                    echo '<li onclick="location.href=\'../views/get_single_post.php?post='.$risultato[$i]["post"].'&tipo='.$risultato[$i]["tipo"].'&id='.$risultato[$i]["id"].'\'">
                         <img src="../img/'.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
                         logo_notifica($risultato[$i]["visualizzato"]);
                         echo '.png" alt="Logo Nuova Notifica"/><br/>
                         <p>
                             Ha messo like al tuo post!
-                        </p>  
+                        </p> 
                     </li>';
                     break;
                 

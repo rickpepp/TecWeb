@@ -7,9 +7,10 @@
         $email = $_POST["email_registrazione"];
 
         //Generiamo un codice di recupero utile alla nuova impostazione della password
-        $recupero = genera_codice(128);
+        $recupero = genera_codice(124);
+        $recupero2 = genera_codice(4);
 
-        if($dbh->aggiungi_recupero($email,$recupero)) {
+        if($dbh->aggiungi_recupero($email,$recupero.$recupero2)) {
             //HTML body email, con codice di recupero in elemento hidden
             $body="<!DOCTYPE html>
             <html lang=\"it\" class=\"one_column_everywhere\">
@@ -26,8 +27,8 @@
                         <h2>Cliccare il pulsante sottostante per modificare la propria password</h2>
                         <section>
                             <form method=\"post\" action=\"http://localhost/views/reimposta_password.php\">
-                                <p>Questo link è valido per 10 minuti</p>
-                                <input type=\"hidden\" name=\"recupero\" value=\".$recupero.\">
+                                <p>Questo link è valido per 10 minuti, il codice di recupero è il seguente: $recupero2</p>
+                                <input type=\"hidden\" name=\"recupero\" value=\"$recupero\">
                                 <button type=\"submit\">
                                 Vai alla pagina reimposta password
                                 </button>
