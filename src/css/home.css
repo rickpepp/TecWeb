@@ -83,6 +83,20 @@ section div img{
     max-width: 100%;
 }
 
+/*Bottoni*/
+input[type="submit"] {
+    background-color: rgb(81, 186, 84);
+    border-color: rgb(81, 186, 84);
+}
+input[type="button"] {
+    background-color: rgb(227, 100, 20);
+    border-color: rgb(227, 100, 20);
+}
+input[name="altro"]{
+    background-color: #9a031e;
+    border-color: rgb(154,3,30);
+}
+
 /*footer*/
 footer{
     display: flex;
@@ -139,11 +153,6 @@ div.comment {
 .comment div {
     max-width: none;
 }
-
-/**/
-/*div.comment {
-    display: none;
-}*/
 
 .textarea {
     border: 1px solid #ccc;
@@ -202,6 +211,41 @@ div.comment>p {
     margin-bottom: 0%;
 }
 /*Fine parte commenti*/
+
+/*Inizio Notifiche smartphone*/
+
+ul.notifiche_smartphone  {
+    list-style: none;
+    padding: 0;
+}
+
+.notifiche_smartphone li {
+    padding: 2%;
+    margin-bottom: 2%;
+    background-color: white;
+    border: 2px solid #9a031e;
+}
+
+.notifiche_smartphone img[alt="Logo Nuova Notifica"] {
+    float: right;
+    width: 14%;
+}
+
+.notifiche_smartphone p {
+    display: inline-block;
+    width: 80%;
+    padding-right: 0%;
+}
+
+.notifiche_smartphone label {
+    font-size: large;
+    font-weight: bold;
+    vertical-align: top;
+    margin-top: 6px;
+    position: absolute;
+}
+
+/*Fine Notifiche smartphone*/
 
 @media screen and (min-width: 738px){
     img.icone{

@@ -386,14 +386,14 @@
    //Restituisce le notifiche di un utente
    public function get_notifiche($idPersona) {
       //Ricerca notifiche commenti
-      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, visualizzato, data FROM commento, persona, post WHERE post.persona=? && commento.persona=persona.idpersona && commento.post=post.idpost LIMIT 7");
+      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, visualizzato, data, imgpersona FROM commento, persona, post WHERE post.persona=? && commento.persona=persona.idpersona && commento.post=post.idpost LIMIT 7");
       $stmt->bind_param('i',$idPersona);
       $stmt->execute();
       $result["commenti"]=$stmt->get_result();
       $result["commenti"]->fetch_all(MYSQLI_ASSOC);
 
       //Ricerca notifiche likes
-      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, data, visualizzato FROM `like`, persona, post WHERE post.persona=? && like.persona=persona.idpersona && like.post=post.idpost LIMIT 7");
+      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, data, visualizzato, imgpersona FROM `like`, persona, post WHERE post.persona=? && like.persona=persona.idpersona && like.post=post.idpost LIMIT 7");
       $stmt->bind_param('i',$idPersona);
       $stmt->execute();
       $result["likes"]=$stmt->get_result();
@@ -401,7 +401,7 @@
 
       
       //Ricerca notifiche seguiti
-      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, personasegue, data, visualizzato FROM persona, segui_persona WHERE segui_persona.personaseguita=? && segui_persona.personasegue=persona.idpersona LIMIT 7");
+      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, personasegue, data, visualizzato, imgpersona FROM persona, segui_persona WHERE segui_persona.personaseguita=? && segui_persona.personasegue=persona.idpersona LIMIT 7");
       $stmt->bind_param('i',$idPersona);
       $stmt->execute();
       $result["seguiti"]=$stmt->get_result();

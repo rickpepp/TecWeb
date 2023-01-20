@@ -34,6 +34,7 @@
         $risultato[$i]["data"] = $commento["data"];
         $risultato[$i]["post"] = $commento["post"];
         $risultato[$i]["visualizzato"] = $commento["visualizzato"];
+        $risultato[$i]["img"] = $commento["imgpersona"];
         $i++; 
     }
 
@@ -46,6 +47,7 @@
         $risultato[$i]["data"] = $like["data"];
         $risultato[$i]["post"] = $like["post"];
         $risultato[$i]["visualizzato"] = $like["visualizzato"];
+        $risultato[$i]["img"] = $like["imgpersona"];
         $i++; 
     }
 
@@ -57,58 +59,106 @@
         $risultato[$i]["oggetto"] = $seguito["personasegue"];
         $risultato[$i]["data"] = $seguito["data"];
         $risultato[$i]["visualizzato"] = $seguito["visualizzato"];
+        $risultato[$i]["img"] = $seguito["imgpersona"];
         $i++; 
     }
 
     //Ordino l'array in base alla data in ordine decrescente
     array_multisort(array_column($risultato,"data"),SORT_DESC,$risultato);
 
-    //Aggiungo le notifiche (max 7)
-    for ($i=0; $i < 7 && $i < count($risultato); $i++) {
-        //HTML diverso in base alla notifica
-        switch ($risultato[$i]["tipo"]) {
-            //Notifica commento
-            case "commento":
-                echo '<li>
-                    <a href="../views/get_single_post.php?id='.$risultato[$i]["post"].'">
-                        <div>
-                            <img src="../img/';
-                            logo_notifica($risultato[$i]["visualizzato"]);
-                            echo '.png" alt="Icona Notifica" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/>
-                            <h2>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].' ha commentato un tuo post</h2>
-                        </div>
-                    </a>
-                </li>';
-                break;
-
-            //Notifica Like
-            case "like":
-                echo '<li>
-                    <a href="../views/get_single_post.php?id='.$risultato[$i]["post"].'">
-                        <div>
-                            <img src="../img/';
-                            logo_notifica($risultato[$i]["visualizzato"]);
-                            echo '.png" alt="Icona Notifica" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/>
-                            <h2>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].' ha messo like ad un tuo post</h2>
-                        </div>
-                    </a>
-                </li>';
-                break;
-            
-            //Notifica Seguito
-            case "seguito":
-                echo '<li>
-                    <a href="#">
-                        <div>
-                            <img src="../img/';
-                            logo_notifica($risultato[$i]["visualizzato"]);
-                            echo '.png" alt="Icona Notifica Nuova" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'" />
-                            <h2>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].' ha iniziato a seguirti</h2>
-                        </div>
-                    </a>
-                </li>';
-                break;
+    //Cosa stampare in caso di pc
+    if ($_GET["device"] == "pc") {
+        //Aggiungo le notifiche (max 7)
+        for ($i=0; $i < 7 && $i < count($risultato); $i++) {
+            //HTML diverso in base alla notifica
+            switch ($risultato[$i]["tipo"]) {
+                //Notifica commento
+                case "commento":
+                    echo '<li>
+                        <a href="../views/get_single_post.php?id='.$risultato[$i]["post"].'">
+                            <div>
+                                <img src="../img/';
+                                logo_notifica($risultato[$i]["visualizzato"]);
+                                echo '.png" alt="Icona Notifica" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/>
+                                <h2>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].' ha commentato un tuo post</h2>
+                            </div>
+                        </a>
+                    </li>';
+                    break;
+    
+                //Notifica Like
+                case "like":
+                    echo '<li>
+                        <a href="../views/get_single_post.php?id='.$risultato[$i]["post"].'">
+                            <div>
+                                <img src="../img/';
+                                logo_notifica($risultato[$i]["visualizzato"]);
+                                echo '.png" alt="Icona Notifica" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/>
+                                <h2>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].' ha messo like ad un tuo post</h2>
+                            </div>
+                        </a>
+                    </li>';
+                    break;
+                
+                //Notifica Seguito
+                case "seguito":
+                    echo '<li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/';
+                                logo_notifica($risultato[$i]["visualizzato"]);
+                                echo '.png" alt="Icona Notifica Nuova" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'" />
+                                <h2>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].' ha iniziato a seguirti</h2>
+                            </div>
+                        </a>
+                    </li>';
+                    break;
+            }
+        }
+    } else {
+        //Cosa stampare in caso di smartphone
+        //Max 3 notifiche
+        for ($i=0; $i < 7 && $i < count($risultato); $i++) {
+            //HTML diverso in base alla notifica
+            switch ($risultato[$i]["tipo"]) {
+                //Notifica commento
+                case "commento":
+                    echo '<li>
+                        <img src="../img/'.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
+                        logo_notifica($risultato[$i]["visualizzato"]);
+                        echo '.png" alt="Logo Nuova Notifica"/><br/>
+                        <p>
+                            Ha commentato il tuo post!
+                        </p>  
+                    </li>';
+                    break;
+    
+                //Notifica Like
+                case "like":
+                    echo '<li>
+                        <img src="../img/'.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
+                        logo_notifica($risultato[$i]["visualizzato"]);
+                        echo '.png" alt="Logo Nuova Notifica"/><br/>
+                        <p>
+                            Ha messo like al tuo post!
+                        </p>  
+                    </li>';
+                    break;
+                
+                //Notifica Seguito
+                case "seguito":
+                    echo '<li>
+                        <img src="../img/'.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
+                        logo_notifica($risultato[$i]["visualizzato"]);
+                        echo '.png" alt="Logo Nuova Notifica"/><br/>
+                        <p>
+                            Ha iniziato a seguirti!
+                        </p>  
+                    </li>';
+                    break;
+            }
         }
     }
+    
 
 ?>

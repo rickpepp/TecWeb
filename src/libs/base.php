@@ -3,17 +3,17 @@
     <head>
         <title><?php echo $templateParams["titolo"]; ?></title>
         <link rel="icon" type="img/png" href="<?php echo UPLOAD_DIR.$templateParams["iconaTab"]?>"/>
-        <link rel="stylesheet" type="text/css" href="../css/home.css" />
+        <!--<link rel="stylesheet" type="text/css" href="../css/home.css" />-->
+        <link rel="stylesheet" type="text/css" href="<?php echo $templateParams["css"] ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../js/provaImpostazioni.js"></script>
         <script src="../js/functions_post.js"></script>
         <script src="../js/notifiche.js"></script>
     </head>
     <body>
         <header>
-            <a href="#" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
+            <a href="javascript:history.go(-1)" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
             <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
             <form class="web">
                 <label>Cerca<input type="text" value="Cerca"></label>
@@ -87,7 +87,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="login.php" >
+                        <a href="../libs/logout.php" >
                             <div>
                                 <img src="../img/icone/Logout.png" alt="Icona Logout" class="icone"/>
                                 <h2>Logout</h2>
@@ -99,7 +99,7 @@
         </main>
         <footer>
             <a href="impostazioni.html"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
-            <a href="#"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone"></a>
+            <a href="notifiche_smartphone.php"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone" id="notificheButtonSmartphone"></a>
             <a href="aggiungipost.html" class="bottone">+</a>
             <a href="#"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
             <!--<a href="#"><img src="?php echo UPLOAD_DIR.$templateParams["login"][imgpersona]?>" alt="Bottone Profilo" class="icone"></a>-->
