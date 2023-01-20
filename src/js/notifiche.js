@@ -20,6 +20,13 @@ function aggiorna_notifiche() {
     xhttp.send();
 }
 
+//Chiude i menù a tendina appena si usa la scrolling bar
+//per evitare di lasciare fixed le notifiche e le impostazioni
+window.addEventListener('scroll', function() {
+    $("#impostazioni").slideUp("fast");
+    $("#notifiche").slideUp("fast");
+});
+
 //Aggiorna notifiche all'avvio del sito
 aggiorna_notifiche();
 
