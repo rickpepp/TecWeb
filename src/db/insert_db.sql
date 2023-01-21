@@ -1,11 +1,11 @@
 -- -----------------------------------------------------
 -- secure_user
 -- -----------------------------------------------------
-GRANT SELECT, INSERT, UPDATE ON `tinkleart`.* TO 'secur_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `tinkleart`.* TO 'secur_user'@'localhost';
 
 INSERT INTO `categoria` (`idcategoria`,`nomecategoria`,`imgcategoria`) VALUES 
 (1,'Bricolage','Bricolage.png'),
-(2,'Bigiotteria','Bigiotteri.png'),
+(2,'Bigiotteria','Bigiotteria.png'),
 (3,'Falegnameria','Falegnameria.png'),
 (4,'Tecnologia','Tecnologia.png'),
 (5,'Trucco Casa','TruccoCasa.png');
@@ -24,9 +24,9 @@ INSERT INTO `persona` (`idpersona`,`nome`,`cognome`,`password`,`salt`,`email`,`d
 ALTER TABLE `persona`
 MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
-INSERT INTO `post` (`idpost`,`imgpost`,`testopost`,`persona`) VALUES
-(1,'Post1.jpg','Questo è il mio bellissimo lavoro',2),
-(2,'Post2.jpg','Guardate quanto è bello il mio vaso. Sono molto felice :)',3);
+INSERT INTO `post` (`idpost`,`imgpost`,`testopost`,`persona`, 'nlike') VALUES
+(1,'Post1.jpg','Questo è il mio bellissimo lavoro',2,2),
+(2,'Post2.jpg','Guardate quanto è bello il mio vaso. Sono molto felice :)',3,1);
 
 ALTER TABLE `post`
 MODIFY `idpost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

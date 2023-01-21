@@ -45,7 +45,7 @@ section div.post{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-bottom: 4%;
+    margin-top: 4%;
     padding: 10%;
     width: 100%;
     vertical-align: top;
@@ -65,7 +65,7 @@ section div div div{
     display: inline-block;
     max-width: 120px;
 }
-div div div h2{
+section div div div h2{
     font-size: small;
     font-family: Arial, Helvetica, sans-serif;
     vertical-align: top;
@@ -115,7 +115,7 @@ footer > a{
 }
 footer img.icone{
     width: 40px;
-    max-width: 60px;
+    height: 40px;
 }
 footer a.bottone{
     display: inline-block;
@@ -132,6 +132,86 @@ footer a.bottone{
     border-radius: 20%;
     box-shadow: 0px 5% 10% rgba(0, 0, 0, 0.2);
 }
+
+
+/*Parte commenti*/
+div.visible_container_commenti, div.invisible_container_commenti {
+    margin: 0;
+    padding: 0;
+}
+
+div.comment {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    border-top: 0px !important;
+    padding: 3% 10% 3%;
+    width: 100%;
+    vertical-align: top;
+    background-color: white;
+    border: 2px solid #9a031e;
+}
+
+.comment div {
+    max-width: none;
+}
+
+.textarea {
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1px 6px;
+    display: inline-block;
+    width: 74%;
+    overflow: hidden;
+    resize: vertical;
+    min-height: 40px;
+    line-height: 20px;
+    margin-right: 5%;
+}
+
+.comment h3 {
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: top;
+    width: 200px;
+    margin: 0px;
+    float: right;
+}
+
+span {
+    vertical-align: top;
+}
+
+.textarea[contenteditable]:empty::before {
+    content: "Scrivi qui il tuo commento";
+    color: gray;
+}
+
+input.comment {
+    width: 19%;
+    height: 28px;
+    color: #FFFFFF;
+    background-color: #51ba54 !important;
+    border-color: #51ba54 !important;
+    font-size: large;
+    border-radius: 20px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+input.comment:hover {
+    box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.4);
+    transition: all 0.2s;
+    transform: translateY(-1px);
+}
+
+div.comment>p {
+    background-color: rgb(238,244,237);
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 0%;
+}
+/*Fine parte commenti*/
 
 @media screen and (min-width: 738px){
     img.icone{
@@ -252,8 +332,8 @@ footer a.bottone{
         text-align: justify;
     }
     aside ul li a img {
-        width: 38px;
-        height: 38px;
+        max-width: 38px;
+        max-height: 38px;
         float: left;
         margin: 3px;
         margin-right: 6px;
@@ -286,7 +366,7 @@ footer a.bottone{
     section{
         max-width: 100%;
         align-items: right;
-        margin: 3% 5%;
+        margin: 1% 5%;
     }
     section h1.web{
         display: none;

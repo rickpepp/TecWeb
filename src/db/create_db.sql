@@ -1,7 +1,6 @@
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
 -- -----------------------------------------------------
 -- Schema tinkleart
 -- -----------------------------------------------------
@@ -38,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`post` (
     `idpost` INT NOT NULL AUTO_INCREMENT,
     `imgpost` VARCHAR(100) NOT NULL,
     `testopost` TEXT NOT NULL,
-    `datapost` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `datapost` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `nlike` INT NOT NULL DEFAULT 0,
     `persona` INT NOT NULL,
     PRIMARY KEY (`idpost`),
@@ -208,7 +207,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_accesso` (
   `persona` INT NOT NULL,
-  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`persona`,`ora`),
   INDEX `fk_stentativi_accesso_persona_idx` (`persona` ASC),
   CONSTRAINT `fk_tentativi_accesso_persona`
@@ -224,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_accesso` (
 CREATE TABLE IF NOT EXISTS `tinkleart`.`tentativi_recupero` (
   `idrecupero` INT NOT NULL AUTO_INCREMENT,
   `tentativo` CHAR(128) NOT NULL, 
-  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ora` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `persona` INT NOT NULL,
   PRIMARY KEY (`idrecupero`),
   INDEX `fk_stentativi_recupero_persona_idx` (`persona` ASC),

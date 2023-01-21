@@ -29,6 +29,37 @@ aside, h2, main>hr {
     display: none;
 }
 
+.cookie h1 {
+    font-size: 40px;
+    margin-bottom: 1%;
+}
+
+.cookie section {
+    max-width: 60% !important;
+    margin-left: 20%;;
+}
+
+.cookie p {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: justify;
+}
+
+ol {
+    list-style: none;
+    padding: 0% 2% 2%;
+}
+
+.cookie li {
+    padding-top: 2%;
+}
+
+.cookie main {
+    padding-top: 0% !important;
+    padding-bottom: 5%;
+}
+
+/* Aree di testo*/
 input[type="text"], input[type="password"] {
     display: block;
     width: 100%;
@@ -43,19 +74,10 @@ input[type="text"]:focus, input[type="password"]:focus {
     box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
 }
+/* Fine Aree di testo*/
 
-input[type="submit"] {
-    color: #FFFFFF;
-    background-color: #9a031e;
-    width: 100px;
-    margin: 2% 0 5%;
-    height: 28px;
-    font-size: large;
-    border-radius: 20px;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-}
-
-input[type="button"] {
+/* Pulsanti */
+.verde {
     color: #FFFFFF;
     background-color: #51ba54;
     margin: 8% 0;
@@ -64,19 +86,33 @@ input[type="button"] {
     font-size: large;
     border-radius: 20px;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    border-color: #51ba54;
 }
 
-input[type="submit"]:hover {
-    box-shadow: 0px 15px 20px rgba(154, 3, 30, 0.6);
-    transition: all 0.3s;
-    transform: translateY(-3px);
-}
-
-input[type="button"]:hover {
+.verde:hover {
     box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.6);
     transition: all 0.3s;
     transform: translateY(-3px);
 }
+
+.rosso {
+    color: #FFFFFF;
+    background-color: #9a031e;
+    width: 100px;
+    margin: 2% 0 5%;
+    height: 28px;
+    font-size: large;
+    border-radius: 20px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    border-color: #9a031e;
+}
+
+.rosso:hover {
+    box-shadow: 0px 15px 20px rgba(154, 3, 30, 0.6);
+    transition: all 0.3s;
+    transform: translateY(-3px);
+}
+/* Pulsanti fine */
 
 main section footer,  main div footer{
     text-align: center;
@@ -159,6 +195,17 @@ footer.recupera {
     margin-top: 5%;
 }
 
+/* Pagina Informativa */
+section.centrato {
+    text-align: center !important;
+}
+
+.centrato p {
+    margin: 4%;
+}
+/* Fine Pagina Informativa */
+
+/* Media Query Mobile First */
 @media screen and (min-width: 768px) {
     .login main {
         display: flex;
@@ -196,14 +243,6 @@ footer.recupera {
         margin: 0.5% 0;
         padding: 2px;
         font-size: small;
-    }
-
-    .login input[value="Registrati"][type="submit"]{
-        background-color: #51ba54;
-    }
-
-    .login input[value="Registrati"][type="submit"]:hover{
-        box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.6);
     }
 
     .login aside footer {

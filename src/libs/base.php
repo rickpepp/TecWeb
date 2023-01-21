@@ -4,6 +4,8 @@
         <title><?php echo $templateParams["titolo"]; ?></title>
         <link rel="icon" type="img/png" href="<?php echo UPLOAD_DIR.$templateParams["iconaTab"]?>"/>
         <link rel="stylesheet" type="text/css" href="../css/home.css" />
+        <link rel="stylesheet" type="text/css" href="../css/<?php if(isset($templateParams["css"])){
+                        echo $templateParams["css"];}?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -17,11 +19,11 @@
                 <label>Cerca<input type="text" value="Cerca"></label>
                 <img src="../img/icone/Cerca.png" alt="Bottone Cerca">
             </form>
-            <a href="aggiungipost.html" class="web bottone">+</a>
+            <a href="#" class="web bottone">+</a>
             <a  href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
-            <a href="notifiche.html" class="web"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" /></a>
-            <a href="persona.html" class="web"><img src="../img/Foto.png" alt="Bottone Profilo" /></a>
-            <a href="impostazioni.html" class="web"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" /></a>
+            <a href="#" class="web"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" /></a>
+            <a href="#" class="web"><img src="<?php echo "../img/".$_SESSION['imgpersona']?>" alt="Bottone Profilo" /></a>
+            <a href="#" class="web"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" /></a>
         </header>
         <main>
             <aside class="web">
@@ -47,7 +49,7 @@
                 <ul>
                     <?php foreach($templateParams["following"] as $following): ?>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <div>
                                 <img src="<?php echo '../img/'.$following["imgpersona"]; ?>" alt="Foto Profilo" class="icone"/>
                                 <h2><?php echo $following["nome"]." ".$following["cognome"]; ?></h2>
@@ -98,11 +100,11 @@
             </div>-->
         </main>
         <footer>
-            <a href="impostazioni.html"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
+            <a href="#"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
             <a href="#"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone"></a>
-            <a href="aggiungipost.html" class="bottone">+</a>
+            <a href="#" class="bottone">+</a>
             <a href="#"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
-            <!--<a href="#"><img src="?php echo UPLOAD_DIR.$templateParams["login"][imgpersona]?>" alt="Bottone Profilo" class="icone"></a>-->
+            <a href="#"><img src="<?php echo "../img/".$_SESSION['imgpersona']?>" alt="Bottone Profilo" class="icone"></a>
         </footer>
     </body>
 </html>

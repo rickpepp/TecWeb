@@ -1,10 +1,11 @@
 <?php
     require_once ("../libs/bootstrap.php");
+    
     //Base Template
     //Head
     $templateParams["titolo"] = "TinkleArt - Home";
     $templateParams["iconaTab"] = "Tecnologia.png";
-    
+    $templateParams["css"] = "categorieelenco.css";
 
     //Aside
     $templateParams["categorie"] = $dbh -> getCategorie(3,2);
