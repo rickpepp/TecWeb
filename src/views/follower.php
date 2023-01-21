@@ -1,19 +1,27 @@
 <?php 
     require_once ("../libs/bootstrap.php");
+    require_once ("../libs/functions.php");
 
-    //Base template
-    //Header
-    $templateParams["titolo"] = "TinkleArt - Follower";
-    $templateParams["iconaTab"] = "Amici.png";
-    $templateParams["css"] = "follow.css";
+    sec_session_start();
 
-    //Aside
-    $templateParams["categorie"] = $dbh -> getCategorie(3,2);
-    $templateParams["following"] = $dbh -> getFollowing(2);
+    if ($dbh -> login_check()) {
 
-    //Section
-    $templateParams["section"] = "followerElenco.php";
-    $templateParams["followerElenco"] = $dbh -> getFollower(2);
-    
-    require '../libs/base.php';
+        //Base template
+        //Header
+        $templateParams["titolo"] = "TinkleArt - Follower";
+        $templateParams["iconaTab"] = "Amici.png";
+        $templateParams["css"] = "follow.css";
+
+        //Aside
+        $templateParams["categorie"] = $dbh -> getCategorie(3,$_SESSION["user_id"]);
+        $templateParams["following"] = $dbh -> getFollowing(4,$_SESSION["user_id"]);
+
+        //Section
+        $templateParams["section"] = "followerElenco.php";
+        $templateParams["followerElenco"] = $dbh -> getFollower($_SESSION["user_id"]);
+        
+        require '../libs/base.php';
+    }else {
+        header('login.php');
+    }   
 ?>

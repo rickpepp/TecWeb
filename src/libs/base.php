@@ -100,7 +100,7 @@
             </div>-->
         </main>
         <footer>
-            <a href="#"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
+            <a href="../views/impostazioni.php"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
             <a href="#"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone"></a>
             <a href="#" class="bottone">+</a>
             <a href="#"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>

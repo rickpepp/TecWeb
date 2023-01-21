@@ -290,9 +290,9 @@
         }
 
         //Elenco delle persone seguite
-        public function getFollowing($idPersona){
-            $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM segui_persona, persona WHERE personasegue=? AND personaseguita=idpersona");
-            $stmt->bind_param('i',$idPersona);
+        public function getFollowing($numeroPer, $idPersona){
+            $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM segui_persona, persona WHERE personasegue=? AND personaseguita=idpersona LIMIT ?");
+            $stmt->bind_param('ii',$idPersona, $numeroPer);
             $stmt->execute();
             $result = $stmt->get_result();
             $result->fetch_all(MYSQLI_ASSOC);
@@ -308,7 +308,7 @@
             $result->fetch_all(MYSQLI_ASSOC);
 
             //Prendo dal db le persone che seguo e mi segno i loro id
-            $personeSeguite = $this -> getFollowing($idPersona);
+            $personeSeguite = $this -> getFollowing(50,$idPersona);
             $idPersoneSeguite = array();
             $count = 0;
             foreach($personeSeguite as $persona){
