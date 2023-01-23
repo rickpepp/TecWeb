@@ -451,5 +451,45 @@
             return true;
             }
         }
+
+        //Inserisci categoriaSeguita
+        public function insertCatSeguita($idElemento, $idPersona){
+            $stmt = $this->db->prepare("INSERT INTO segui_categoria VALUE (?,?);");
+            $stmt->bind_param('ii',$idPersona,$idElemento);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $result->fetch_all(MYSQLI_ASSOC);
+            return $result;
+        }
+
+        //Cancella categoriaSeguita
+        public function deleteCatSeguita($idElemento, $idPersona){
+            $stmt = $this->db->prepare("DELETE FROM segui_categoria WHERE segui_categoria.persona=? AND segui_categoria.categoria=?;");
+            $stmt->bind_param('ii',$idPersona,$idElemento);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $result->fetch_all(MYSQLI_ASSOC);
+            return $result;
+        }
+
+        //Inserisci personaSeguita
+        public function insertPerSeguita($idElemento, $idPersona){
+            $stmt = $this->db->prepare("INSERT INTO segui_persona VALUE (?,?,0);");
+            $stmt->bind_param('ii',$idElemento,$idPersona);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $result->fetch_all(MYSQLI_ASSOC);
+            return $result;
+        }
+
+        //Cancella personaSeguita
+        public function deletePerSeguita($idElemento, $idPersona){
+            $stmt = $this->db->prepare("DELETE FROM segui_persona WHERE personasegue=? AND personaseguita=?;");
+            $stmt->bind_param('ii',$idPersona,$idElemento);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $result->fetch_all(MYSQLI_ASSOC);
+            return $result;
+        }
     }
  ?>

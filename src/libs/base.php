@@ -9,14 +9,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../js/provaImpostazioni.js"></script>
+        <script src="../js/functions_segui.js"></script>
     </head>
     <body>
         <header>
             <a href="javascript:history.go(-1)" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
             <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
             <form class="web">
-                <label>Cerca<input type="text" value="Cerca"></label>
+                <label>Cerca<input type="text" value="Cerca"/></label>
                 <img src="../img/icone/Cerca.png" alt="Bottone Cerca">
             </form>
             <a href="#" class="web bottone">+</a>
@@ -37,11 +37,11 @@
                                 <h2><?php echo $categoria["nomecategoria"]?></h2>
                             </div>
                         </a>
-                        <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>">
+                        <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>" onclick="setCategorie(<?php echo $categoria['idcategoria'],?>)"/>
                     </li>
                     <?php endforeach; ?>
                     <li>
-                        <input type="button" value="Altre" name="altro">
+                        <input type="button" value="Altre" name="altro"/>
                     </li>
                 </ul>
                 <hr/>
@@ -55,11 +55,11 @@
                                 <h2><?php echo $following["nome"]." ".$following["cognome"]; ?></h2>
                             </div>
                         </a>
-                        <input type="button" value="Non seguire pi&ugrave;">    
+                        <input type="button" value="Non seguire pi&ugrave;" onclick="setFollowing(<?php echo $following['idpersona'] ?>"/>    
                     </li>
                     <?php endforeach; ?>
                     <li>
-                        <input type="button" value="Altri" name="altro">
+                        <input type="button" value="Altri" name="altro"/>
                     </li>
                 </ul> 
             </aside><section>

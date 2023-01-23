@@ -6,7 +6,7 @@
             <img src="../img/<?php echo $persona["imgpersona"] ?>" alt="Foto Profilo" class="icone"/>
             <h2><?php echo $persona["nome"]." ".$persona["cognome"] ?></h2>
         </a>
-        <input type="<?php echo $persona["tipoBottone"]?>" value="<?php echo $persona["testoBottone"]?>">
+        <input type="<?php echo $persona["tipoBottone"]?>" value="<?php echo $persona["testoBottone"]?>"  onclick="setFollowing(<?php echo $persona['idpersona']?>)">
     </li>
     <?php endforeach; ?>
 </ul>   
