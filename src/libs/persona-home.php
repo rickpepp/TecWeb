@@ -12,6 +12,9 @@
                 <br />
                 <?php echo $templateParams["persona"][0]["cognome"]?></h2>
         </div>
+        <?php if ($templateParams["persona"][0]["idpersona"] != $templateParams["mioprofilo"][0]["idpersona"]):?>
+            <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>">
+        <?php endif; ?>
     </div>
     <p>
     <?php if (strlen($templateParams["persona"][0]["descrizione"] > 0)):?>

@@ -502,7 +502,7 @@
       $stmt->bind_param('ssi',$imgpersona, $descrizione, $idpersona);
       
       return $stmt->execute();
-  }
+   }
 
 }
 ?>
