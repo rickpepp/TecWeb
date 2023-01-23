@@ -1,0 +1,271 @@
+body,html {
+    padding: 0%;
+    margin: 0%;
+    background-color: #EEF4ED;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    position: relative;
+    overflow: auto;
+    min-height: 100vh;
+}
+
+header {
+    background-image: linear-gradient(to bottom,#e36414,rgba(251, 140, 36, 0.55));
+    padding: 10px;
+    text-align: center;
+    height: 60px;
+}
+
+header img {
+    height: 60px;
+    padding: 2px 0 2px;
+}
+
+main {
+    padding: 8% 10% 0 10%;
+}
+
+aside, h2, main>hr {
+    display: none;
+}
+
+.cookie h1 {
+    font-size: 40px;
+    margin-bottom: 1%;
+}
+
+.cookie section {
+    max-width: 60% !important;
+    margin-left: 20%;;
+}
+
+.cookie p {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: justify;
+}
+
+ol {
+    list-style: none;
+    padding: 0% 2% 2%;
+}
+
+.cookie li {
+    padding-top: 2%;
+}
+
+.cookie main {
+    padding-top: 0% !important;
+    padding-bottom: 5%;
+}
+
+/* Aree di testo*/
+input[type="text"], input[type="password"] {
+    display: block;
+    width: 100%;
+    margin: 2% 0;
+    padding: 4px;
+    border-radius: 10px;
+    border-width: 1px;
+    font-size: medium;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+/* Fine Aree di testo*/
+
+/* Pulsanti */
+.verde {
+    color: #FFFFFF;
+    background-color: #51ba54;
+    margin: 8% 0;
+    width: 130px;
+    height: 28px;
+    font-size: large;
+    border-radius: 20px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    border-color: #51ba54;
+}
+
+.verde:hover {
+    box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.6);
+    transition: all 0.3s;
+    transform: translateY(-3px);
+}
+
+.rosso {
+    color: #FFFFFF;
+    background-color: #9a031e;
+    width: 100px;
+    margin: 2% 0 5%;
+    height: 28px;
+    font-size: large;
+    border-radius: 20px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    border-color: #9a031e;
+}
+
+.rosso:hover {
+    box-shadow: 0px 15px 20px rgba(154, 3, 30, 0.6);
+    transition: all 0.3s;
+    transform: translateY(-3px);
+}
+/* Pulsanti fine */
+
+main section footer,  main div footer{
+    text-align: center;
+}
+
+main section footer a,  main div footer a{
+    display: block;
+    margin:2.5% 2%;
+    font-size: small;
+    text-decoration: none;
+    color: blue;
+}
+
+main section footer a:hover, main div footer a:hover{
+    text-decoration: underline;
+}
+
+main section footer a:visited, main div footer a:visited{
+    color: blue;
+}
+
+body>footer {
+    padding: 15px 2% 10px;
+    background-color: rgba(251, 140, 36, 0.55);
+    color: #9a031e;
+    position: absolute;
+    bottom: 0;
+    width: 96%;
+    font-size: small;
+}
+
+body span:hover {
+    color: black;
+}
+
+body span {
+    margin-left: 15px;
+    color: #9a031e;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+p {
+    margin:0;
+    padding: 0;
+}
+
+.one_column_everywhere input[type="text"], .one_column_everywhere input[type="password"] {
+    margin: 0.5% 0;
+    padding: 2px;
+    font-size: small;
+}
+
+.one_column_everywhere main {
+    padding-top: 4%;
+}
+
+.one_column_everywhere a {
+    margin-top: 0;
+}
+
+.one_column_everywhere h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.one_column_everywhere input[value="Recupera"],  .one_column_everywhere input[value="Reimposta"]{
+    background-color: #51ba54;
+}
+
+.one_column_everywhere input[value="Recupera"]:hover, .one_column_everywhere input[value="Reimposta"]:hover {
+    box-shadow: 0px 15px 20px rgba(81, 186, 84, 0.6);
+}
+
+footer.recupera {
+    margin-top: 5%;
+}
+
+/* Pagina Informativa */
+section.centrato {
+    text-align: center !important;
+}
+
+.centrato p {
+    margin: 4%;
+}
+/* Fine Pagina Informativa */
+
+/* Media Query Mobile First */
+@media screen and (min-width: 768px) {
+    .login main {
+        display: flex;
+        width: 80%;
+        vertical-align: top;
+        padding-top: 1%;
+    }
+    
+    .login section {
+        display: flex;
+        width: 49%;
+        vertical-align: top;
+        float: left;
+        justify-content: center;
+    }
+
+    .login h2 {
+        display: inline-block;
+    }
+
+    .login main>hr {
+        width: 1px; 
+        display: inline-block;
+        margin-top: 5vh;
+    }
+
+    .login aside {
+        display: flex;
+        width: 49%;
+        float: right;
+        justify-content: center;
+    }
+
+    .login input[type="text"], .login input[type="password"] {
+        margin: 0.5% 0;
+        padding: 2px;
+        font-size: small;
+    }
+
+    .login aside footer {
+        text-align: center;
+    }
+
+    .login section>footer {
+        display: none;
+    }
+
+    .login section>form>footer {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .login section>form>footer>a {
+        margin-left: auto;
+        padding-top: 5px;
+    }
+
+    .one_column_everywhere section {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
