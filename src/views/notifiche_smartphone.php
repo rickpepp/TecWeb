@@ -14,7 +14,7 @@
 
         //Aside
         $templateParams["categorie"] = $dbh -> getCategorie(3,$_SESSION['user_id']);
-        $templateParams["following"] = $dbh -> getFollowing($_SESSION['user_id']);
+        $templateParams["following"] = $dbh -> getFollowing(4,$_SESSION['user_id']);
 
         //Section
         $templateParams["section"] = "elenco_notifiche.php";

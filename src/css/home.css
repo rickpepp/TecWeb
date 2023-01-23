@@ -45,7 +45,7 @@ section div.post{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 4%;    /*Modificato dal Rick, da bottom a top*/
+    margin-top: 4%;    
     padding: 10%;
     width: 100%;
     vertical-align: top;
@@ -115,7 +115,7 @@ footer > a{
 }
 footer img.icone{
     width: 40px;
-    max-width: 60px;
+    height: 40px;
 }
 footer a.bottone{
     display: inline-block;
@@ -393,18 +393,6 @@ ul.notifiche_smartphone  {
         border-radius: 20px;
         margin: 5% 4px;
         vertical-align: center;
-    }
-    input[type="submit"] {
-        background-color: rgb(81, 186, 84);
-        border-color: rgb(81, 186, 84);
-    }
-    input[type="button"] {
-        background-color: rgb(227, 100, 20);
-        border-color: rgb(227, 100, 20);
-    }
-    input[name="altro"]{
-        background-color: #9a031e;
-        border-color: rgb(154,3,30);
     }
     
     /*section*/

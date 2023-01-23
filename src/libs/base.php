@@ -3,8 +3,9 @@
     <head>
         <title><?php echo $templateParams["titolo"]; ?></title>
         <link rel="icon" type="img/png" href="<?php echo UPLOAD_DIR.$templateParams["iconaTab"]?>"/>
-        <!--<link rel="stylesheet" type="text/css" href="../css/home.css" />-->
-        <link rel="stylesheet" type="text/css" href="<?php echo $templateParams["css"] ?>" />
+        <link rel="stylesheet" type="text/css" href="../css/home.css" />
+        <link rel="stylesheet" type="text/css" href="../css/<?php if(isset($templateParams["css"])){
+                        echo $templateParams["css"];}?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -19,10 +20,10 @@
                 <label>Cerca<input type="text" value="Cerca"></label>
                 <img src="../img/icone/Cerca.png" alt="Bottone Cerca">
             </form>
-            <a href="aggiungipost.html" class="web bottone">+</a>
-            <a  href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
+            <a href="../libs/gestisci-post.php" class="web bottone">+</a>
+            <a href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
             <a class="web"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" id="notificheButton"/></a>
-            <a href="persona.html" class="web"><img src="../img/Foto.png" alt="Bottone Profilo" /></a>
+            <a href="#" class="web"><img src="<?php echo "../img/".$_SESSION['imgpersona']?>" alt="Bottone Profilo" /></a>
             <a class="web"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" id="impostazioniButton"/></a>
         </header>
         <main>
@@ -98,11 +99,11 @@
             </div>
         </main>
         <footer>
-            <a href="impostazioni.html"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
+            <a href="../views/impostazioni.php"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
             <a href="notifiche_smartphone.php"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone" id="notificheButtonSmartphone"></a>
             <a href="aggiungipost.html" class="bottone">+</a>
             <a href="#"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
-            <!--<a href="#"><img src="?php echo UPLOAD_DIR.$templateParams["login"][imgpersona]?>" alt="Bottone Profilo" class="icone"></a>-->
+            <a href="#"><img src="<?php echo "../img/".$_SESSION['imgpersona']?>" alt="Bottone Profilo" class="icone"></a>
         </footer>
     </body>
 </html>
