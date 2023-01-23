@@ -7,18 +7,17 @@
     if ($dbh -> login_check()) {
         //Base Template
         //Head
-        $templateParams["titolo"] = "TinkleArt - Home";
+        $templateParams["titolo"] = "TinkleArt - Notifiche";
         $templateParams["iconaTab"] = "Home.png";
+        $templateParams["css"] = "../css/home.css";
     
-        //Header & Footer
-        $templateParams["login"] = $_SESSION['imgpersona'];
 
         //Aside
         $templateParams["categorie"] = $dbh -> getCategorie(3,$_SESSION['user_id']);
         $templateParams["following"] = $dbh -> getFollowing(4,$_SESSION['user_id']);
 
         //Section
-        $templateParams["section"] = "postHome.php";
+        $templateParams["section"] = "elenco_notifiche.php";
         $templateParams["post"] = $dbh -> getPost(5,$_SESSION['user_id']);
 
         require '../libs/base.php';

@@ -3,72 +3,66 @@
 <head>
     <title>TinkleArt - Notifiche</title>
     <link rel="stylesheet" type="text/css" href="../css/home.css" />
-    <link rel="icon" type="img/png" href="../img/Home.png" />
+    <link rel="icon" type="img/png" href="../img/icone/Home.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body class="notifica">
+<body  class="notifiche_smartphone">
     <header>
-        <img src="../img/Indietro.png" alt="Bottone Indietro" class="icone"/>
-        <img src="../img/TinkleArt.png" alt="TinkleArt" class="logo"/>
-        <img src="../img/Home.png" alt="Bottone Home" class="icone web"/>
-        <img src="../img/Menu.png" alt="Bottone Menu" class="icone web">
-        <img src="../img/Notifiche.png" alt="Bottone Notifiche" class="icone web">
-        <img src="../img/Cerca.png" alt="Bottone Cerca" class="icone web">
-        <img src="../img/Foto.png" alt="Bottone Profilo" class="icone web">
+        <a href="javascript:history.go(-1)" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
+        <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
+        <form class="web">
+            <label>Cerca<input type="text" value="Cerca"></label>
+            <img src="../img/icone/Cerca.png" alt="Bottone Cerca">
+        </form>
+        <a href="aggiungipost.html" class="web bottone">+</a>
+        <a  href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
+        <a class="web"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" id="notificheButton"/></a>
+        <a href="persona.html" class="web"><img src="../img/Foto.png" alt="Bottone Profilo" /></a>
+        <a class="web"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" id="impostazioniButton"/></a>
     </header>
     <main>
         <section>
-            <h1>Home</h1>
-            <div>
-                <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaNuova.png" alt="Logo Nuova Notifica" class="icone"/><br/>
-                <p>
-                   Ha commentato il tuo post!
-                </p>    
-            </div>
-            <div>
-                <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaNuova.png" alt="Logo Nuova Notifica" class="icone"/><br/>
-                <p>
-                   Ha commentato il tuo post!
-                </p>    
-            </div>
-            <div>
-                <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaVista.png" alt="Logo Notifica Vista" class="icone"/><br/>
-                <p>
-                   Ha commentato il tuo post!
-                </p>
-            </div>
-            <div>
-                <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaVista.png" alt="Logo Notifica Vista" class="icone"/><br/>
-                <p>
-                   Ha messo mi piace!!
-                </p>
-            </div>
-            <div>
-                <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaVista.png" alt="Logo Notifica Vista" class="icone"/><br/>
-                <p>
-                   Ha commentato il tuo post!
-                </p>
-            </div>
-            <div>
-                <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaVista.png" alt="Logo Notifica Vista" class="icone"/><br/>
-                <p>
-                   Ha messo mi piace!!
-                </p>
-            </div>
-            <div>
-                <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaVista.png" alt="Logo Notifica Vista" class="icone"/><br/>
-                <p>
-                   Ha messo mi piace!!
-                </p>
-            </div>
+            <h1 class="web">Notifiche Smartphone</h1>
+            <ul>
+                <li>
+                    <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaNuova.png" alt="Logo Nuova Notifica"/><br/>
+                    <p>
+                        Ha commentato il tuo post!
+                    </p>  
+                </li>
+                <li>
+                    <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaNuova.png" alt="Logo Nuova Notifica"/><br/>
+                    <p>
+                        Ha commentato il tuo post!
+                    </p>  
+                </li>
+                <li>
+                    <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaVista.png" alt="Logo Nuova Notifica"/><br/>
+                    <p>
+                        Ha commentato il tuo post!
+                    </p>  
+                </li>
+                <li>
+                    <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaVista.png" alt="Logo Nuova Notifica"/><br/>
+                    <p>
+                        Ha commentato il tuo post!
+                    </p>  
+                </li>
+                <li>
+                    <img src="../img/Foto.png" alt="Foto Profilo" class="icone"/><label>Nome Cognome</label><img src="../img/NotificaVista.png" alt="Logo Nuova Notifica"/><br/>
+                    <p>
+                        Ha commentato il tuo post!
+                    </p>  
+                </li>
+            </ul>
         </section>
     </main>
     <footer>
-        <a href="impostazioni.html"><img src="../img/Menu.png" alt="Bottone Menu" class="iconeFooter"></a>
-        <a href="#"><img src="../img/Notifiche.png" alt="Bottone Notifiche" class="iconeFooter"></a>
-        <a href="aggiungiPost.html" class="footer">+</a>
-        <a href="#"><img src="../img/Cerca.png" alt="Bottone Cerca" class="iconeFooter"></a>
-        <a href="#"><img src="../img/Foto.png" alt="Bottone Profilo" class="iconeFooter"></a>
+        <a href="impostazioni.html"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
+            <a href="#"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone" id="notificheButtonSmartphone"></a>
+            <a href="aggiungipost.html" class="bottone">+</a>
+            <a href="#"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
+            <!--<a href="#"><img src="?php echo UPLOAD_DIR.$templateParams["login"][imgpersona]?>" alt="Bottone Profilo" class="icone"></a>-->
     </footer>
 </body>
 </html>

@@ -1,0 +1,5 @@
+E' necessario invocare la funzione sec_session_start() in ogni pagina che richiede l'accesso a $_SESSION (quindi includere il file "functions.php"), e controllare se l'utente è effettivamente loggato al sistema con la funzione login_check() presente nel file "database.php".
+Nella variabile $_SESSION vengono memorizzati tre valori:
+	- "user_id" che contiene il numero identificativo dell'utente nel DB
+	- "username" che ne memorizza la mail
+	- "login_string" che è un valore che viene utilizzato per verificare che l'utente sia effettivamente loggato

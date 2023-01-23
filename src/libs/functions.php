@@ -33,6 +33,7 @@
             $mail -> Username = '';
             $mail -> Password = '';
 
+            //La mail è criptata, quindi non è trasmesso nessun dato in chiaro
             $mail -> STMPSecure = 'ssl';
             $mail -> Port = 587;
             $mail->SMTPOptions = array(
@@ -63,7 +64,7 @@
     //Generatore di password casuali (parametro lunghezza come input)
     function genera_codice($lenght) {
         //Simboli disponibili
-        $comb = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$&/()=?';
+        $comb = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$&*#?';
 
         $pass = array(); 
         $combLen = strlen($comb) - 1; 

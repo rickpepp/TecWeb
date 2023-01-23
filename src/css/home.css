@@ -45,7 +45,7 @@ section div.post{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 4%;
+    margin-top: 4%;    
     padding: 10%;
     width: 100%;
     vertical-align: top;
@@ -65,7 +65,7 @@ section div div div{
     display: inline-block;
     max-width: 120px;
 }
-section div div div h2{
+div div div h2{
     font-size: small;
     font-family: Arial, Helvetica, sans-serif;
     vertical-align: top;
@@ -132,7 +132,6 @@ footer a.bottone{
     border-radius: 20%;
     box-shadow: 0px 5% 10% rgba(0, 0, 0, 0.2);
 }
-
 
 /*Parte commenti*/
 div.visible_container_commenti, div.invisible_container_commenti {
@@ -212,6 +211,41 @@ div.comment>p {
     margin-bottom: 0%;
 }
 /*Fine parte commenti*/
+
+/*Inizio Notifiche smartphone*/
+
+ul.notifiche_smartphone  {
+    list-style: none;
+    padding: 0;
+}
+
+.notifiche_smartphone li {
+    padding: 2%;
+    margin-bottom: 2%;
+    background-color: white;
+    border: 2px solid #9a031e;
+}
+
+.notifiche_smartphone img[alt="Logo Nuova Notifica"] {
+    float: right;
+    width: 14%;
+}
+
+.notifiche_smartphone p {
+    display: inline-block;
+    width: 80%;
+    padding-right: 0%;
+}
+
+.notifiche_smartphone label {
+    font-size: large;
+    font-weight: bold;
+    vertical-align: top;
+    margin-top: 6px;
+    position: absolute;
+}
+
+/*Fine Notifiche smartphone*/
 
 @media screen and (min-width: 738px){
     img.icone{
@@ -332,8 +366,8 @@ div.comment>p {
         text-align: justify;
     }
     aside ul li a img {
-        max-width: 38px;
-        max-height: 38px;
+        width: 38px;
+        height: 38px;
         float: left;
         margin: 3px;
         margin-right: 6px;
@@ -361,12 +395,11 @@ div.comment>p {
         vertical-align: center;
     }
     
-    
     /*section*/
     section{
         max-width: 100%;
         align-items: right;
-        margin: 1% 5%;
+        margin: 1% 5%; /*Margin top diminuito dal Rick*/
     }
     section h1.web{
         display: none;
@@ -378,9 +411,18 @@ div.comment>p {
     
     /*impostazioni e notifiche*/
     main div.impostazioni, main div.notifiche{
-        position: relative;
-        display: inline;
+        position: fixed;
+        display: none;
     }
+
+    main div.impostazioni {
+        right: 45px;
+    } 
+
+    main div.notifiche {
+        right: 165px;
+    } 
+
     main div.impostazioni ul, main div.notifiche ul{
         list-style: none;
         margin: 0px;
@@ -392,11 +434,16 @@ div.comment>p {
     }
     main div.impostazioni ul li, main div.notifiche ul li{
         font-family: Arial, Helvetica, sans-serif;
-        margin: 1px;
+        margin: 0px;
         padding: 1px;
         border: 2px solid rgb(154, 3, 30);
-        
+        border-top: 0px;
     }
+
+    main div.impostazioni ul li:first-child, main div.notifiche ul li:first-child{
+        border-top: 2px solid rgb(154, 3, 30);
+    }
+
     main div.impostazioni ul li div, main div.notifiche ul li div{
         display: flex;
         flex: row wrap;
@@ -404,7 +451,7 @@ div.comment>p {
         
         padding: 3px;
     }
-    main div.impostazioni ul li img{
+    main div.impostazioni ul li img, main div.notifiche ul li img{
         max-width: 40px;
     }
 
