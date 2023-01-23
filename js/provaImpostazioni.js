@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $("#impostazioniButton").click(function(){
+      $("#impostazioni").slideToggle(true);
+    }); 
+});
+$(document).ready(function(){
+  $("#notificheButton").click(function(){
+    $("#notifiche").slideToggle(true);
+  }); 
+});
