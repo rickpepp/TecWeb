@@ -51,3 +51,16 @@
         }
     }
 ?>
+            if(send_mail($_POST["email_registrazione"], "Messaggio di Prova", $body)) {
+                //Email inviata con successo
+                echo "<script>window.location.assign('../views/pagina_informativa.php?title=Email Inviata con successo&msg=Aprire la mail nella casella di posta elettronica per cambiare la password del proprio account')</script>";
+            } else {
+                //Email NON inviata con successo
+                header('Location: ../views/pagina_informativa.php?title=Email non Inviata&msg=Email non inviata correttamente, controllare con attenzione i dati inseriti.');
+            }
+        } else {
+            //Email non esistente nel DB
+            header('Location: ../views/pagina_informativa.php?title=Account non esistente&msg=L\'email inserita non corrisponde a nessun account, se si desidera usare la mail corrente procedere con la fase di registrazione.');
+        }
+    }
+?>
