@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`like` (
     `post` INT NOT NULL,
     `persona` INT NOT NULL,
     `visualizzato` TINYINT NOT NULL DEFAULT 0,
-    `datalike` DATETIME DEFAULT CURRENT_TIMESTAMP, --aggiunto
+    `datalike` DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`post`,`persona`),
     INDEX `fk_like_persona_idx` (`persona` ASC),
     INDEX `fk_like_post_idx` (`persona` ASC),
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `tinkleart`.`segui_persona` (
     `personaseguita` INT NOT NULL,
     `personasegue` INT NOT NULL,
     `visualizzato` TINYINT NOT NULL DEFAULT 0,
-    `dataseguito` DATETIME DEFAULT CURRENT_TIMESTAMP, --aggiunto
+    `dataseguito` DATETIME DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (`personaseguita`,`personasegue`),
     INDEX `fk_segui_persona_personaseguita_idx` (`personaseguita` ASC),
     INDEX `fk_segui_persona_post_idx` (`personasegue` ASC),

@@ -3,7 +3,7 @@
     <?php foreach($templateParams["post"] as $post):?>
     <div class="post">
         <div>
-            <img src="../img/<?php echo $post["imgpersona"]?>" alt="Foto Profilo" class="icone" />
+            <img src="../img/<?php echo UPLOAD_PROF.$post["imgpersona"]?>" alt="Foto Profilo" class="icone" />
             <div>
                 <h2>
                     <?php echo $post["nome"]." ".$post["cognome"] ?>
