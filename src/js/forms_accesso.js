@@ -19,7 +19,6 @@ function formhasha(form, password) {
       //Invia il form definitivamente
       form.submit();
    }
-    
  }
 
 //Rende funzionante la x presente nel footer per la privacy
@@ -27,3 +26,11 @@ function hide() {
    const footer = document.getElementById('informativa');
    footer.style.display = 'none';
 }
+
+//Nella pagina login, con l'invio preme il pulsante accedi
+document.addEventListener("keypress", function(event) {
+   if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("accedi").click();
+   }
+ });

@@ -21,7 +21,7 @@
                     <label>Email:<input type="text" name="email_accesso"></label><br>
                     <label>Password:<input type="password" name="password_accesso" id="lpassword"></label>
                     <footer>
-                        <input type="button" value="Accedi" class="rosso" onclick="formhasha(this.form, this.form.lpassword);"><br>
+                        <input type="button" value="Accedi" class="rosso" onclick="formhasha(this.form, this.form.lpassword);" id="accedi"><br>
                         <p id="informazioni_accedi"></p>
                         <br><a href="recupera_password.php">Password dimenticata</a>
                     </footer>
