@@ -3,7 +3,7 @@
     require_once ("../libs/functions.php");
 
     sec_session_start();
-
+    //form di modifica del profilo personale
     if ($dbh -> login_check()) {
         $templateParams["titolo"] = "TinkleArt - Gestisci Profilo";
         $templateParams["iconaTab"] = "Home.png";

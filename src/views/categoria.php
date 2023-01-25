@@ -3,7 +3,7 @@
     require_once ("../libs/functions.php");
 
     sec_session_start();
-
+    //Rappresenta tutti i post di una singola categoria
     if ($dbh -> login_check()) {
         $templateParams["titolo"] = "TinkleArt - Categoria";
         $templateParams["css"] = "categoria.css";
@@ -19,6 +19,8 @@
         $templateParams["section"] = "categoria-home.php";
         $templateParams["mioprofilo"] = $dbh -> getPersona($_SESSION["user_id"]);
         $templateParams["categoriePost"] = $dbh -> getPostByCategory($_GET["idcategoria"]);
+        $templateParams["categoria"] = $dbh -> getCategoryFromId($_GET["idcategoria"]);
+
         require '../libs/base.php';
 
     } else {

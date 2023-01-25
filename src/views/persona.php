@@ -3,7 +3,7 @@
     require_once ("../libs/functions.php");
 
     sec_session_start();
-
+    //Gestione del profilo diversificando se e' il profilo personale o di un altra persona
     if ($dbh -> login_check()) {
         $templateParams["titolo"] = "TinkleArt - Profilo Persona";
         $templateParams["css"] = "persona.css";
