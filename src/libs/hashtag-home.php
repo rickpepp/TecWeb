@@ -1,11 +1,11 @@
-<?php if($templateParams["categoria"]==null): ?>
-    <p>CATEGORIA NON TROVATA</p>
+<?php if($templateParams["hashtag"]==null): ?>
+    <p>HASHTAG NON TROVATO</p>
 <?php else: ?>
-<h1><?php echo $templateParams["categoria"][0]["nomecategoria"];?> <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>"></h1>
-<?php if($templateParams["categoriePost"]==null): ?>
-    <p>NESSUN POST TROVATO PER QUESTA CATEGORIA</p>
+<h1># <?php echo $templateParams["hashtag"][0]["nomehashtag"];?></h1>
+<?php if($templateParams["hashtagPost"]==null): ?>
+    <p>NESSUN POST TROVATO PER QUESTO HASHTAG</p>
 <?php else: ?>
-<?php foreach($templateParams["categoriePost"] as $post):?>
+<?php foreach($templateParams["hashtagPost"] as $post):?>
     <div class="post">
     <div>
         <img src="<?php echo UPLOAD_PROF.$post["imgpersona"]?>" alt="Foto Profilo" class="icone" onclick="location.href='persona.php?idpersona=<?php echo $post["idpersona"]; ?>'"/>
@@ -16,8 +16,7 @@
                 <?php echo substr($post["datapost"], 0, -9) ?>
             </h2>
         </div>
-        <img src="<?php echo UPLOAD_DIR.$post["imgcategoria"]?>" alt="Categoria_<?php echo $categoria["nomecategoria"]; ?>" class="icone"/>
-        </div>
+    </div>
     <p>
         <?php echo $post["testopost"] ?>
     </p>

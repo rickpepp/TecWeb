@@ -1,5 +1,6 @@
 <?php 
     $post = $templateParams["post"]; 
+
     $azione = getAction($templateParams["azione"])
 ?>
 <form action="../libs/processa-post.php" method="POST" enctype="multipart/form-data" >
@@ -33,13 +34,29 @@
                     <?php if($templateParams["azione"]!=3): ?>
                         <?php foreach($templateParams["categorietot"] as $categoria): ?>
                         <li>
-                            <input type="checkbox" id="<?php echo $categoria["idcategoria"]; ?>" name="categoria_<?php echo $categoria["idcategoria"]; ?>" 
+                            <input type="checkbox" id="categoria_<?php echo $categoria["idcategoria"]; ?>" name="categoria_<?php echo $categoria["idcategoria"]; ?>" 
                             <?php 
                                 if(in_array($categoria["idcategoria"], $post["categorie"])){ 
                                     echo ' checked="checked" '; 
                                 } 
                             ?> />
-                            <label for="<?php echo $categoria["idcategoria"]; ?>"><?php echo $categoria["nomecategoria"]; ?></label>
+                            <label for="categoria_<?php echo $categoria["idcategoria"]; ?>"><?php echo $categoria["nomecategoria"]; ?></label>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </ul>
+                <hr>
+                <ul>
+                    <?php if($templateParams["azione"]!=3): ?>
+                        <?php foreach($templateParams["hashtagtot"] as $hashtag): ?>
+                        <li>
+                            <input type="checkbox" id="hashtag_<?php echo $hashtag["idhashtag"]; ?>" name="hashtag_<?php echo $hashtag["idhashtag"]; ?>" 
+                            <?php 
+                                if(in_array($hashtag["idhashtag"], $post["hashtags"])){ 
+                                    echo ' checked="checked" '; 
+                                } 
+                            ?> />
+                            <label for="hashtag_<?php echo $hashtag["idhashtag"]; ?>">#<?php echo $hashtag["nomehashtag"]; ?></label>
                         </li>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -54,6 +71,7 @@
         <?php if($templateParams["azione"]!=1): ?>
             <input type="hidden" name="idpost" value="<?php echo $post["idpost"]; ?>" />
             <input type="hidden" name="categorie" value="<?php echo implode(",", $post["categorie"]); ?>" />
+            <input type="hidden" name="hashtags" value="<?php echo implode(",", $post["hashtags"]); ?>" />
             <input type="hidden" name="oldimg" value="<?php echo $post["imgpost"]; ?>" />
         <?php endif;?>
 

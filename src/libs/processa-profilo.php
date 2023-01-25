@@ -7,7 +7,7 @@
     if ($dbh -> login_check()) {
             $descrizione = htmlspecialchars($_POST["descrizione"]);
             $persona = $_SESSION["user_id"];
-            
+            //controlla che sia stata caricata l'immagine altrimenti recupera quella precedente
             if(isset($_FILES["imgpersona"]) && strlen($_FILES["imgpersona"]["name"])>0){
                 list($result, $msg) = uploadImage(UPLOAD_PROF, $_FILES["imgpersona"]);
             }

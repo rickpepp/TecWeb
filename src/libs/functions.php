@@ -78,9 +78,10 @@
 
     //post vuoto
     function getEmptyPost(){
-        return array("idpost" => "", "imgpost" => "", "testopost" => "", "datapost" => "", "nlike" => "", "categorie" => array());
+        return array("idpost" => "", "imgpost" => "", "testopost" => "", "datapost" => "", "nlike" => "", "categorie" => array(), "hashtags" => array());
     }
 
+    //azioni gesstione post
     function getAction($action){
         $result = "";
         switch($action){
@@ -98,6 +99,7 @@
         return $result;
     }
 
+    //caricamento immagine profilo/post
     function uploadImage($path, $image){
         $imageName = basename($image["name"]);
         $fullPath = $path.$imageName;

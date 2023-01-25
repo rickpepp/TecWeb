@@ -10,14 +10,14 @@
         <meta charset="UTF-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="../js/functions_segui.js"></script>
+        <script src="../js/ricerca.js"></script>
     </head>
     <body>
         <header>
             <a href="javascript:history.go(-1)" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
             <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
             <form class="web">
-                <label>Cerca<input type="text" value="Cerca"/></label>
-                <img src="../img/icone/Cerca.png" alt="Bottone Cerca">
+                <a href="ricerca.php"><img src="../img/icone/Cerca.png" alt="Bottone Cerca"></a>
             </form>
             <a href="gestisci-post.php?action=1" class="web bottone">+</a>
             <a  href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
@@ -103,7 +103,7 @@
             <a href="../views/impostazioni.php"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
             <a href="#"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone"></a>
             <a href="gestisci-post.php?action=1" class="bottone">+</a>
-            <a href="#"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
+            <a href="ricerca.php"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
             <a href="../views/persona.php?idpersona=<?php echo $_SESSION["user_id"]?>"><img src="<?php echo UPLOAD_PROF.$_SESSION['imgpersona']?>" alt="Bottone Profilo" class="icone"></a>
         </footer>
     </body>
