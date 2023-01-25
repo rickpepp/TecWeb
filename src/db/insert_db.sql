@@ -3,14 +3,8 @@
 -- -----------------------------------------------------
 GRANT SELECT, INSERT, UPDATE, DELETE ON `tinkleart`.* TO 'secur_user'@'localhost';
 
--- -----------------------------------------------------
--- secure_user
--- -----------------------------------------------------
-GRANT SELECT, INSERT, UPDATE, DELETE ON `tinkleart`.* TO 'secur_user'@'localhost';
-
 INSERT INTO `categoria` (`idcategoria`,`nomecategoria`,`imgcategoria`) VALUES 
 (1,'Bricolage','Bricolage.png'),
-(2,'Bigiotteria','Bigiotteria.png'),
 (2,'Bigiotteria','Bigiotteria.png'),
 (3,'Falegnameria','Falegnameria.png'),
 (4,'Tecnologia','Tecnologia.png'),
