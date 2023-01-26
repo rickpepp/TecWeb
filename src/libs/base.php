@@ -11,6 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="../js/functions_post.js"></script>
         <script src="../js/notifiche.js"></script>
+        <script src="../js/functions_segui.js"></script>
     </head>
     <body>
         <header>
@@ -38,11 +39,11 @@
                                 <h2><?php echo $categoria["nomecategoria"]?></h2>
                             </div>
                         </a>
-                        <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>">
+                        <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>" onclick="setCategorie(<?php echo $categoria['idcategoria']?>)" id="<?php echo "cat_".$categoria['idcategoria']?>" />
                     </li>
                     <?php endforeach; ?>
                     <li>
-                        <input type="button" value="Altre" name="altro">
+                        <input type="button" value="Altre" name="altro" onclick='location.href="../views/categorie.php"'/>
                     </li>
                 </ul>
                 <hr/>
@@ -56,11 +57,11 @@
                                 <h2><?php echo $following["nome"]." ".$following["cognome"]; ?></h2>
                             </div>
                         </a>
-                        <input type="button" value="Non seguire pi&ugrave;">    
+                        <input type="button" value="Non seguire pi&ugrave;" onclick="setFollowing(<?php echo $following['idpersona']?>)" id="<?php echo "per_".$following['idpersona']?>" />    
                     </li>
                     <?php endforeach; ?>
                     <li>
-                        <input type="button" value="Altri" name="altro">
+                        <input type="button" value="Altri" name="altro" onclick='location.href="../views/following.php"' />
                     </li>
                 </ul> 
             </aside><section>

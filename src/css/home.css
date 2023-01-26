@@ -84,6 +84,20 @@ section div img{
 }
 
 /*Bottoni*/
+input{
+    color: rgb(255, 255, 255);
+    width: 120px;
+    height: 28px;
+    font-size: small;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
+    border-radius: 20px;
+    margin: 5% 4px;
+    vertical-align: center;
+}
+input[type="text"]{
+    box-shadow: none;
+    color:  black;
+}
 input[type="submit"] {
     background-color: rgb(81, 186, 84);
     border-color: rgb(81, 186, 84);
@@ -382,17 +396,6 @@ ul.notifiche_smartphone  {
     aside hr{
         border-color:  rgb(0, 0, 0, 0.4);
         border-radius: 10%;
-    }
-    /*bottoni*/
-    aside ul li input{
-        color: rgb(255, 255, 255);
-        width: 120px;
-        height: 28px;
-        font-size: small;
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
-        border-radius: 20px;
-        margin: 5% 4px;
-        vertical-align: center;
     }
     
     /*section*/

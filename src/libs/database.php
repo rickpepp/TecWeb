@@ -191,109 +191,20 @@
          $result = $stmt->get_result();
          $result->fetch_all(MYSQLI_ASSOC);
          return $result;
-     }
+      }
 
-     //Elenco delle categorie seguite
-     public function getCategorieSeguite($idPersona){
+      //Elenco delle categorie seguite
+      public function getCategorieSeguite($idPersona){
          $stmt = $this->db->prepare("SELECT idcategoria, nomecategoria, imgcategoria FROM segui_categoria, categoria WHERE persona=? AND categoria=idcategoria");
          $stmt->bind_param('i',$idPersona);
          $stmt->execute();
          $result = $stmt->get_result();
          $result->fetch_all(MYSQLI_ASSOC);
          return $result;
-     }
-
-     //Elenco delle persone seguite
-     public function getFollowing($numeroPer, $idPersona){
-      $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM segui_persona, persona WHERE personasegue=? AND personaseguita=idpersona LIMIT ?");
-      $stmt->bind_param('ii',$idPersona, $numeroPer);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $result->fetch_all(MYSQLI_ASSOC);
-      return $result;
-  }
-
-     //Elenco delle persone che mi seguono
-     public function getFollower($idPersona){
-      $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM persona, segui_persona WHERE segui_persona.personaseguita = ? AND segui_persona.personasegue = persona.idpersona;");
-      $stmt->bind_param('i',$idPersona);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $result->fetch_all(MYSQLI_ASSOC);
-
-      //Prendo dal db le persone che seguo e mi segno i loro id
-      $personeSeguite = $this -> getFollowing(50,$idPersona);
-      $idPersoneSeguite = array();
-      $count = 0;
-      foreach($personeSeguite as $persona){
-          $idPersoneSeguite[$count] = $persona["idpersona"];
-          $count++;
-      }
-      
-      //Mi segno gli id delle persone che mi seguono
-      $idFollower = array();
-      $count = 0;
-      foreach($result as $persona){
-          $idFollower[$count] = $persona["idpersona"];
-          $count++;
-      } 
-
-      //Divido in due array le persone che seguo e quelle no            
-      $idFollowerNonSeguiti = array_diff($idFollower,$idPersoneSeguite);
-      $idFollowerSeguiti = array_intersect($idFollower,$idPersoneSeguite); 
-
-      //Creo i due array follower grazie agli arrray id
-      $sizeFollowerS = 0;
-      $followerSeguiti = array();
-      if(count($idFollowerSeguiti) != 0){
-          foreach($result as $persona){
-              if($persona["idpersona"] == $idFollowerSeguiti[$sizeFollowerS]){
-                  $followerSeguiti[$sizeFollowerS] = $persona;
-                  $sizeFollowerS++;
-              }
-          }
       }
 
-      $sizeFollowerNS = 0;
-      $followerNonSeguiti = array();
-      if(count($idFollowerNonSeguiti) != 0){
-          foreach($result as $persona){
-              if($persona["idpersona"] == $idFollowerNonSeguiti[$sizeFollowerNS]){
-                  $followerNonSeguiti[$sizeFollowerNS] = $persona;
-                  $sizeFollowerNS++;
-              }
-          }
-      }
-
-      //Creo l'array dei follower con il bottone associato
-      $size = 0;
-      $follower = array();
-      if($sizeFollowerS != 0){
-          foreach($followerSeguiti as $persona){
-              $follower[$size]["idpersona"] = $persona["idpersona"];
-              $follower[$size]["nome"] = $persona["nome"];
-              $follower[$size]["cognome"] = $persona["cognome"];
-              $follower[$size]["imgpersona"] = $persona["imgpersona"];
-              $follower[$size]["tipoBottone"] = "button";
-              $follower[$size]["testoBottone"] = "Non seguire pi&ugrave";
-              $size++;
-          }
-      }
-      if($sizeFollowerNS != 0){
-          foreach($followerNonSeguiti as $persona){
-              $follower[$size]["idpersona"] = $persona["idpersona"];
-              $follower[$size]["nome"] = $persona["nome"];
-              $follower[$size]["cognome"] = $persona["cognome"];
-              $follower[$size]["imgpersona"] = $persona["imgpersona"];
-              $follower[$size]["tipoBottone"] = "submit";
-              $follower[$size]["testoBottone"] = "Segui";
-              $size++;
-          }
-      }
-      return $follower;
-  }
-
-     public function getCategorieNonSeguite($idPersona){
+      //Elenco delle categorie non seguite
+      public function getCategorieNonSeguite($idPersona){
          // Prendo dal db l'elenco di tutte le categorie e di quelle seguite
          $categorieAll = $this->getCategorieAll();
          $categorieSeguite = $this->getCategorieSeguite($idPersona);
@@ -302,244 +213,332 @@
          $idCatSeguite = array();
          $i = 0;
          foreach($categorieSeguite as $categoriaSeguita){
-             $idCatSeguite[$i] = $categoriaSeguita["idcategoria"];
-             $i++;
+            $idCatSeguite[$i] = $categoriaSeguita["idcategoria"];
+            $i++;
          }
 
          // Mi segno in un array tutti gli id delle categorie
          $idCatAll = array();
          $count = 0;
          foreach($categorieAll as $categoria){
-             $idCatAll[$count] = $categoria["idcategoria"];
-             $count++;
+            $idCatAll[$count] = $categoria["idcategoria"];
+            $count++;
          }
 
          // Calcolo quali sono le categorie che non segui e me le segno in un array tramite gli id
          $count = 0;
          foreach(array_diff($idCatAll,$idCatSeguite) as $categoria){
-             $idCatNonSeguite[$count] = $categoria;
-             $count++;
+            $idCatNonSeguite[$count] = $categoria;
+            $count++;
          }
 
          // Creo l'array delle categorie non seguite
          $categorieNonSeguite = array();
          $size = 0;
          foreach($categorieAll as $categoria){
-             if($size < $count && $idCatNonSeguite[$size] == $categoria["idcategoria"]){
-                 $categorieNonSeguite[$size] = $categoria;
-                 $size++;
-             }
+            if($size < $count && $idCatNonSeguite[$size] == $categoria["idcategoria"]){
+               $categorieNonSeguite[$size] = $categoria;
+               $size++;
+            }
          }
          
          return $categorieNonSeguite;
-     }
-
-     // Elenco delle categorie e i bottoni associati 
-     public function getCategorie($numeroCat, $idPersona){
-      $categorie = array();
-      
-      // Prendo dal db l'elenco delle categorie seguite e mi segno quante sono 
-      $categorieSeguite = $this->getCategorieSeguite($idPersona); 
-      $size = $categorieSeguite->num_rows;
-      
-      // Creo l'array delle categorie da visualizzare
-      $lengthCat = 0;
-      if($size < $numeroCat){
-          foreach($categorieSeguite as $categoriaSeguita){
-              $categorie[$lengthCat]["idcategoria"] = $categoriaSeguita["idcategoria"];
-              $categorie[$lengthCat]["nomecategoria"] = $categoriaSeguita["nomecategoria"];
-              $categorie[$lengthCat]["imgcategoria"] = $categoriaSeguita["imgcategoria"];
-              $categorie[$lengthCat]["tipoBottone"] = "button";
-              $categorie[$lengthCat]["testoBottone"] = "Non seguire pi&ugrave;";
-              $lengthCat++;
-          }
-          $categorieNonSeguite = $this->getCategorieNonSeguite($idPersona); 
-          foreach($categorieNonSeguite as $categoriaNonSeguita){
-              if($lengthCat < $numeroCat){
-                  $categorie[$lengthCat]["idcategoria"] = $categoriaNonSeguita["idcategoria"];
-                  $categorie[$lengthCat]["nomecategoria"] = $categoriaNonSeguita["nomecategoria"];
-                  $categorie[$lengthCat]["imgcategoria"] = $categoriaNonSeguita["imgcategoria"];
-                  $categorie[$lengthCat]["tipoBottone"] = "submit";
-                  $categorie[$lengthCat]["testoBottone"] = "Segui";
-                  $lengthCat++;
-              }
-          }
-      }else{
-          foreach($categorieSeguite as $categoriaSeguita){
-              while($lengthCat < $numeroCat){
-                  $categorie[$lengthCat]["idcategoria"] = $categoriaSeguita["idcategoria"];
-                  $categorie[$lengthCat]["nomecategoria"] = $categoriaSeguita["nomecategoria"];
-                  $categorie[$lengthCat]["imgcategoria"] = $categoriaSeguita["imgcategoria"];
-                  $categorie[$lengthCat]["tipoBottone"] = "button";
-                  $categorie[$lengthCat]["testoBottone"] = "Non seguire pi&ugrave;";
-                  $lengthCat++;
-              }
-          }
       }
 
-      //Mettere che le categorie vengano stampate in base al fatto che ne richiede un totale 
-      return $categorie;
-  }
+      // Elenco delle categorie e i bottoni associati 
+      public function getCategorie($numeroCat, $idPersona){
+         $categorie = array();
+         
+         // Prendo dal db l'elenco delle categorie seguite e mi segno quante sono 
+         $categorieSeguite = $this->getCategorieSeguite($idPersona); 
+         $size = $categorieSeguite->num_rows;
+         
+         // Creo l'array delle categorie da visualizzare
+         $lengthCat = 0;
+         if($size < $numeroCat){
+            foreach($categorieSeguite as $categoriaSeguita){
+               $categorie[$lengthCat]["idcategoria"] = $categoriaSeguita["idcategoria"];
+               $categorie[$lengthCat]["nomecategoria"] = $categoriaSeguita["nomecategoria"];
+               $categorie[$lengthCat]["imgcategoria"] = $categoriaSeguita["imgcategoria"];
+               $categorie[$lengthCat]["tipoBottone"] = "button";
+               $categorie[$lengthCat]["testoBottone"] = "Non seguire pi&ugrave;";
+               $lengthCat++;
+            }
+            $categorieNonSeguite = $this->getCategorieNonSeguite($idPersona); 
+            foreach($categorieNonSeguite as $categoriaNonSeguita){
+               if($lengthCat < $numeroCat){
+                     $categorie[$lengthCat]["idcategoria"] = $categoriaNonSeguita["idcategoria"];
+                     $categorie[$lengthCat]["nomecategoria"] = $categoriaNonSeguita["nomecategoria"];
+                     $categorie[$lengthCat]["imgcategoria"] = $categoriaNonSeguita["imgcategoria"];
+                     $categorie[$lengthCat]["tipoBottone"] = "submit";
+                     $categorie[$lengthCat]["testoBottone"] = "Segui";
+                     $lengthCat++;
+               }
+            }
+         }else{
+            foreach($categorieSeguite as $categoriaSeguita){
+               if($lengthCat < $numeroCat){
+                     $categorie[$lengthCat]["idcategoria"] = $categoriaSeguita["idcategoria"];
+                     $categorie[$lengthCat]["nomecategoria"] = $categoriaSeguita["nomecategoria"];
+                     $categorie[$lengthCat]["imgcategoria"] = $categoriaSeguita["imgcategoria"];
+                     $categorie[$lengthCat]["tipoBottone"] = "button";
+                     $categorie[$lengthCat]["testoBottone"] = "Non seguire pi&ugrave;";
+                     $lengthCat++;
+               }
+            }
+         }
 
-     // Elenco dei post da visualizzare nella home
-     public function getPost($numPost, $idPersona){
+         //Mettere che le categorie vengano stampate in base al fatto che ne richiede un totale 
+         return $categorie;
+      }
+
+      //Elenco delle persone seguite
+      public function getFollowing($idPersona){
+         $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM segui_persona, persona WHERE personasegue=? AND personaseguita=idpersona");
+         $stmt->bind_param('i',$idPersona);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         $result->fetch_all(MYSQLI_ASSOC);
+         return $result;
+      }
+
+      //Elenco delle persone seguite con limite
+      public function getFollowingNum($numeroPer, $idPersona) {
+         $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM segui_persona, persona WHERE personasegue=? AND personaseguita=idpersona LIMIT ?");
+         $stmt->bind_param('ii',$idPersona, $numeroPer);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         $result->fetch_all(MYSQLI_ASSOC);
+         return $result;
+      }
+
+      //Elenco delle persone che mi seguono
+      public function getFollower($idPersona){
+         $stmt = $this->db->prepare("SELECT idpersona, nome, cognome, imgpersona FROM persona, segui_persona WHERE segui_persona.personaseguita = ? AND segui_persona.personasegue = persona.idpersona;");
+         $stmt->bind_param('i',$idPersona);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         $result->fetch_all(MYSQLI_ASSOC);
+
+         //Prendo dal db le persone che seguo e mi segno i loro id
+         $personeSeguite = $this -> getFollowing(50,$idPersona);
+         $idPersoneSeguite = array();
+         $count = 0;
+         foreach($personeSeguite as $persona){
+            $idPersoneSeguite[$count] = $persona["idpersona"];
+            $count++;
+         }
+         
+         //Mi segno gli id delle persone che mi seguono
+         $idFollower = array();
+         $count = 0;
+         foreach($result as $persona){
+            $idFollower[$count] = $persona["idpersona"];
+            $count++;
+         } 
+
+         //Divido in due array le persone che seguo e quelle no            
+         $idFollowerNonSeguiti = array_diff($idFollower,$idPersoneSeguite);
+         $idFollowerSeguiti = array_intersect($idFollower,$idPersoneSeguite); 
+
+         //Creo i due array follower grazie agli arrray id
+         $sizeFollowerS = 0;
+         $followerSeguiti = array();
+         if(count($idFollowerSeguiti) != 0){
+            foreach($result as $persona){
+               if($persona["idpersona"] == $idFollowerSeguiti[$sizeFollowerS]){
+                     $followerSeguiti[$sizeFollowerS] = $persona;
+                     $sizeFollowerS++;
+               }
+            }
+         }
+
+         $sizeFollowerNS = 0;
+         $followerNonSeguiti = array();
+         if(count($idFollowerNonSeguiti) != 0){
+            foreach($result as $persona){
+               if($persona["idpersona"] == $idFollowerNonSeguiti[$sizeFollowerNS]){
+                     $followerNonSeguiti[$sizeFollowerNS] = $persona;
+                     $sizeFollowerNS++;
+               }
+            }
+         }
+
+         //Creo l'array dei follower con il bottone associato
+         $size = 0;
+         $follower = array();
+         if($sizeFollowerS != 0){
+            foreach($followerSeguiti as $persona){
+               $follower[$size]["idpersona"] = $persona["idpersona"];
+               $follower[$size]["nome"] = $persona["nome"];
+               $follower[$size]["cognome"] = $persona["cognome"];
+               $follower[$size]["imgpersona"] = $persona["imgpersona"];
+               $follower[$size]["tipoBottone"] = "button";
+               $follower[$size]["testoBottone"] = "Non seguire pi&ugrave";
+               $size++;
+            }
+         }
+         if($sizeFollowerNS != 0){
+            foreach($followerNonSeguiti as $persona){
+               $follower[$size]["idpersona"] = $persona["idpersona"];
+               $follower[$size]["nome"] = $persona["nome"];
+               $follower[$size]["cognome"] = $persona["cognome"];
+               $follower[$size]["imgpersona"] = $persona["imgpersona"];
+               $follower[$size]["tipoBottone"] = "submit";
+               $follower[$size]["testoBottone"] = "Segui";
+               $size++;
+            }
+         }
+         return $follower;
+      }
+
+      // Elenco dei post da visualizzare nella home
+      public function getPost($numPost, $idPersona){
          $stmt = $this->db->prepare("SELECT DISTINCT idpost, imgpost, testopost, datapost, idpersona, nome, cognome, imgpersona, idcategoria, imgcategoria FROM post,segui_categoria,post_ha_categoria,segui_persona, persona, categoria WHERE ((segui_categoria.persona=? && post_ha_categoria.categoria=segui_categoria.categoria) || (segui_persona.personasegue=? && post.persona=segui_persona.personaseguita)) && persona.idpersona=post.persona && categoria.idcategoria=post_ha_categoria.categoria && post_ha_categoria.post=post.idpost ORDER BY post.datapost DESC LIMIT ?");
          $stmt->bind_param('iii',$idPersona, $idPersona, $numPost);
          $stmt->execute();
          $result = $stmt->get_result();
          $result->fetch_all(MYSQLI_ASSOC);
          return $result;
-     }
-
-     //Restituisce singolo post (utile per la notifica), inoltre imposta la notifica come visualizzata
-     public function getSinglePost($id, $tipo, $idpost){
-      $stmt = $this->db->prepare("SELECT DISTINCT idpost, imgpost, testopost, datapost, idpersona, nome, cognome, imgpersona, idcategoria, imgcategoria FROM post, post_ha_categoria, persona, categoria WHERE idpost=? && persona.idpersona=post.persona && post_ha_categoria.post=post.idpost && categoria.idcategoria=post_ha_categoria.categoria");
-      $stmt->bind_param('i', $idpost);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $result->fetch_all(MYSQLI_ASSOC);
-
-      if ($tipo == "commento") {
-         $stmt = $this->db->prepare("UPDATE commento SET visualizzato = 1 WHERE idcommento = ?");
-         $stmt->bind_param('i',$id);
-         $stmt->execute();
-      } else if ($tipo == "like") {
-         $stmt = $this->db->prepare("UPDATE `like` SET visualizzato = 1 WHERE post = ? AND persona = ?");
-         $stmt->bind_param('ii',$idpost, $id);
-         $stmt->execute();
       }
-      
-      return $result;
-  }
 
-   //Elenco dei commenti relativi ad un post
-   public function get_comments($idPost){
-      $stmt = $this->db->prepare("SELECT idcommento, data, testocommento, nome, cognome, imgpersona FROM commento, persona WHERE idpersona = commento.persona && commento.post = ? ORDER BY commento.data DESC");
-      $stmt->bind_param('i',$idPost);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $result->fetch_all(MYSQLI_ASSOC);
-      return $result;
-   }
+      //Restituisce singolo post (utile per la notifica), inoltre imposta la notifica come visualizzata
+      public function getSinglePost($id, $tipo, $idpost){
+         $stmt = $this->db->prepare("SELECT DISTINCT idpost, imgpost, testopost, datapost, idpersona, nome, cognome, imgpersona, idcategoria, imgcategoria FROM post, post_ha_categoria, persona, categoria WHERE idpost=? && persona.idpersona=post.persona && post_ha_categoria.post=post.idpost && categoria.idcategoria=post_ha_categoria.categoria");
+         $stmt->bind_param('i', $idpost);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         $result->fetch_all(MYSQLI_ASSOC);
 
-   //Salva un commento
-   public function publish_comment($idPost, $idPersona, $testo){
-      $stmt = $this->db->prepare("INSERT INTO commento (persona, post, testocommento) VALUES (?, ?, ?)");
-      $stmt->bind_param('iis',$idPersona, $idPost, $testo);
-      $stmt->execute();
-      return true;
-   }
+         if ($tipo == "commento") {
+            $stmt = $this->db->prepare("UPDATE commento SET visualizzato = 1 WHERE idcommento = ?");
+            $stmt->bind_param('i',$id);
+            $stmt->execute();
+         } else if ($tipo == "like") {
+            $stmt = $this->db->prepare("UPDATE `like` SET visualizzato = 1 WHERE post = ? AND persona = ?");
+            $stmt->bind_param('ii',$idpost, $id);
+            $stmt->execute();
+         }
+         
+         return $result;
+      }
 
-   //Controlla se il post in input possiede il like dalla persona in input
-   public function getLike($idPost, $idPersona){
-      $stmt = $this->db->prepare("SELECT post FROM `like` WHERE persona = ? AND post = ?");
-      $stmt->bind_param('ii', $idPersona, $idPost);
-      $stmt->execute();
-      $stmt->store_result();
-      $stmt->fetch();
+      //Elenco dei commenti relativi ad un post
+      public function get_comments($idPost){
+         $stmt = $this->db->prepare("SELECT idcommento, data, testocommento, nome, cognome, imgpersona FROM commento, persona WHERE idpersona = commento.persona && commento.post = ? ORDER BY commento.data DESC");
+         $stmt->bind_param('i',$idPost);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         $result->fetch_all(MYSQLI_ASSOC);
+         return $result;
+      }
 
-      if($stmt->num_rows == 0) {
-         //Like al post NON è presente
-         return false;
-      } else {
-         //Like al post è presente
+      //Salva un commento
+      public function publish_comment($idPost, $idPersona, $testo){
+         $stmt = $this->db->prepare("INSERT INTO commento (persona, post, testocommento) VALUES (?, ?, ?)");
+         $stmt->bind_param('iis',$idPersona, $idPost, $testo);
+         $stmt->execute();
          return true;
       }
-   }
 
-   //Registra o cancella il like ad un post
-   public function set_like($idPost, $idPersona) {
-      //Il like è già presente?
-      if ($this -> getLike($idPost, $idPersona)) {
-         //Caso affermativo, si procede alla cancellazione
-         $stmt = $this->db->prepare("DELETE FROM `like` WHERE post = ? AND persona = ?");
-         $stmt->bind_param('ii', $idPost, $idPersona);
-         $stmt->execute();
-
-         //E decremento nlike nel post
-         $stmt = $this->db->prepare("UPDATE post SET nlike = nlike - 1 WHERE idpost = ?");
-         $stmt->bind_param('i', $idPost);
-         $stmt->execute();
-         return false;
-      } else {
-         //Caso negativo, si procede all'inserimento
-         $stmt = $this->db->prepare("INSERT INTO `like` (persona, post) VALUES (?, ?)");
+      //Controlla se il post in input possiede il like dalla persona in input
+      public function getLike($idPost, $idPersona){
+         $stmt = $this->db->prepare("SELECT post FROM `like` WHERE persona = ? AND post = ?");
          $stmt->bind_param('ii', $idPersona, $idPost);
          $stmt->execute();
+         $stmt->store_result();
+         $stmt->fetch();
 
-         //E incremento il numero di like nel post
-         $stmt = $this->db->prepare("UPDATE post SET nlike = nlike + 1 WHERE idpost = ?");
-         $stmt->bind_param('i',  $idPost);
-         $stmt->execute();
-         return true;
+         if($stmt->num_rows == 0) {
+            //Like al post NON è presente
+            return false;
+         } else {
+            //Like al post è presente
+            return true;
+         }
       }
-   }
 
-   //Restituisce le notifiche di un utente
-   public function get_notifiche($idPersona) {
-      //Ricerca notifiche commenti
-      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, visualizzato, data, imgpersona, idcommento FROM commento, persona, post WHERE post.persona=? && commento.persona=persona.idpersona && commento.post=post.idpost LIMIT 7");
-      $stmt->bind_param('i',$idPersona);
-      $stmt->execute();
-      $result["commenti"]=$stmt->get_result();
-      $result["commenti"]->fetch_all(MYSQLI_ASSOC);
+      //Registra o cancella il like ad un post
+      public function set_like($idPost, $idPersona) {
+         //Il like è già presente?
+         if ($this -> getLike($idPost, $idPersona)) {
+            //Caso affermativo, si procede alla cancellazione
+            $stmt = $this->db->prepare("DELETE FROM `like` WHERE post = ? AND persona = ?");
+            $stmt->bind_param('ii', $idPost, $idPersona);
+            $stmt->execute();
 
-      //Ricerca notifiche likes
-      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, data, visualizzato, imgpersona, persona.idpersona FROM `like`, persona, post WHERE post.persona=? && like.persona=persona.idpersona && like.post=post.idpost LIMIT 7");
-      $stmt->bind_param('i',$idPersona);
-      $stmt->execute();
-      $result["likes"]=$stmt->get_result();
-      $result["likes"]->fetch_all(MYSQLI_ASSOC);
+            //E decremento nlike nel post
+            $stmt = $this->db->prepare("UPDATE post SET nlike = nlike - 1 WHERE idpost = ?");
+            $stmt->bind_param('i', $idPost);
+            $stmt->execute();
+            return false;
+         } else {
+            //Caso negativo, si procede all'inserimento
+            $stmt = $this->db->prepare("INSERT INTO `like` (persona, post) VALUES (?, ?)");
+            $stmt->bind_param('ii', $idPersona, $idPost);
+            $stmt->execute();
 
-      
-      //Ricerca notifiche seguiti
-      $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, personasegue, data, visualizzato, imgpersona FROM persona, segui_persona WHERE segui_persona.personaseguita=? && segui_persona.personasegue=persona.idpersona LIMIT 7");
-      $stmt->bind_param('i',$idPersona);
-      $stmt->execute();
-      $result["seguiti"]=$stmt->get_result();
-      $result["seguiti"]->fetch_all(MYSQLI_ASSOC);
+            //E incremento il numero di like nel post
+            $stmt = $this->db->prepare("UPDATE post SET nlike = nlike + 1 WHERE idpost = ?");
+            $stmt->bind_param('i',  $idPost);
+            $stmt->execute();
+            return true;
+         }
+      }
 
-      return $result;
-   }
+      //Restituisce le notifiche di un utente
+      public function get_notifiche($idPersona) {
+         //Ricerca notifiche commenti
+         $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, visualizzato, data, imgpersona, idcommento FROM commento, persona, post WHERE post.persona=? && commento.persona=persona.idpersona && commento.post=post.idpost LIMIT 7");
+         $stmt->bind_param('i',$idPersona);
+         $stmt->execute();
+         $result["commenti"]=$stmt->get_result();
+         $result["commenti"]->fetch_all(MYSQLI_ASSOC);
 
-   //Inserisci categoriaSeguita
-   public function insertCatSeguita($idElemento, $idPersona){
-      $stmt = $this->db->prepare("INSERT INTO segui_categoria VALUE (?,?);");
-      $stmt->bind_param('ii',$idPersona,$idElemento);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $result->fetch_all(MYSQLI_ASSOC);
-      return $result;
-  }
+         //Ricerca notifiche likes
+         $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, post, data, visualizzato, imgpersona, persona.idpersona FROM `like`, persona, post WHERE post.persona=? && like.persona=persona.idpersona && like.post=post.idpost LIMIT 7");
+         $stmt->bind_param('i',$idPersona);
+         $stmt->execute();
+         $result["likes"]=$stmt->get_result();
+         $result["likes"]->fetch_all(MYSQLI_ASSOC);
 
-  //Cancella categoriaSeguita
-  public function deleteCatSeguita($idElemento, $idPersona){
-      $stmt = $this->db->prepare("DELETE FROM segui_categoria WHERE segui_categoria.persona=? AND segui_categoria.categoria=?;");
-      $stmt->bind_param('ii',$idPersona,$idElemento);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $result->fetch_all(MYSQLI_ASSOC);
-      return $result;
-  }
+         
+         //Ricerca notifiche seguiti
+         $stmt = $this->db->prepare("SELECT DISTINCT nome, cognome, personasegue, data, visualizzato, imgpersona FROM persona, segui_persona WHERE segui_persona.personaseguita=? && segui_persona.personasegue=persona.idpersona LIMIT 7");
+         $stmt->bind_param('i',$idPersona);
+         $stmt->execute();
+         $result["seguiti"]=$stmt->get_result();
+         $result["seguiti"]->fetch_all(MYSQLI_ASSOC);
 
-  //Inserisci personaSeguita
-  public function insertPerSeguita($idElemento, $idPersona){
-      $stmt = $this->db->prepare("INSERT INTO segui_persona VALUE (?,?,0);");
-      $stmt->bind_param('ii',$idElemento,$idPersona);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $result->fetch_all(MYSQLI_ASSOC);
-      return $result;
-  }
+         return $result;
+      }
 
-  //Cancella personaSeguita
-  public function deletePerSeguita($idElemento, $idPersona){
-      $stmt = $this->db->prepare("DELETE FROM segui_persona WHERE personasegue=? AND personaseguita=?;");
-      $stmt->bind_param('ii',$idPersona,$idElemento);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $result->fetch_all(MYSQLI_ASSOC);
-      return $result;
-  }
+      //Inserisci categoriaSeguita
+      public function insertCatSeguita($idElemento, $idPersona){
+         $stmt = $this->db->prepare("INSERT INTO segui_categoria VALUE (?,?);");
+         $stmt->bind_param('ii',$idPersona,$idElemento);
+         $stmt->execute();
+      }
+
+      //Cancella categoriaSeguita
+      public function deleteCatSeguita($idElemento, $idPersona){
+         $stmt = $this->db->prepare("DELETE FROM segui_categoria WHERE segui_categoria.persona=? AND segui_categoria.categoria=?;");
+         $stmt->bind_param('ii',$idPersona,$idElemento);
+         $stmt->execute();
+      }
+
+      //Inserisci personaSeguita
+      public function insertPerSeguita($idElemento, $idPersona){
+         $stmt = $this->db->prepare("INSERT INTO segui_persona (personaseguita, personasegue) VALUE (?,?);");
+         $stmt->bind_param('ii',$idElemento,$idPersona);
+         $stmt->execute();
+      }
+
+      //Cancella personaSeguita
+      public function deletePerSeguita($idElemento, $idPersona){
+         $stmt = $this->db->prepare("DELETE FROM segui_persona WHERE personasegue=? AND personaseguita=?;");
+         $stmt->bind_param('ii',$idPersona,$idElemento);
+         $stmt->execute();
+      }
 }
 ?>

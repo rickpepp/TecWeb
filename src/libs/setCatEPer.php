@@ -4,40 +4,42 @@
 
     sec_session_start();
 
-    if ($dbh -> login_check()) {
+    if ($dbh -> login_check()&& isset($_GET["t"]) && isset($_GET["e"])) {
         $tipo = $_GET["t"];
         $idElemento = $_GET["e"];
 
         switch($tipo){
             case "c":
                 $categorie = $dbh -> getCategorieSeguite($_SESSION["user_id"]);
-                $count = 0;
-                foreach($categorie as  $categoria){
-                    if($categoria["idcategoria"] == $idElemento){
-                        $dbh -> deleteCatSeguita($idElemento, $_SESSION["user_id"]);
-                        break;
-                    }else{
-                        $count++;
-                    }
-                }
-                if($count != 0){
+                if($categorie->num_rows == 0){
                     $dbh -> insertCatSeguita($idElemento, $_SESSION["user_id"]);
+                    echo "Si";
+                    return;
+                }else{
+                    foreach($categorie as  $categoria){
+                        if($categoria["idcategoria"] == $idElemento){
+                            $dbh -> deleteCatSeguita($idElemento, $_SESSION["user_id"]);
+                            echo "Non";
+                            return;
+                        }
+                    }
+                    $dbh -> insertCatSeguita($idElemento, $_SESSION["user_id"]);
+                    echo "Si";
+                    return;
                 }
 
             case "f":
                 $following = $dbh -> getFollowing($_SESSION["user_id"]);
-                $count = 0;
-                foreach($following as  $follow){
-                    if($follow["idcategoria"] == $idElemento){
-                        $dbh -> deleteCatSeguita($idElemento, $_SESSION["user_id"]);
-                        break;
-                    }else{
-                        $count++;
+                    foreach($following as $persona){
+                        if($persona["idpersona"] == $idElemento){
+                            $dbh -> deletePerSeguita($idElemento, $_SESSION["user_id"]);
+                            echo "Non";
+                            return;
+                        }
                     }
-                }
-                if($count != 0){
-                    $dbh -> insertCatSeguita($idElemento, $_SESSION["user_id"]);
-                }
+                    $dbh -> insertPerSeguita($idElemento, $_SESSION["user_id"]);
+                    echo "Si";
+                    return;
         }
     } else {
         header('login.php');
