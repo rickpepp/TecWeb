@@ -126,7 +126,7 @@
                 //Notifica commento
                 case "commento":
                     echo '<li onclick="location.href=\'../views/get_single_post.php?post='.$risultato[$i]["post"].'&tipo='.$risultato[$i]["tipo"].'&id='.$risultato[$i]["id"].'\'">
-                        <img src="../img/'.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
+                        <img src="'.UPLOAD_PROF.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
                         logo_notifica($risultato[$i]["visualizzato"]);
                         echo '.png" alt="Logo Nuova Notifica"/><br/>
                         <p>
@@ -138,7 +138,7 @@
                 //Notifica Like
                 case "like":
                     echo '<li onclick="location.href=\'../views/get_single_post.php?post='.$risultato[$i]["post"].'&tipo='.$risultato[$i]["tipo"].'&id='.$risultato[$i]["id"].'\'">
-                        <img src="../img/'.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
+                        <img src="'.UPLOAD_PROF.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
                         logo_notifica($risultato[$i]["visualizzato"]);
                         echo '.png" alt="Logo Nuova Notifica"/><br/>
                         <p>
@@ -149,8 +149,8 @@
                 
                 //Notifica Seguito
                 case "seguito":
-                    echo '<li>
-                        <img src="../img/'.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
+                    echo '<li onclick="location.href=\'../views/persona.php?idpersona='.$risultato[$i]["oggetto"].'&visualizzato=1\'">
+                        <img src="'.UPLOAD_PROF.$risultato[$i]["img"].'" alt="Foto Profilo" class="icone visualizzato_'.$risultato[$i]["visualizzato"].'"/><label>'.$risultato[$i]["nome"].' '.$risultato[$i]["cognome"].'</label><img src="../img/';
                         logo_notifica($risultato[$i]["visualizzato"]);
                         echo '.png" alt="Logo Nuova Notifica"/><br/>
                         <p>

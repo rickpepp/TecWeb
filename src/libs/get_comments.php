@@ -18,7 +18,7 @@
         foreach ($comments as $comment) {
             echo '<div class="comment" id="comm_'.$comment["idcommento"].'">
                 <div>
-                    <img src="../img/'.$comment["imgpersona"].'" alt="Foto Profilo" class="icone"/>
+                    <img src="'.UPLOAD_PROF.$comment["imgpersona"].'" alt="Foto Profilo" class="icone"/>
                     <h3>'.$comment["nome"].' '.$comment["cognome"].'<br>'.$comment["data"].'</h3>
                 </div>
                 <p>

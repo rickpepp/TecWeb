@@ -176,7 +176,7 @@ div.comment {
     font-size: inherit;
     padding: 1px 6px;
     display: inline-block;
-    width: 74%;
+    width: 70%;
     overflow: hidden;
     resize: vertical;
     min-height: 40px;
@@ -211,6 +211,7 @@ input.comment {
     font-size: large;
     border-radius: 20px;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
 }
 
 input.comment:hover {
