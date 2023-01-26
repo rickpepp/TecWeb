@@ -18,11 +18,11 @@
         <header>
             <a href="javascript:history.go(-1)" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
             <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
-            <form class="web">
-                <label>Cerca<input type="text" value="Cerca"></label>
-                <a href="ricerca.php"><img src="../img/icone/Cerca.png" alt="Bottone Cerca"></a>
-            </form>
-            <a href="../libs/gestisci-post.php?action=1" class="web bottone">+</a>
+            <div class="web cerca" onclick="location.href='ricerca.php'">
+                <a href="ricerca.php" class="web cerca">Cerca</a>
+                <img src="../img/icone/Cerca.png" alt="Bottone Cerca">
+            </div>
+            <a href="../views/gestisci-post.php?action=1" class="web bottone">+</a>
             <a href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
             <a class="web"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" id="notificheButton"/></a>
             <a href="../views/persona.php?idpersona=<?php echo $_SESSION["user_id"]?>" class="web">
@@ -32,14 +32,14 @@
         </header>
         <main>
             <aside class="web">
-                <h1>Categorie</h1>
+                <h2>Categorie</h2>
                 <ul>
                     <?php foreach($templateParams["categorie"] as $categoria): ?>
                     <li>
-                        <a href="#">
+                        <a href="../views/categoria.php?idcategoria=<?php echo $categoria["idcategoria"]?>">
                             <div>
                                 <img src="<?php echo UPLOAD_DIR.$categoria["imgcategoria"]; ?>" alt="Icona" class="icone"/>
-                                <h2><?php echo $categoria["nomecategoria"]?></h2>
+                                <h3><?php echo $categoria["nomecategoria"]?></h3>
                             </div>
                         </a>
                         <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>" onclick="setCategorie(<?php echo $categoria['idcategoria']?>)" id="<?php echo "cat_".$categoria['idcategoria']?>" />
@@ -50,14 +50,14 @@
                     </li>
                 </ul>
                 <hr/>
-                <h1>Following</h1>
+                <h2>Following</h2>
                 <ul>
                     <?php foreach($templateParams["following"] as $following): ?>
                     <li>
-                        <a href="">
+                        <a href="../views/persona.php?idpersona=<?php echo $following["idpersona"]?>">
                             <div>
-                                <img src="<?php echo '../img/'.$following["imgpersona"]; ?>" alt="Foto Profilo" class="icone"/>
-                                <h2><?php echo $following["nome"]." ".$following["cognome"]; ?></h2>
+                                <img src="<?php echo UPLOAD_PROF.$following["imgpersona"]; ?>" alt="Foto Profilo" class="icone"/>
+                                <h3><?php echo $following["nome"]." ".$following["cognome"]; ?></h3>
                             </div>
                         </a>
                         <input type="button" value="Non seguire pi&ugrave;" onclick="setFollowing(<?php echo $following['idpersona']?>)" id="<?php echo "per_".$following['idpersona']?>" />    
@@ -84,7 +84,7 @@
             <div id="impostazioni" class="impostazioni web">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="../template/privacy.html">
                             <div>
                                 <img src="../img/icone/Privacy.png" alt="Icona Privacy" class="icone" />
                                 <h2>Privacy</h2>

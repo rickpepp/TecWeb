@@ -76,7 +76,8 @@ section div div img:last-child{
     float: right;
 }
 section p{
-    flex: 100%;
+    max-width: 95%;
+    overflow: hidden;
 }
 section div img{
     margin: 10px 0px;
@@ -293,27 +294,28 @@ ul.notifiche_smartphone  {
         margin-right: 30px;
     }
     /*Cerca*/
-    header form{
-        flex: 50%;
+    header div.cerca{
+        flex: 70%;
         justify-content: center;
         margin: 0px 10px;
     }
-    header form img{
+    header a.cerca img{
         max-height: 30px;
         margin:5px 4px;
     }
-    header form label{
-        font-size: 0px;
-    }
-    header form input[type="text"]{
-        display: block;
-        width: 100%;
-        margin: 2% 0;
-        padding: 4px;
-        border-radius: 10px;
-        border: 1px solid #9a031e;
+    header div.cerca a{
+        text-decoration: none;
+        color: black;
         font-size: medium;
+        display: block;
+        background-color: white;
         justify-items: center;
+        border: 1px solid #9a031e;
+        border-radius: 10px;
+        padding: 4px;
+        margin: 1% 0;
+        min-width:150px;
+        height: 25px;
     }
     /*Fine Cerca*/
     header a{
@@ -351,7 +353,7 @@ ul.notifiche_smartphone  {
         margin-right: 3%;
         background-color: rgb(251,139,36,0.55);
     }
-    aside h1{
+    aside h2{
         text-align: center;
         color:#9a031e;
         font-family:Georgia, 'Times New Roman', Times, serif;
@@ -387,7 +389,7 @@ ul.notifiche_smartphone  {
         margin: 3px;
         margin-right: 6px;
     }
-    aside ul li a h2{
+    aside ul li a h3{
         font-size: medium;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: normal;
@@ -409,8 +411,12 @@ ul.notifiche_smartphone  {
         display: none;
     }
 
+    section div div div{
+        vertical-align: bottom;
+    }
     section div div div h2{
-        width: 200px;
+        width: 100% !important;
+        margin:0px;
     }
     
     /*impostazioni e notifiche*/

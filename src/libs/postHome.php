@@ -1,8 +1,8 @@
 <section>
-    <h1 class ="web" >Home</h1>
+    <h1 class ="web">Home</h1>
     <?php foreach($templateParams["post"] as $post):?>
     <div class="post">
-        <div>
+        <div onclick="location.href='../views/persona.php?idpersona=<?php echo $post['idpersona']?>'">
             <img src="<?php echo UPLOAD_PROF.$post["imgpersona"]?>" alt="Foto Profilo" class="icone" />
             <div>
                 <h2>
@@ -16,6 +16,14 @@
         <p>
             <?php echo $post["testopost"] ?>
         </p>
+        <?php if(isset($templateParams["hashtag"])){
+            echo '<p>';
+            foreach($templateParams["hashtag"] as $hashtag){
+                echo '#'.$hashtag["nomehashtag"].' ';
+            }
+            echo '</p>';
+        }
+        ?>
         <img src="<?php echo UPLOAD_POST.$post["imgpost"]?>" alt="Immagine" class="post"/>
         <div>
             <img src="../img/<?php include "check_like.php" ?>" alt="Bottone Like" class="icone" id="like_<?php echo $post["idpost"] ?>" onclick="like(<?php echo $post["idpost"] ?>)"/>
