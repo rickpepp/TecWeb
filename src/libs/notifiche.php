@@ -105,7 +105,7 @@
                 //Notifica Seguito
                 case "seguito":
                     echo '<li>
-                        <a href="#">
+                        <a href="../views/persona.php?idpersona='.$risultato[$i]["oggetto"].'&visualizzato=1">
                             <div>
                                 <img src="../img/';
                                 logo_notifica($risultato[$i]["visualizzato"]);

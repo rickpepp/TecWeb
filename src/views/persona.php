@@ -18,7 +18,7 @@
         
         //Aside
         $templateParams["categorie"] = $dbh -> getCategorie(3,$_SESSION['user_id']);
-        $templateParams["following"] = $dbh -> getFollowing(4,$_SESSION['user_id']);
+        $templateParams["following"] = $dbh -> getFollowingNum(4,$_SESSION['user_id']);
 
         //Section
         $templateParams["section"] = "persona-home.php";
@@ -26,7 +26,10 @@
         $templateParams["persona"] = $dbh -> getPersona($_GET["idpersona"]);
         if ($_SESSION["user_id"] != $_GET["idpersona"]) {
                 $templateParams["persona_e_seguita"] =$dbh -> isFollowed($_SESSION["user_id"],$_GET["idpersona"]);
-            
+        }
+
+        if (isset($_GET["visualizzato"]) && $_GET["visualizzato"] == 1) {
+            $dbh -> seguitoVisualizzato($_SESSION["user_id"], $_GET["idpersona"]);
         }
         $templateParams["personaPost"] = $dbh -> getAllPersonaPost($_GET["idpersona"]);
         require '../libs/base.php';

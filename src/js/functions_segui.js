@@ -1,18 +1,22 @@
 //Cambia pulsante
 function setPulsante(risposta,bottone,bottone_smartphone) {
-    if(risposta === "Si"){
-        bottone.type = "button";
-        bottone.value = 'Non seguire più';
-
+    if (risposta === "Si"){
+        if (bottone !== null) {
+            bottone.type = "button";
+            bottone.value = 'Non seguire più';
+        }
+        
         //Settare i valori solo se i pulsanti smartphone sono presenti
         if (bottone_smartphone !== null) {
             bottone_smartphone.type = "button";
             bottone_smartphone.value = 'Non seguire più';
         }
     } else {
-        bottone.type = "submit";
-        bottone.value = "Segui";
-
+        if (bottone !== null) {
+            bottone.type = "submit";
+            bottone.value = "Segui";
+        }
+        
         //Settare i valori solo se i pulsanti smartphone sono presenti
         if (bottone_smartphone !== null) {
             bottone_smartphone.type = "submit";

@@ -421,6 +421,15 @@
          return $result;
       }
 
+      public function getPostFromHashtag($idPost) {
+         $stmt = $this->db->prepare("SELECT hashtag FROM hashtag_ha_post WHERE post = ?");
+         $stmt->bind_param('i',$idPost);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         $result->fetch_all(MYSQLI_ASSOC);
+         return $result;
+      }
+
       //Elenco dei commenti relativi ad un post
       public function get_comments($idPost){
          $stmt = $this->db->prepare("SELECT idcommento, data, testocommento, nome, cognome, imgpersona FROM commento, persona WHERE idpersona = commento.persona && commento.post = ? ORDER BY commento.data DESC");
@@ -732,6 +741,12 @@
             } else {
                 return true;
             }
+        }
+
+        public function seguitoVisualizzato($idSession, $idPersona) {
+         $stmt = $this->db->prepare("UPDATE segui_persona SET visualizzato = 1 WHERE personaseguita = ? AND personasegue = ?");
+         $stmt->bind_param('ii',$idSession, $idPersona);
+         $stmt->execute();
         }
     }   
  ?>
