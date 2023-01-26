@@ -65,11 +65,11 @@ section div div div{
     display: inline-block;
     max-width: 120px;
 }
-div div div h2{
+section div div div h2{
     font-size: small;
     font-family: Arial, Helvetica, sans-serif;
     vertical-align: top;
-    width: 200px;
+    width: 80%;
     margin-top: 0px;
 }
 section div div img:last-child{
@@ -410,7 +410,7 @@ ul.notifiche_smartphone  {
     }
 
     section div div div h2{
-        width: 400px;
+        width: 200px;
     }
     
     /*impostazioni e notifiche*/

@@ -12,6 +12,7 @@
         <script src="../js/functions_post.js"></script>
         <script src="../js/notifiche.js"></script>
         <script src="../js/functions_segui.js"></script>
+        <script src="../js/ricerca.js"></script>
     </head>
     <body>
         <header>
@@ -19,12 +20,14 @@
             <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
             <form class="web">
                 <label>Cerca<input type="text" value="Cerca"></label>
-                <img src="../img/icone/Cerca.png" alt="Bottone Cerca">
+                <a href="ricerca.php"><img src="../img/icone/Cerca.png" alt="Bottone Cerca"></a>
             </form>
-            <a href="../libs/gestisci-post.php" class="web bottone">+</a>
+            <a href="../libs/gestisci-post.php?action=1" class="web bottone">+</a>
             <a href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
             <a class="web"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" id="notificheButton"/></a>
-            <a href="#" class="web"><img src="<?php echo "../img/".$_SESSION['imgpersona']?>" alt="Bottone Profilo" /></a>
+            <a href="../views/persona.php?idpersona=<?php echo $_SESSION["user_id"]?>" class="web">
+                <img src="<?php echo UPLOAD_PROF.$_SESSION['imgpersona']?>" alt="Bottone Profilo" />
+            </a>
             <a class="web"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" id="impostazioniButton"/></a>
         </header>
         <main>
@@ -102,9 +105,11 @@
         <footer>
             <a href="../views/impostazioni.php"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
             <a href="notifiche_smartphone.php"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone" id="notificheButtonSmartphone"></a>
-            <a href="aggiungipost.html" class="bottone">+</a>
-            <a href="#"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
-            <a href="#"><img src="<?php echo "../img/".$_SESSION['imgpersona']?>" alt="Bottone Profilo" class="icone"></a>
+            <a href="gestisci-post.php?action=1" class="bottone">+</a>
+            <a href="ricerca.php"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
+            <a href="../views/persona.php?idpersona=<?php echo $_SESSION["user_id"]?>">
+                <img src="<?php echo UPLOAD_PROF.$_SESSION['imgpersona']?>" alt="Bottone Profilo" class="icone">
+            </a>
         </footer>
     </body>
 </html>

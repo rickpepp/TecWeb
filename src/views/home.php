@@ -24,7 +24,5 @@
         require '../libs/base.php';
     } else {
         header('login.php');
-    }
-
-    
+    }    
 ?>

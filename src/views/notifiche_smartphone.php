@@ -24,6 +24,4 @@
     } else {
         header('login.php');
     }
-
-    
 ?>
