@@ -32,6 +32,9 @@ input[name="imgpost"], input[type="checkbox"]{
     background-color: none;
     box-shadow: none;
     border-radius:none;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    vertical-align: bottom;
 }
 
 section form > ul{
@@ -42,7 +45,7 @@ section form > ul{
 }
 
 section form ul li{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 section form ul li label{
     font-family: Arial, Helvetica, sans-serif;
