@@ -20,12 +20,9 @@
         //Section
         $templateParams["section"] = "postHome.php";
         $templateParams["post"] = $dbh -> getPost(5,$_SESSION['user_id']);
-
-        $hashtag = array();
-        $templateParams["hashtag"] = $dbh -> getPostFromHashtag()
-
+        
         require '../libs/base.php';
     } else {
-        header('login.php');
+        header("location:'login.php'");
     }    
 ?>

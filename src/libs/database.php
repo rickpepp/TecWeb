@@ -422,7 +422,7 @@
       }
 
       public function getPostFromHashtag($idPost) {
-         $stmt = $this->db->prepare("SELECT hashtag FROM hashtag_ha_post WHERE post = ?");
+         $stmt = $this->db->prepare("SELECT hashtag.nomehashtag FROM hashtag_ha_post, hashtag WHERE post = ? AND hashtag.idhashtag = hashtag_ha_post.hashtag");
          $stmt->bind_param('i',$idPost);
          $stmt->execute();
          $result = $stmt->get_result();
