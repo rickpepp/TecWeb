@@ -109,6 +109,7 @@ input[type="button"] {
 input[name="altro"]{
     background-color: #9a031e;
     border-color: rgb(154,3,30);
+    width: 100%;
 }
 
 /*footer*/
@@ -402,7 +403,7 @@ ul.notifiche_smartphone  {
     section{
         max-width: 100%;
         align-items: right;
-        margin: 1% 5%; /*Margin top diminuito dal Rick*/
+        margin: 1% 5%;
     }
     section h1.web{
         display: none;

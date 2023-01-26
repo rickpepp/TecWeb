@@ -10,7 +10,7 @@
         //Header
         $templateParams["titolo"] = "TinkleArt - Following";
         $templateParams["iconaTab"] = "Amici.png";
-        $templateParams["css"] = "follow.css";
+        $templateParams["css"] = "elenchi.css";
 
         //Aside
         $templateParams["categorie"] = $dbh -> getCategorie(3,$_SESSION["user_id"]);

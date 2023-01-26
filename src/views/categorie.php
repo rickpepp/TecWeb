@@ -9,7 +9,7 @@
         //Head
         $templateParams["titolo"] = "TinkleArt - Home";
         $templateParams["iconaTab"] = "Tecnologia.png";
-        $templateParams["css"] = "follow.css";
+        $templateParams["css"] = "elenchi.css";
 
         //Aside
         $templateParams["categorie"] = $dbh -> getCategorie(3,$_SESSION["user_id"]);
