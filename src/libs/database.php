@@ -674,5 +674,17 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-    }
+        public function isFollowed($idSession, $idPersona) {
+            $stmt = $this->db->prepare("SELECT personaseguita, personasegue FROM segui_persona WHERE personaseguita = ? AND personasegue = ?");
+            $stmt->bind_param('ii',$idPersona,$idSession);
+            $stmt->execute();
+            $stmt->store_result();
+
+            if($stmt->num_rows == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }   
  ?>

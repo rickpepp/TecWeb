@@ -6,6 +6,7 @@
     require_once 'phpmailer/src/Exception.php';
     require_once 'phpmailer/src/PHPMailer.php';
     require_once 'phpmailer/src/SMTP.php';
+    require_once ("../libs/bootstrap.php");
     
     //Inizio nuova sessione in modalità sicura
     function sec_session_start() {
@@ -147,4 +148,5 @@
         }
         return array($result, $msg);
     }
+
 ?>

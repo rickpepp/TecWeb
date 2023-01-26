@@ -2,19 +2,24 @@
     <?php if(isset($templateParams["formmsg"])):?>
         <p><?php echo $templateParams["formmsg"]; ?></p>
     <?php endif; ?>
+    <div>
+    <img class="imgp" src="<?php echo UPLOAD_PROF.$templateParams["persona"][0]["imgpersona"]?>" alt="Foto Profilo"/>
+    <?php if($templateParams["persona"][0]["idpersona"] == $templateParams["mioprofilo"][0]["idpersona"]):?>
+            <img class="mod"src="<?php echo UPLOAD_DIR.$templateParams["iconaMod"]?>" alt="Modifica Profilo" class="icone" onclick="location.href='gestisci-profilo.php?idpersona=<?php echo $templateParams["persona"][0]["idpersona"]; ?>'"/>
+    <?php endif; ?>
     <div class="modifica">
-        <img src="<?php echo UPLOAD_PROF.$templateParams["persona"][0]["imgpersona"]?>" alt="Foto Profilo"/>
-        <?php if($templateParams["persona"][0]["idpersona"] == $templateParams["mioprofilo"][0]["idpersona"]):?>
-            <img src="<?php echo UPLOAD_DIR.$templateParams["iconaMod"]?>" alt="Modifica Profilo" class="icone" onclick="location.href='gestisci-profilo.php?idpersona=<?php echo $templateParams["persona"][0]["idpersona"]; ?>'"/>
-        <?php endif; ?>
-        <div>
-            <h2><?php echo $templateParams["persona"][0]["nome"]?>
-                <br />
-                <?php echo $templateParams["persona"][0]["cognome"]?></h2>
-        </div>
+        <h2><?php echo $templateParams["persona"][0]["nome"]." ".$templateParams["persona"][0]["cognome"]?></h2>
         <?php if ($templateParams["persona"][0]["idpersona"] != $templateParams["mioprofilo"][0]["idpersona"]):?>
-            <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>">
+            <?php if($templateParams["persona_e_seguita"]) {
+                $persona["tipoBottone"] = "button";
+                $persona["testoBottone"] = "Non seguire pi&ugrave;";
+                } else {
+                    $persona["tipoBottone"] = "submit";
+                    $persona["testoBottone"] = "Segui";
+                }?>
+            <input type="<?php echo $persona["tipoBottone"] ?>" value="<?php echo $persona["testoBottone"] ?>">
         <?php endif; ?>
+            </div>
     </div>
     <p>
     <?php if (strlen($templateParams["persona"][0]["descrizione"] > 0)):?>
@@ -23,7 +28,7 @@
         Inserire Descrizione
     <?php endif;?>
     </p>
-    <input type="button" value="FOLLOWER">
+    <input type="button" name="altro" value="FOLLOWER">
 </div>
 <?php foreach($templateParams["personaPost"] as $post):?>
 <div class="post">

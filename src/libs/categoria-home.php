@@ -1,7 +1,10 @@
 <?php if($templateParams["categoria"]==null): ?>
     <p>CATEGORIA NON TROVATA</p>
 <?php else: ?>
-<h1><?php echo $templateParams["categoria"][0]["nomecategoria"];?> <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>"></h1>
+<div class="titolo">
+    <h1><?php echo $templateParams["categoria"][0]["nomecategoria"];?> </h1>
+    <input type="<?php echo $categoria["tipoBottone"] ?>" value="<?php echo $categoria["testoBottone"] ?>">
+</div>
 <?php if($templateParams["categoriePost"]==null): ?>
     <p>NESSUN POST TROVATO PER QUESTA CATEGORIA</p>
 <?php else: ?>

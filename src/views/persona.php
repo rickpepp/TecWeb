@@ -2,6 +2,7 @@
     require_once ("../libs/bootstrap.php");
     require_once ("../libs/functions.php");
 
+
     sec_session_start();
     //Gestione del profilo diversificando se e' il profilo personale o di un altra persona
     if ($dbh -> login_check()) {
@@ -23,6 +24,10 @@
         $templateParams["section"] = "persona-home.php";
         $templateParams["mioprofilo"] = $dbh -> getPersona($_SESSION["user_id"]);
         $templateParams["persona"] = $dbh -> getPersona($_GET["idpersona"]);
+        if ($_SESSION["user_id"] != $_GET["idpersona"]) {
+                $templateParams["persona_e_seguita"] =$dbh -> isFollowed($_SESSION["user_id"],$_GET["idpersona"]);
+            
+        }
         $templateParams["personaPost"] = $dbh -> getAllPersonaPost($_GET["idpersona"]);
         require '../libs/base.php';
 

@@ -63,7 +63,7 @@
                 </ul>
             </li>
             <li>
-                <input type="button" name="submitAnnulla" onclick="location.href='persona.php?idpersona=<?php echo $templateParams["mioprofilo"][0]["idpersona"];?>'" value="Annulla" />
+                <input class="altro" type="button" name="submitAnnulla" onclick="location.href='persona.php?idpersona=<?php echo $templateParams["mioprofilo"][0]["idpersona"];?>'" value="Annulla" />
                 <input type="submit" name="submitSalva" value="<?php echo $azione; ?>" />
             </li>
         </ul>    

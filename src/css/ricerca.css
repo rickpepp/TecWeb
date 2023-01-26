@@ -39,6 +39,7 @@ section > form input[type="search"]{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
     border-radius: 20px;
     margin: 14px 2px;
+    color: #000;
 }
 
 section > form > ul {

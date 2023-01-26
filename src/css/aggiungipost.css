@@ -27,26 +27,11 @@ section h1 {
     font-size: xx-large;
 }
 
-section > form input[type="submit"] {
-    width: 120px;
-    height: 28px;
-    color:white;
-    font-size: medium;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
-    border-radius: 20px;
-    margin: 5px 4px 20px;
-    background-color: rgb(81, 186, 84);
-}
-
-section > form input[type="button"] {
-	width: 120px;
-    height: 28px;
-    color:white;
-    font-size: medium;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
-    border-radius: 20px;
-    margin: 5px 4px 20px;
-    background-color: #9a031e;
+input[name="imgpost"], input[type="checkbox"]{
+    border-color: none;
+    background-color: none;
+    box-shadow: none;
+    border-radius:none;
 }
 
 section form > ul{
