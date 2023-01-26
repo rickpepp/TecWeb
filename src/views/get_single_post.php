@@ -14,7 +14,11 @@
 
         //Aside
         $templateParams["categorie"] = $dbh -> getCategorie(3,$_SESSION['user_id']);
+<<<<<<< HEAD
         $templateParams["following"] = $dbh -> getFollowingNum(4,$_SESSION['user_id']);
+=======
+        $templateParams["following"] = $dbh -> getFollowing(4,$_SESSION['user_id']);
+>>>>>>> 4f952d5098c895b561be3273e59eaab5ec91516a
 
         //Section
         $templateParams["section"] = "postHome.php";
