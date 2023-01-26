@@ -1,0 +1,32 @@
+section h1 {
+    text-align: left;
+    color:#9a031e;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    align-self: center;
+}
+
+a {
+    text-decoration: none;
+    color:#000;
+}
+a:hover{
+    color:#9a031e;
+}
+
+div.titolo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0%;
+}
+
+section input[type="button"], section input[type="submit"] {
+    align-self: center;
+    margin-left: 20px;
+}
+
+@media screen and (min-width:768px){
+    section{
+        width:100%;
+    }
+}
