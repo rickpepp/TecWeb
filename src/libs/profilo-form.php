@@ -5,10 +5,10 @@
     <h1>Modifica Profilo</h1>
         <ul>
             <li>
-                <label for="imgpersona">Img Persona: </label><input type="file" name="imgpersona" id="imgpersona" />
+                <label class="imgp" for="imgpersona">Inserisci immagine</label><input type="file" name="imgpersona" id="imgpersona" />
             </li>
             <li>
-                <img src="<?php echo UPLOAD_PROF.$persona[0]["imgpersona"]; ?>" alt="" />
+                <img class="profilo" src="<?php echo UPLOAD_PROF.$persona[0]["imgpersona"]; ?>" alt="" />
             </li>
             <li>
                 <label for="descrizione">Descrizione:</label><textarea id="descrizione" name="descrizione" maxlength="500"><?php echo $persona[0]["descrizione"]; ?></textarea>

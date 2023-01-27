@@ -16,7 +16,6 @@ section {
     position: top;
     padding:0px;
     margin:0px;
-    width: 100% !important;
 }
 
 section h1 {
@@ -72,7 +71,7 @@ section form > ul > li{
     margin-bottom: 30px !important;
 }
 
-input[type="file"][name="imgpost"]{
+input[type="file"][name="imgpost"],input[type="file"][name="imgpersona"]{
     color: black;
     display: none;
 }
@@ -88,6 +87,9 @@ label.imgp{
     margin: 5% 4px;
     vertical-align: center;
     padding: 1%;
+}
+img.profilo{
+    max-width: 200px;
 }
 @media screen and (min-width:768px){
     section{

@@ -7,7 +7,7 @@
     if ($dbh -> login_check()) {
         $templateParams["titolo"] = "TinkleArt - Gestisci Profilo";
         $templateParams["iconaTab"] = "Home.png";
-        $templateParams["css"] = "gestisciprofilo.css";
+        $templateParams["css"] = "aggiungipost.css";
         
         //Aside
         $templateParams["categorie"] = $dbh -> getCategorie(3,$_SESSION['user_id']);
