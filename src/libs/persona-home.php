@@ -5,7 +5,7 @@
     <div>
         <img class="imgp" src="<?php echo UPLOAD_PROF.$templateParams["persona"][0]["imgpersona"]?>" alt="Foto Profilo"/>
         <?php if($templateParams["persona"][0]["idpersona"] == $templateParams["mioprofilo"][0]["idpersona"]):?>
-            <img class="mod icone" src="<?php echo UPLOAD_DIR.$templateParams["iconaMod"]?>" alt="Modifica Profilo" class="icone" onclick="location.href='gestisci-profilo.php?idpersona=<?php echo $templateParams['persona'][0]['idpersona']; ?>'"/>
+            <img class="mod icone" src="<?php echo UPLOAD_DIR.$templateParams["iconaMod"]?>" alt="Modifica Profilo" onclick="location.href='gestisci-profilo.php?idpersona=<?php echo $templateParams['persona'][0]['idpersona']; ?>'"/>
         <?php endif; ?>
         <div class="modifica">
             <h2><?php echo $templateParams["persona"][0]["nome"]." ".$templateParams["persona"][0]["cognome"]?></h2>
