@@ -2,7 +2,7 @@
 <ul>
     <?php foreach ($templateParams["categorieElenco"] as $categoria):?>
     <li>
-        <a href="#">
+        <a href="../views/categoria.php?idcategoria=<?php echo $categoria["idcategoria"]?>">
             <img src="<?php echo UPLOAD_DIR.$categoria["imgcategoria"] ?>" alt="<?php echo 'Categoria_'.$categoria["nomecategoria"] ?>" class="icone" />
             <h2><?php echo $categoria["nomecategoria"] ?></h2>
         </a>

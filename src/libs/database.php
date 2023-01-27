@@ -371,8 +371,14 @@
                $follower[$size]["nome"] = $persona["nome"];
                $follower[$size]["cognome"] = $persona["cognome"];
                $follower[$size]["imgpersona"] = $persona["imgpersona"];
-               $follower[$size]["tipoBottone"] = "button";
-               $follower[$size]["testoBottone"] = "Non seguire pi&ugrave";
+               if ($this -> isFollowed($idPersona,$persona["idpersona"])) {
+                  $follower[$size]["tipoBottone"] = "button";
+                  $follower[$size]["testoBottone"] = "Non seguire pi&ugrave";
+               } else {
+                  $follower[$size]["tipoBottone"] = "submit";
+                  $follower[$size]["testoBottone"] = "Segui";
+               }
+               
                $size++;
             }
          }
@@ -382,8 +388,14 @@
                $follower[$size]["nome"] = $persona["nome"];
                $follower[$size]["cognome"] = $persona["cognome"];
                $follower[$size]["imgpersona"] = $persona["imgpersona"];
-               $follower[$size]["tipoBottone"] = "submit";
-               $follower[$size]["testoBottone"] = "Segui";
+               if ($this -> isFollowed($idPersona,$persona["idpersona"])) {
+                  $follower[$size]["tipoBottone"] = "button";
+                  $follower[$size]["testoBottone"] = "Non seguire pi&ugrave";
+               } else {
+                  $follower[$size]["tipoBottone"] = "submit";
+                  $follower[$size]["testoBottone"] = "Segui";
+               }
+
                $size++;
             }
          }
@@ -733,6 +745,19 @@
         public function isFollowed($idSession, $idPersona) {
             $stmt = $this->db->prepare("SELECT personaseguita, personasegue FROM segui_persona WHERE personaseguita = ? AND personasegue = ?");
             $stmt->bind_param('ii',$idPersona,$idSession);
+            $stmt->execute();
+            $stmt->store_result();
+
+            if($stmt->num_rows == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        public function isCategoriaSeguita($idSession,$idCategotia) {
+         $stmt = $this->db->prepare("SELECT persona, categoria FROM segui_categoria WHERE persona = ? AND categoria = ?");
+            $stmt->bind_param('ii',$idSession,$idCategotia);
             $stmt->execute();
             $stmt->store_result();
 
