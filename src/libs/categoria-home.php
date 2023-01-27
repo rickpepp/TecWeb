@@ -3,7 +3,7 @@
 <?php else: ?>
 <div class="titolo">
     <h1><?php echo $templateParams["categoria"][0]["nomecategoria"];?> </h1>
-    <input type="<?php echo $templateParams["categoria"][0]["tipoBottone"] ?>" value="<?php echo $templateParams["categoria"][0]["testoBottone"] ?>" onclick="setCategorie(<?php echo $_GET['idcategoria'] ?>)">
+    <input type="<?php echo $templateParams["categoria"][0]["tipoBottone"] ?>" value="<?php echo $templateParams["categoria"][0]["testoBottone"] ?>" onclick="setCategorie(<?php echo $_GET['idcategoria'] ?>)" id="cat_smartphone_<?php echo $_GET['idcategoria'] ?>">
 </div>
 <?php if($templateParams["categoriePost"]==null): ?>
     <p>NESSUN POST TROVATO PER QUESTA CATEGORIA</p>
