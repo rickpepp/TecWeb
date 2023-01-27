@@ -10,7 +10,7 @@
         echo '<div class="comment">
             <form>
                 <span class="textarea" role="textbox" contenteditable id="span_comment"></span>
-                <input type="button" class="comment" value="Invia" onclick="publish_comment('.$_GET["id"].')">
+                <input type="button" class="comment" value="Invia" onclick="publish_comment('.$_GET["id"].')"/>
             </form> 
             </div>';
 

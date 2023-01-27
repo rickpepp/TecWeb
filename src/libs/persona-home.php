@@ -5,7 +5,7 @@
     <div>
         <img class="imgp" src="<?php echo UPLOAD_PROF.$templateParams["persona"][0]["imgpersona"]?>" alt="Foto Profilo"/>
         <?php if($templateParams["persona"][0]["idpersona"] == $templateParams["mioprofilo"][0]["idpersona"]):?>
-            <img class="mod"src="<?php echo UPLOAD_DIR.$templateParams["iconaMod"]?>" alt="Modifica Profilo" class="icone" onclick="location.href='gestisci-profilo.php?idpersona=<?php echo $templateParams['persona'][0]['idpersona']; ?>'"/>
+            <img class="mod icone" src="<?php echo UPLOAD_DIR.$templateParams["iconaMod"]?>" alt="Modifica Profilo" class="icone" onclick="location.href='gestisci-profilo.php?idpersona=<?php echo $templateParams['persona'][0]['idpersona']; ?>'"/>
         <?php endif; ?>
         <div class="modifica">
             <h2><?php echo $templateParams["persona"][0]["nome"]." ".$templateParams["persona"][0]["cognome"]?></h2>
@@ -28,14 +28,14 @@
                 Inserire Descrizione
         <?php endif;?>
     </p>
-    <input type="button" name="altro" value="FOLLOWER" onclick="location.href='../views/follower.php?idPersona=<?php echo $templateParams['persona'][0]['idpersona'] ?>'">
+    <input type="button" name="altro" value="FOLLOWER" onclick="location.href='../views/follower.php?idPersona=<?php echo $templateParams['persona'][0]['idpersona'] ?>'"/>
 </div>  
 <?php foreach($templateParams["personaPost"] as $post):?>
 <div class="post">
     <div onclick="location.href='../views/persona.php?idpersona=<?php echo $post['idpersona']?>">
         <img src="<?php echo UPLOAD_PROF.$post["imgpersona"]?>" alt="Foto Profilo" class="icone" onclick="location.href='persona.php?idpersona=<?php echo $post["idpersona"]; ?>'"/>
         <div>
-            <h2><?php echo $post["nome"]." ".$post["cognome"] ?></a>
+            <h2><?php echo $post["nome"]." ".$post["cognome"] ?>
             <br />
             <?php echo substr($post["datapost"], 0, -9) ?>
             </h2>

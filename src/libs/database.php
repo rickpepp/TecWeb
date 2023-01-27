@@ -433,15 +433,6 @@
          return $result;
       }
 
-      public function getPostFromHashtag($idPost) {
-         $stmt = $this->db->prepare("SELECT hashtag.nomehashtag FROM hashtag_ha_post, hashtag WHERE post = ? AND hashtag.idhashtag = hashtag_ha_post.hashtag");
-         $stmt->bind_param('i',$idPost);
-         $stmt->execute();
-         $result = $stmt->get_result();
-         $result->fetch_all(MYSQLI_ASSOC);
-         return $result;
-      }
-
       //Elenco dei commenti relativi ad un post
       public function get_comments($idPost){
          $stmt = $this->db->prepare("SELECT idcommento, data, testocommento, nome, cognome, imgpersona FROM commento, persona WHERE idpersona = commento.persona && commento.post = ? ORDER BY commento.data DESC");
@@ -762,6 +753,7 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        //Controlla se persona è seguita
         public function isFollowed($idSession, $idPersona) {
             $stmt = $this->db->prepare("SELECT personaseguita, personasegue FROM segui_persona WHERE personaseguita = ? AND personasegue = ?");
             $stmt->bind_param('ii',$idPersona,$idSession);
@@ -775,6 +767,7 @@
             }
         }
 
+        //Controlla se categoria è seguita
         public function isCategoriaSeguita($idSession,$idCategotia) {
          $stmt = $this->db->prepare("SELECT persona, categoria FROM segui_categoria WHERE persona = ? AND categoria = ?");
             $stmt->bind_param('ii',$idSession,$idCategotia);
@@ -788,6 +781,7 @@
             }
         }
 
+        //Imposta le notifiche seguito su visualizzato
         public function seguitoVisualizzato($idSession, $idPersona) {
          $stmt = $this->db->prepare("UPDATE segui_persona SET visualizzato = 1 WHERE personaseguita = ? AND personasegue = ?");
          $stmt->bind_param('ii',$idSession, $idPersona);

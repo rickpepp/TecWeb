@@ -28,7 +28,7 @@
                         <section>
                             <form method=\"post\" action=\"http://localhost/views/reimposta_password.php\">
                                 <p>Questo link è valido per 10 minuti, il codice di recupero è il seguente: $recupero2</p>
-                                <input type=\"hidden\" name=\"recupero\" value=\"$recupero\">
+                                <input type=\"hidden\" name=\"recupero\" value=\"$recupero\"/>
                                 <button type=\"submit\">
                                 Vai alla pagina reimposta password
                                 </button>

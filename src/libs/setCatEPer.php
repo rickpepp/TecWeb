@@ -44,6 +44,6 @@
                     return;
         }
     } else {
-        header('login.php');
+        header('location: ../views/login.php');
     }    
 ?>

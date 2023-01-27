@@ -20,7 +20,7 @@
             <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo" onclick="location.href='../views/home.php'"/>
             <div class="web cerca" onclick="location.href='ricerca.php'">
                 <a href="ricerca.php" class="web cerca">Cerca</a>
-                <img src="../img/icone/Cerca.png" alt="Bottone Cerca">
+                <img src="../img/icone/Cerca.png" alt="Bottone Cerca"/>
             </div>
             <a href="../views/gestisci-post.php?action=1" class="web bottone">+</a>
             <a href="../views/home.php" class="web"><img src="../img/icone/Home.png" alt="Bottone Home" /></a>
@@ -104,11 +104,11 @@
         </main>
         <footer>
             <a href="../views/impostazioni.php"><img src="../img/icone/Menu.png" alt="Bottone Impostazioni" class="icone"></a>
-            <a href="notifiche_smartphone.php"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone" id="notificheButtonSmartphone"></a>
+            <a href="notifiche_smartphone.php"><img src="../img/icone/Notifiche.png" alt="Bottone Notifiche" class="icone" id="notificheButtonSmartphone"/></a>
             <a href="gestisci-post.php?action=1" class="bottone">+</a>
-            <a href="ricerca.php"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"></a>
+            <a href="ricerca.php"><img src="../img/icone/Cerca.png" alt="Bottone Cerca" class="icone"/></a>
             <a href="../views/persona.php?idpersona=<?php echo $_SESSION["user_id"]?>">
-                <img src="<?php echo UPLOAD_PROF.$_SESSION['imgpersona']?>" alt="Bottone Profilo" class="icone">
+                <img src="<?php echo UPLOAD_PROF.$_SESSION['imgpersona']?>" alt="Bottone Profilo" class="icone"/>
             </a>
         </footer>
     </body>

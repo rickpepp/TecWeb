@@ -23,6 +23,6 @@
         
         require '../libs/base.php';
     } else {
-        header("location:'login.php'");
+        header("location: login.php");
     }    
 ?>

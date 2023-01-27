@@ -9,15 +9,15 @@
     </head>
     <body>
         <header>
-            <img src="../img/icone/TinkleArt.png" alt="TinkleArt">
+            <img src="../img/icone/TinkleArt.png" alt="TinkleArt"/>
         </header>
         <main>
             <section>
                 <form method="post" action="../libs/processo_recupero_password.php">
                     <h2>Inserisci mail per recupero password</h2><br>
-                    <label>Email<input type="text" name="email_registrazione" required><br></label>
+                    <label>Email<input type="text" name="email_registrazione" required/><br/></label>
                     <footer class="recupera">
-                        <input type="submit" value="Recupera" class="verde">
+                        <input type="submit" value="Recupera" class="verde"/>
                         <a href="../views/login.php">Torna alla pagina di accesso</a>
                     </footer>
                 </form>

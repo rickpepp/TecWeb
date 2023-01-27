@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <img src="../img/icone/TinkleArt.png" alt="TinkleArt">
+            <img src="../img/icone/TinkleArt.png" alt="TinkleArt"/>
         </header>
         <main>
             <section class="centrato">

@@ -22,6 +22,6 @@
 
         require '../libs/base.php';
     } else {
-        header('login.php');
+        header('location: ../views/login.php');
     }
 ?>

@@ -11,19 +11,19 @@
     </head>
     <body>
         <header>
-            <img src="../img/icone/TinkleArt.png" alt="TinkleArt">
+            <img src="../img/icone/TinkleArt.png" alt="TinkleArt"/>
         </header>
         <main>
             <section>
                 <form method="post" action="../libs/processo_reimposta_password.php">
-                    <h2>Reimposta la nuova password</h2><br>
-                    <label>Codice di Recupero<input type="text" name="codice_recupero"></label><br>
-                    <label>Password<input type="password" name="password_registrazione" id="spassword" onkeyup="controllo_password()"></label><br>
-                    <label>Conferma Password<input type="password" name="cpassword_registrazione" id="check_password" onkeyup="password_uguali()" disabled></label><br>
-                    <input type="hidden" name="recupero" value="<?php echo $_POST["recupero"] ?>">
+                    <h2>Reimposta la nuova password</h2><br/>
+                    <label>Codice di Recupero<input type="text" name="codice_recupero"/></label><br/>
+                    <label>Password<input type="password" name="password_registrazione" id="spassword" onkeyup="controllo_password()"/></label><br/>
+                    <label>Conferma Password<input type="password" name="cpassword_registrazione" id="check_password" onkeyup="password_uguali()" disabled/></label><br/>
+                    <input type="hidden" name="recupero" value="<?php echo $_POST["recupero"] ?>"/>
                     <footer class="recupera">
                         <p id="informazioni"></p>
-                        <input type="button" class="verde"  value="Reimposta" id="rbutton" onclick="formhashr(this.form, this.form.spassword,'reimpostazione');">
+                        <input type="button" class="verde"  value="Reimposta" id="rbutton" onclick="formhashr(this.form, this.form.spassword,'reimpostazione');"/>
                         <a href="login.php">Torna alla pagina di accesso</a>
                     </footer>
                 </form>
