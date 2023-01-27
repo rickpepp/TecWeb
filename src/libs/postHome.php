@@ -16,7 +16,7 @@
     <p>
         <?php echo $post["testopost"] ?>
     </p>
-    <?php if(isset($post["imgpost"])){
+    <?php if($post["imgpost"]!= null){
         echo '<img src='.UPLOAD_POST.$post["imgpost"].' alt="Immagine" class="post"/>';
     }?>
     <div>
