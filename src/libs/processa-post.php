@@ -133,7 +133,7 @@
             $persona =  $_SESSION["user_id"];
             $dbh->deleteCategoriesOfPost($idpost);
             $dbh->deleteAllHashtagOfPost($idpost);
-            $dbh->deletePersonaPost($idpost, $persona);
+            $dbh->deletePersonaPost($idpost);
             
             $msg = "Cancellazione completata correttamente!";
             header("location: ../views/persona.php?formmsg=".$msg."&idpersona=".$persona);

@@ -582,12 +582,32 @@
         }
         
         //Cancellazione post
-        public function deletePersonaPost($idpost, $idpersona){
-            $query = "DELETE FROM post WHERE idpost = ? AND persona = ?";
+        public function deletePersonaPost($idpost){
+            $query = "DELETE FROM commento WHERE post = ?";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('ii',$idpost, $idpersona);
+            $stmt->bind_param('i',$idpost);
             $stmt->execute();
-            var_dump($stmt->error);
+
+            $query = "DELETE FROM `like` WHERE post = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$idpost);
+            $stmt->execute();
+
+            $query = "DELETE FROM post_ha_categoria WHERE post = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$idpost);
+            $stmt->execute();
+
+            $query = "DELETE FROM hashtag_ha_post WHERE post = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$idpost);
+            $stmt->execute();
+
+            $query = "DELETE FROM post WHERE idpost = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('i',$idpost);
+            $stmt->execute();
+
             return true;
         }
         

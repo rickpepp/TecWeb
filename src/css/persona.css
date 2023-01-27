@@ -38,27 +38,7 @@ div.info p {
     margin: 30px 20px 30px;
     overflow: hidden;
 }
-input[name="altro"]{
+input[value="FOLLOWER"]{
     height: 36px;
     margin: 5px 4px 20px;
 }
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-section a {
-    color: black;
-    text-decoration: none;
-}*/
