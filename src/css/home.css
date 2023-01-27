@@ -404,7 +404,7 @@ ul.notifiche_smartphone  {
     
     /*section*/
     section{
-        max-width: 100%;
+        width: 100%;
         align-items: right;
         margin: 1% 5%;
     }

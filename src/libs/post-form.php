@@ -14,7 +14,7 @@
         <ul>
             <li>
                 <?php if($templateParams["azione"]!=3): ?>
-                <label for="imgpost">Img Post</label><input type="file" name="imgpost" id="imgpost" />
+                <label class="imgp" for="imgpost">Inserisci immagine</label><input type="file" name="imgpost" id="imgpost" />
                 <?php endif; ?>
             </li>
             <li>
@@ -30,6 +30,7 @@
                 <?php endif; ?>
                 </li>
             <li>
+                <h2> Categoria </h2>
                 <ul>
                     <?php if($templateParams["azione"]!=3): ?>
                         <?php foreach($templateParams["categorietot"] as $categoria): ?>
@@ -46,6 +47,7 @@
                     <?php endif; ?>
                 </ul>
                 <hr>
+                <h2>Hashtag</h2>
                 <ul>
                     <?php if($templateParams["azione"]!=3): ?>
                         <?php foreach($templateParams["hashtagtot"] as $hashtag): ?>

@@ -17,7 +17,7 @@
     <body>
         <header>
             <a href="javascript:history.go(-1)" class="phone"><img src="../img/icone/Indietro.png" alt="Bottone Indietro"/></a>
-            <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo"/>
+            <img src="../img/icone/TinkleArt.png" alt="TinkleArt" class="logo" onclick="location.href='../views/home.php'"/>
             <div class="web cerca" onclick="location.href='ricerca.php'">
                 <a href="ricerca.php" class="web cerca">Cerca</a>
                 <img src="../img/icone/Cerca.png" alt="Bottone Cerca">

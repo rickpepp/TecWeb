@@ -21,13 +21,13 @@
                     $categoria["idcategoria"] . "'>" . "<img src='" . 
                     UPLOAD_DIR.$categoria["imgcategoria"] . "' alt='Categoria_'" . 
                     $categoria["nomecategoria"] . " />" . $categoria["nomecategoria"] . 
-                    "</a><input type='submit' value='Segui'></li>";
+                    "</a></li>";
                 } else {
                     $hint= $hint . "<li><a href='categoria.php?idcategoria=" . 
                     $categoria["idcategoria"] . "'>" . "<img src='" . 
                     UPLOAD_DIR.$categoria["imgcategoria"] . "' alt='Categoria_'" . 
                     $categoria["nomecategoria"] . " />" . $categoria["nomecategoria"] . 
-                    "</a><input type='submit' value='Segui'></li>";
+                    "</a></li>";
                 }
             }
         }
@@ -49,10 +49,6 @@
                     " />" . $persona["nome"] . " " . $persona["cognome"] . 
                     "</a>";
                 }
-                if ($persona["idpersona"] != $_SESSION["user_id"]) {
-                    $hint = $hint . "<input type='submit' value='Segui'></li>";
-                }
-                
             }
         }
         //confronta con tutti gli hashtag

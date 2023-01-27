@@ -1,4 +1,3 @@
-
 div.info{
     display: flex;
     flex-direction: column;
@@ -34,11 +33,16 @@ div.info div h2{
     margin-bottom: 0%;
 }
 div.info p {
-    width: 40vw !important;
+    width: 80vw !important;
     margin: 30px 20px 30px;
     overflow: hidden;
 }
 input[value="FOLLOWER"]{
     height: 36px;
     margin: 5px 4px 20px;
+}
+@media screen and (min-width:768px){
+    div.info p {
+        width: 45vw !important;
+    }
 }

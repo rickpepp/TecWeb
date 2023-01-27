@@ -6,7 +6,7 @@
     //Rappresenta tutti i post relativi ad un hashtag
     if ($dbh -> login_check()) {
         $templateParams["titolo"] = "TinkleArt - Hashtag";
-        $templateParams["css"] = "hashtag.css";
+        $templateParams["css"] = "categoria.css";
         $templateParams["iconaTab"] = "Home.png";
         $templateParams["iconaMod"] = "Modifica.png";
         $templateParams["iconaElimina"] = "Elimina.png";

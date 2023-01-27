@@ -2,7 +2,7 @@
 <ul>
     <?php foreach($templateParams["followingElenco"] as $persona):?>
     <li>
-        <a href="#">
+        <a href="../views/persona.php?idpersona=<?php echo $persona["idpersona"]?>">
             <img src="<?php echo UPLOAD_PROF.$persona["imgpersona"] ?>" alt="Foto Profilo" class="icone"/>
             <h2><?php echo $persona["nome"]." ".$persona["cognome"] ?></h2>
         </a>

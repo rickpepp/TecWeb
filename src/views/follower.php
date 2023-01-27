@@ -18,7 +18,7 @@
 
         //Section
         $templateParams["section"] = "followerElenco.php";
-        $templateParams["followerElenco"] = $dbh -> getFollower($_SESSION["user_id"]);
+        $templateParams["followerElenco"] = $dbh -> getFollower($_GET["idPersona"]);
         
         require '../libs/base.php';
     }else {

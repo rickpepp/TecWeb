@@ -16,6 +16,7 @@ section {
     position: top;
     padding:0px;
     margin:0px;
+    width: 100% !important;
 }
 
 section h1 {
@@ -58,7 +59,7 @@ section form ul li label{
 }
 
 section form ul li textarea{
-    width: 100%;
+    width: 90%;
     height: 250px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
@@ -67,7 +68,27 @@ section form ul li textarea{
 section form ul li ul {
     text-align: left;
 }
+section form > ul > li{
+    margin-bottom: 30px !important;
+}
 
+input[type="file"][name="imgpost"]{
+    color: black;
+    display: none;
+}
+label.imgp{
+    background-color: rgb(227, 100, 20);
+    border: 1px solid rgb(227, 100, 20);
+    color: white;
+    width: 120px;
+    height: 28px;
+    font-size: small;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
+    border-radius: 20px;
+    margin: 5% 4px;
+    vertical-align: center;
+    padding: 1%;
+}
 @media screen and (min-width:768px){
     section{
         width:65%;

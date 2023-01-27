@@ -64,12 +64,14 @@
         $risultato[$i]["img"] = $seguito["imgpersona"];
         $i++; 
     }
-
-    //Ordino l'array in base alla data in ordine decrescente
-    array_multisort(array_column($risultato,"data"),SORT_DESC,$risultato);
+    
+    if(isset($risultato)) {
+        //Ordino l'array in base alla data in ordine decrescente
+        array_multisort(array_column($risultato,"data"),SORT_DESC,$risultato);
+    }
 
     //Cosa stampare in caso di pc
-    if ($_GET["device"] == "pc") {
+    if ($_GET["device"] == "pc" && isset($risultato)) {
         //Aggiungo le notifiche (max 7)
         for ($i=0; $i < 7 && $i < count($risultato); $i++) {
             //HTML diverso in base alla notifica
@@ -117,7 +119,7 @@
                     break;
             }
         }
-    } else {
+    } else if (isset($risultato)) {
         //Cosa stampare in caso di smartphone
         //Max 3 notifiche
         for ($i=0; $i < 7 && $i < count($risultato); $i++) {

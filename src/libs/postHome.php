@@ -16,7 +16,9 @@
     <p>
         <?php echo $post["testopost"] ?>
     </p>
-    <img src="<?php echo UPLOAD_POST.$post["imgpost"]?>" alt="Immagine" class="post"/>
+    <?php if(isset($post["imgpost"])){
+        echo '<img src='.UPLOAD_POST.$post["imgpost"].' alt="Immagine" class="post"/>';
+    }?>
     <div>
         <img src="../img/<?php include "check_like.php" ?>" alt="Bottone Like" class="icone" id="like_<?php echo $post["idpost"] ?>" onclick="like(<?php echo $post["idpost"] ?>)"/>
         <img src="../img/icone/Commenti.png" alt="Bottone Commenti" class="icone" onclick="show_comments(<?php echo $post["idpost"] ?>)"/>
