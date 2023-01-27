@@ -1,44 +1,19 @@
-section {
-    width: 100%;
-}
 
 div.info{
     display: flex;
     flex-direction: column;
     margin-bottom: 4%;
 }
-
 div.info div{
     display: flex;
     flex: row wrap;
     vertical-align: top;
 }
-
-div.info img.imgp{
-    max-width: 200px;
-    max-height: 200px;
-    border-radius: 70%;
-}
-
 div.info img.mod{
     max-width: 20px;
     max-height: 20px;
     align-self: flex-end;
 }
-
-div.info div h2{
-    font-size: xx-large;
-    align-self: center;
-    width: 100%;
-    margin-bottom: 0%;
-}
-
-input[name="altro"]{
-    width: 100%;
-    height: 36px;
-    margin: 5px 4px 20px;
-}
-
 div.modifica {
     width: 100%;
     max-width: 100%;
@@ -47,12 +22,43 @@ div.modifica {
     align-self: center;
     margin-left: 30px;
 }
-
-div.info p {
-    margin: 30px 20px 30px;
+div.info img.imgp{
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 70%;
 }
+div.info div h2{
+    font-size: xx-large;
+    align-self: center;
+    width: 80%;
+    margin-bottom: 0%;
+}
+div.info p {
+    width: 40vw !important;
+    margin: 30px 20px 30px;
+    overflow: hidden;
+}
+input[name="altro"]{
+    height: 36px;
+    margin: 5px 4px 20px;
+}
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 section a {
     color: black;
     text-decoration: none;
-}
+}*/

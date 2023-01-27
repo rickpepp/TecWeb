@@ -22,7 +22,7 @@
 <ul>
     <?php foreach ($templateParams["categorieSeguite"] as $categoria): ?>
     <li>
-        <a href="#">
+        <a href="../views/categoria.php?idcategoria=<?php echo $categoria['idcategoria']?>">
             <div>
                 <img src="<?php echo UPLOAD_DIR.$categoria["imgcategoria"]?>" alt="Bottone Categoria" />
                 <h3><?php echo $categoria["nomecategoria"] ?></h3>

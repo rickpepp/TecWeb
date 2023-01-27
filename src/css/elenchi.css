@@ -8,6 +8,9 @@ main section h1 {
     font-size: 30px;
 }
 
+ul{
+    padding: 0px;
+}
 main section ul li {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
